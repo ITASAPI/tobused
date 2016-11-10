@@ -3082,7 +3082,7 @@ Data endpoints for Trade Valuation
 |--------|-----------|----|----------|-----|----------|
 |ContractId|Contract ID|`string`|10|||
 |TradingEntityId|Trading Entity ID|`string`|2|||
-|<b>ValuesInPnLCurrency</b>|
+|<b>PnLCurrency</b>|
 |ConValPnL|Contract Value PnL|`number`||||
 |CostValPnL|Cost Value PnL|`number`||||
 |ComsnValPnL|Commission Value PnL|`number`||||
@@ -3090,7 +3090,7 @@ Data endpoints for Trade Valuation
 |FOPnL|Futures and Options PnL|`number`||||
 |FXPnL|Foreign Exchange PnL|`number`||||
 |MktValPnL|Market Value PnL|`number`||||
-|<b>ValuesInContractCurrency|
+|<b>ContractCurrency|
 |ConValContract|Contract Value Contract|`number`||||
 |CostValContract|Cost Value Contract|`number`||||
 |ComsnValContract|Commission Value Contract|`number`||||
@@ -3098,7 +3098,7 @@ Data endpoints for Trade Valuation
 |FOContract|Futures and Options Contract|`number`||||
 |FXContract|Foreign Exchange Contract|`number`||||
 |MktValContract|Market Value Contract|`number`||||
-|<b>ValuesInFunctionalCurrency|
+|<b>SecondFunctionalCurrency|
 |ConValFunctional|Contract Value Functional|`number`||||
 |CostValFunctional|Cost Value Functional|`number`||||
 |ComsnValFunctional|Commission Value Functional|`number`||||
@@ -3264,7 +3264,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |<b>PhysicalTradeValue</b>||[array]|
 |ContractId|Contract ID|`string`|10|||
 |TradingEntityId|Trading Entity ID|`string`|2|||
-|<b>PnLCurrency</b>|
+|<b>ValuesInPnLCurrency</b>|
 |ConValPnL|Contract Value PnL|`number`||||
 |CostValPnL|Cost Value PnL|`number`||||
 |ComsnValPnL|Commission Value PnL|`number`||||
@@ -3272,7 +3272,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |FOPnL|Futures and Options PnL|`number`||||
 |FXPnL|Foreign Exchange PnL|`number`||||
 |MktValPnL|Market Value PnL|`number`||||
-|<b>ContractCurrency|
+|<b>ValuesInContractCurrency|
 |ConValContract|Contract Value Contract|`number`||||
 |CostValContract|Cost Value Contract|`number`||||
 |ComsnValContract|Commission Value Contract|`number`||||
@@ -3280,7 +3280,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |FOContract|Futures and Options Contract|`number`||||
 |FXContract|Foreign Exchange Contract|`number`||||
 |MktValContract|Market Value Contract|`number`||||
-|<b>SecondFunctionalCurrency|
+|<b>ValuesInFunctionalCurrency|
 |ConValFunctional|Contract Value Functional|`number`||||
 |CostValFunctional|Cost Value Functional|`number`||||
 |ComsnValFunctional|Commission Value Functional|`number`||||
