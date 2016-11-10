@@ -3082,6 +3082,7 @@ Data endpoints for Trade Valuation
 |ContractId|Contract ID|`string`|10|||
 |TradingEntityId|Trading Entity ID|`string`|2|||
 |<b>PnLCurrency</b>|
+|CurrencyCode|Currency Code|`string`|3|||
 |ConValPnL|Contract Value PnL|`number`||||
 |CostValPnL|Cost Value PnL|`number`||||
 |ComsnValPnL|Commission Value PnL|`number`||||
@@ -3089,7 +3090,8 @@ Data endpoints for Trade Valuation
 |FOPnL|Futures and Options PnL|`number`||||
 |FXPnL|Foreign Exchange PnL|`number`||||
 |MktValPnL|Market Value PnL|`number`||||
-|<b>ContractCurrency|
+|<b>ContractCurrency</b>|
+|CurrencyCode|Currency Code|`string`|3|||
 |ConValContract|Contract Value Contract|`number`||||
 |CostValContract|Cost Value Contract|`number`||||
 |ComsnValContract|Commission Value Contract|`number`||||
@@ -3097,7 +3099,8 @@ Data endpoints for Trade Valuation
 |FOContract|Futures and Options Contract|`number`||||
 |FXContract|Foreign Exchange Contract|`number`||||
 |MktValContract|Market Value Contract|`number`||||
-|<b>SecondFunctionalCurrency|
+|<b>FunctionalCurrency</b>|
+|CurrencyCode|Currency Code|`string`|3|||
 |ConValFunctional|Contract Value Functional|`number`||||
 |CostValFunctional|Cost Value Functional|`number`||||
 |ComsnValFunctional|Commission Value Functional|`number`||||
@@ -4305,7 +4308,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + TradingEntityId: JT (string)
 + PnLCurrency (ValuesInPnLCcy)
 + ContractCurrency (ValuesInContractCcy)
-+ SecondFunctionalCurrency (ValuesInFunctionalCcy) 
++ FunctionalCurrency (ValuesInFunctionalCcy) 
 
 ## PhysicalTradeValResults (object)
 + ResquestId: 10001 (number)
@@ -4656,6 +4659,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + UserAccountDescription: Joseph Smith (string)
 
 ## ValuesInContractCcy (object)
++ CurrencyCode: GBP (string)
 + ConValContract: 4050 (number)
 + CostValContract: 200 (number)
 + ComsnValContract: 3000 (number)
@@ -4669,6 +4673,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CurrencyValues (ValuesInContractCcy)
 
 ## ValuesInFunctionalCcy (object)
++ CurrencyCode: GBP (string)
 + ConValFunctional: 1000 (number)
 + CostValFunctional: 150 (number)
 + ComsnValFunctional: 2000 (number)
@@ -4682,6 +4687,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CurrencyValues (ValuesInFunctionalCcy)
 
 ## ValuesInPnLCcy (object)
++ CurrencyCode: GBP (string)
 + ConValPnL: 3500 (number)
 + CostValPnL: 900 (number)
 + ComsnValPnL: 1200 (number)
