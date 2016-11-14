@@ -3657,14 +3657,30 @@ The CommodityFullCode is a five part key made up of the following values seperat
     + Value: 400 Bad Request (string)
 + Messages (array [400 ErrorMessageDetail])
 
+## 400 ErrorMessageDetail (object)
++ Severity: Error (string)
++ Message: `API5058 - Data : The mandatory field {fieldName} was missing in the request body.` (string)
+
+
 ## 400 BadPropertyResponse (object)
 + Response
     + Value: 400 Bad Request (string)
 + Messages (array[400 BadPropertyErrorMessageDetail])
 
-## 400 ErrorMessageDetail (object)
+## 400 BadPropertyErrorMessageDetail (object)
 + Severity: Error (string)
-+ Message: `API5058 - Data : The mandatory field {fieldName} was missing in the request body.` (string)
++ Message: `API5074 - API : The value sent in the querystring variable {Property} is not allowed.` (string)
+
+
+## 400 BadReadResponse (object)
++ Response
+    + Value: 400 Bad Request (string)
++ Messages (array[400 BadReadErrorMessageDetail])
+
+## 400 BadReadErrorMessageDetail (object)
++ Severity: Error (string)
++ Message: `API5075 - API : The value sent in the querystring is not allowed.` (string)
+
 
 ## 400 WarningMessageDetail (object)
 + Severity: Warning (string)
@@ -3673,10 +3689,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## 400 InfoMessageDetail (object)
 + Severity: Information (string)
 + Message: `API50xx - Data : Now create xyz.` (string)
-
-## 400 BadPropertyErrorMessageDetail (object)
-+ Severity: Error (string)
-+ Message: `API5068 - API : The value sent in the querystring variable {Property} is not allowed.` (string)
 
 
 ## 404 Response (object)
@@ -3688,6 +3700,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Severity: Warning (string)
 + Message: `API5068 - Data : No records found.` (string)
 
+
 ## 405 Response (object)
 + Response
     + Value: 405 Method Not Allowed (string)
@@ -3696,7 +3709,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## 405 MethodNotAllowedMessage (object)
 + Severity: Error (string)
 + Message: `API5077 - API : That method is not supported, please check the ITAS API documentation.` (string)
-
 
 ## accessToken (object)
 + Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg 
