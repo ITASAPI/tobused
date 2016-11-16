@@ -3507,7 +3507,7 @@ A multipurpose object used by several endpoints
 |MktValContract|Market Value Contract|||||
 
 + Response 200 (application/json; charset=utf-8)
-+ Attributes (ValuesInContractCurrency)
++ Attributes (ValuesInContractCcy)
 
 
 ## DocumentDetails [/DocumentDetails]
@@ -3544,7 +3544,7 @@ A multipurpose object used by several endpoints
 |MktValFunctional|Market Value Functional|||||
 
 + Response 200 (application/json; charset=utf-8)
-+ Attributes (ValuesInFunctionalCurrency)
++ Attributes (ValuesInFunctionalCcy)
 
 
 ## OnAccountDetails [/OnAccountDetails]
@@ -3577,7 +3577,7 @@ A multipurpose object used by several endpoints
 |MktValPnL|Market Value PnL|||||
 
 + Response 200 (application/json; charset=utf-8)
-+ Attributes (ValuesInPnLCurrency)
++ Attributes (ValuesInPnLCcy)
 
 
 ## TradeCode [/TradeCode]
@@ -4245,9 +4245,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## PaymentTermValueList (object)
 + PaymentTermCode: INV30 (string)
-+ PnLCurrency (array [ValuesInPnLCurrency])
-+ ContractCurrency (array [ValuesInContractCurrency])
-+ FunctionalCurrency (array [ValuesInFunctionalCurrency])
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## PhysicalTrade (object)
 + ContractId: P00004.000 (string)
@@ -4697,10 +4697,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + FXContract: 3900 (number)
 + MktValContract: 4800 (number)
 
-## ValuesInContractCurrency (object)
-+ CurrencyCode: GBP (string)
-+ CurrencyValues (ValuesInContractCcy)
-
 ## ValuesInFunctionalCcy (object)
 + CurrencyCode: GBP (string)
 + ConValFunctional: 3500 (number)
@@ -4711,10 +4707,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + FXFunctional: 2900 (number)
 + MktValFunctional: 3600 (number)
 
-## ValuesInFunctionalCurrency (object)
-+ CurrencyCode: USD (string)
-+ CurrencyValues (ValuesInFunctionalCcy)
-
 ## ValuesInPnLCcy (object)
 + CurrencyCode: GBP (string)
 + ConValPnL: 3500 (number)
@@ -4724,10 +4716,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + FOPnL: 2500 (number)
 + FXPnL: 2900 (number)
 + MktValPnL: 3600 (number)
-
-## ValuesInPnLCurrency (object)
-+ CurrencyCode: USD (string)
-+ CurrencyValues (ValuesInPnLCcy)
 
 ## VATRate (object)
 + VatRateId: GS (string)
