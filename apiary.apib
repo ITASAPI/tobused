@@ -3368,7 +3368,11 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
 |ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
 |FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-
+|<b>TradingEntityList</b>||[array]|
+|TradingEntityId|Trading Entity ID|`string`|2|||
+|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
+|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
+|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
 
 + Parameters
     + RequestId (required, number, `10001`) ... Identify specific request ID.
@@ -3924,9 +3928,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## CommodityValueList (object)
 + CommodityFullCode: CHE||CASO||47||QWE||RTY (string)
-+ PnLCurrency (array [ValuesInPnLCurrency])
-+ ContractCurrency (array [ValuesInContractCurrency])
-+ FunctionalCurrency (array [ValuesInFunctionalCurrency])
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## ContactDetails (object)
 + AddressLine1: Address Line #1 (string)
@@ -3959,21 +3963,21 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## ContractTermValueList (object)
 + ContractTermCode: DEL (string)
-+ PnLCurrency (array [ValuesInPnLCurrency])
-+ ContractCurrency (array [ValuesInContractCurrency])
-+ FunctionalCurrency (array [ValuesInFunctionalCurrency])
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## ContractTermPortValueList (object)
 + ContractTermPortCode: LIV (string)
-+ PnLCurrency (array [ValuesInPnLCurrency])
-+ ContractCurrency (array [ValuesInContractCurrency])
-+ FunctionalCurrency (array [ValuesInFunctionalCurrency])
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## CounterpartyValueList (object)
 + CounterpartyCode: ABANI.P (string)
-+ PnLCurrency (array [ValuesInPnLCurrency])
-+ ContractCurrency (array [ValuesInContractCurrency])
-+ FunctionalCurrency (array [ValuesInFunctionalCurrency])
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## Country (object)
 + CountryId: GB (string)
@@ -4015,9 +4019,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## DepartmentValueList (object)
 + DepartmentCode: NAD (string)
-+ PnLCurrency (array [ValuesInPnLCurrency])
-+ ContractCurrency (array [ValuesInContractCurrency])
-+ FunctionalCurrency (array [ValuesInFunctionalCurrency])
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## DocumentDetails (object)
 + DocumentDate: `2015-07-01T00:00:00Z` (required, string)
@@ -4350,6 +4354,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ContractTermList (array [ContractTermValueList])
 + ContractTermPortList (array [ContractTermPortValueList])
 + ShipmentStatusList (array [ShipmentStatusValueList])
++ TradingEntityList (array [TradingEntityValueList])
 
 ## PhysicalTradeValQuery (object)
 + Query (PhysicalTradeValRequest)
@@ -4447,9 +4452,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## ShipmentStatusValueList (object)
 + ShipmentStatusCode: D (string)
-+ PnLCurrency (array [ValuesInPnLCurrency])
-+ ContractCurrency (array [ValuesInContractCurrency])
-+ FunctionalCurrency (array [ValuesInFunctionalCurrency])
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## StockBatch (object)
 + StockBatchId: abc123 (string)
@@ -4591,9 +4596,15 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## TraderValueList (object)
 + TraderCode: JRH (string)
-+ PnLCurrency (array [ValuesInPnLCurrency])
-+ ContractCurrency (array [ValuesInContractCurrency])
-+ FunctionalCurrency (array [ValuesInFunctionalCurrency])
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
+
+## TradingEntityValueList (object)
++ TradingEntityId: JT (string)
++ PnLCurrency (array [ValuesInPnLCcy])
++ ContractCurrency (array [ValuesInContractCcy])
++ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## TransactionBankAccount (object)
 + DocumentReference: CN1600001 (required, string)
