@@ -3076,7 +3076,7 @@ None.
 # Group Valuation-Physical
 Data endpoints for Trade Valuation
 
-## Physical Trade Valuation [/Valuation/{TradingEntityId}/Physical/PhysicalTradeVal/{ContractId}]
+## Physical Trade Valuation [/Valuation/{TradingEntityId}/Physical/TradeValuation/{ContractId}]
 `GET` Valuation of a Single Trade
 ### Read Physical Trade Valuation [GET]
  
@@ -3137,7 +3137,7 @@ Data endpoints for Trade Valuation
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-## Physical Trade Valuation Request [/Valuation/Physical/PhysicalTradeValRequest]
+## Physical Trade Valuation Request [/Valuation/Physical/TradeValuationRequest]
 `POST` Request for Valuation of Trades.<br /><br />
 The body of the request can contain multiple values delimited by double pipe "&#124;&#124;" e.g. "TradingEntityId": "JT&#124;&#124;DT"
 
@@ -3188,7 +3188,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-## Physical Trade Valuation Request Information [/Valuation/Physical/PhysicalTradeValInfo/{RequestId}]
+## Physical Trade Valuation Request Information [/Valuation/Physical/TradeValuationInfo/{RequestId}]
 `GET` Information relating to the request of Physical Trade Valuation
 ### Read Physical Trade Valuation Request Information  [GET]
  
@@ -3222,7 +3222,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
     + Attributes (405 Response)
 
 
-## Physical Trade Valuation Re-Request [/Valuation/Physical/PhysicalTradeValReRequest/{RequestId}]
+## Physical Trade Valuation Re-Request [/Valuation/Physical/TradeValuationReRequest/{RequestId}]
 `PUT` Re-Submit Request for Valuation of Trades.
 ### Create Physical Trade Valuation Re-Request [PUT]
  
@@ -3256,7 +3256,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
     + Attributes (405 Response)
 
 
-## Physical Trades Valuation Results [/Valuation/Physical/PhysicalTradeValResults/{RequestId}]
+## Physical Trades Valuation Results [/Valuation/Physical/TradeValuationResults/{RequestId}]
 `GET` Trades Valuation Results from Request Query
 ### Physical Trades Valuation Results  [GET]
  
@@ -3319,7 +3319,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-## Physical Trades Valuation Results Summary [/Valuation/Physical/PhysicalTradeValSummary/{RequestId}]
+## Physical Trades Valuation Results Summary [/Valuation/Physical/TradeValuationSummary/{RequestId}]
 `GET` Summary Valuations from Request Query
 ### Physical Trades Valuation Results Summary  [GET]
 
