@@ -1731,7 +1731,7 @@ Data Objects and endpoints providing access to accounting transactions generated
     
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.  
-    + DocumentReference (required, string, `CN1600001`) ... Code for transaction header to update.
+    + DocumentReference (required, string, `CN1600001`) ... Code for transaction bank account to read.
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
@@ -1813,7 +1813,7 @@ Data Objects and endpoints providing access to accounting transactions generated
     
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.  
-    + DocumentReference (required, string, `CN1600001`) ... Code for unposted transaction to read.
+    + DocumentReference (required, string, `CN1600001`) ... Code for transaction header to read.
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
