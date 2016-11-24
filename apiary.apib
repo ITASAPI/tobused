@@ -3201,7 +3201,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |RequestQuery|Request Query|`object`||||
 
 + Parameters
-    + RequestId (required, number, `10001`) ... Identify specific request ID.
+    + RequestId (required, string, `10001`) ... Identify specific request ID.
 
 + Request (application/json)
     + Header
@@ -3232,7 +3232,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |RequestId|Request ID|`string`|||Required|
 
 + Parameters
-    + RequestId (required, number, `10001`) ... Identify specific request ID.
+    + RequestId (required, string, `10001`) ... Identify specific request ID.
 
 + Request (application/json)
     + Header
@@ -3244,7 +3244,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 + Response 200 (application/json; charset=utf-8)
     + Attributes  
         + Data 
-            + RequestId: 10001 (number)
+            + RequestId: 10001 (string)
         + Response (200 UpdateResponse)
 
 + Response 400 (application/json; charset=utf-8)
@@ -3298,7 +3298,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 
 
 + Parameters
-    + RequestId (required, number, `10001`) ... Identify specific request ID.
+    + RequestId (required, string, `10001`) ... Identify specific request ID.
 
 + Request (application/json)
     + Header
@@ -3374,7 +3374,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
 
 + Parameters
-    + RequestId (required, number, `10001`) ... Identify specific request ID.
+    + RequestId (required, string, `10001`) ... Identify specific request ID.
 
 + Request (application/json)
     + Header
