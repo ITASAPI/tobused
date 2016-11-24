@@ -3165,6 +3165,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 |SingleCcyCosts|Single Currency Costs|`boolean`||||
 |RateOfExchangeDate|Rate of Exchange Date|`number`||||
 |ValuationPeriod|Valuation Period|`string`||||
+|ApplicationKey|Application Key|`string`||||
 
 
 + Request (application/json)
@@ -3194,7 +3195,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
  
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|RequestId|Request ID|`number`|||Required|
+|RequestId|Request ID|`string`|||Required|
 |RequestTime|Request Time|`datetime`||||
 |RequestStatus|Request Status|`string`|7|||
 |RequestQuery|Request Query|`object`||||
@@ -3228,7 +3229,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
  
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|RequestId|Request ID|`number`|||Required|
+|RequestId|Request ID|`string`|||Required|
 
 + Parameters
     + RequestId (required, number, `10001`) ... Identify specific request ID.
@@ -3262,7 +3263,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
  
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|RequestId|Request ID|`number`|||Required|
+|RequestId|Request ID|`string`|||Required|
 |RequestStatus|Request Status|`string`|7|||
 |<b>PhysicalTradeValue</b>||[array]|
 |ContractId|Contract ID|`string`|10|||
@@ -3325,7 +3326,7 @@ The body of the request can contain multiple values delimited by double pipe "&#
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|RequestId|Request ID|`number`|||Required|
+|RequestId|Request ID|`string`|||Required|
 |<b>CounterpartyList</b>||[array]||||
 |CounterpartyCode|Counterparty Code|`string`|10|||
 |PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
@@ -4343,7 +4344,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + FunctionalCurrency (ValuesInFunctionalCcy) 
 
 ## PhysicalTradeValuesResultsSum (object)
-+ ResquestId: 10001 (number)
++ ResquestId: 10001 (string)
 + CounterpartyList (array [CounterpartyValueList])
 + CommodityList (array [CommodityValueList])
 + TraderList (array [TraderValueList])
@@ -4378,15 +4379,16 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + SingleCcyCosts: false (boolean)
 + RateOfExchangeDate: 20161028 (number)
 + ValuationPeriod: AUG16 (string)
++ ApplicationKey: ABC123 (string)
 
 ## PhysicalTradeValRequestInfo (object)
-+ RequestId: 10001 (number)
++ RequestId: 10001 (string)
 + RequestTime: `2016-07-01T12:20:30Z` (string)
 + RequestStatus: Pending (string)
 + RequestQuery (PhysicalTradeValRequest)
 
 ## PhysicalTradeValResponse (object)
-+ RequestId: 10001 (number)
++ RequestId: 10001 (string)
 
 ## Port (object)
 + PortId: AQABA (required, string)
