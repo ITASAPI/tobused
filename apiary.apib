@@ -4031,9 +4031,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + EDICode: abc123 (string)
 
 ## DocumentStatus (object)
-+ DocumentStatusId: P (string)
-+ DocumentStatusDescription: Processed (string)
-+ DocumentLocked: true (boolean)
++ DocumentStatusId: O (string)
++ DocumentStatusDescription: Open (string)
++ DocumentLocked: false (boolean)
 
 ## Expense List (object)
 + ExpenseId: 1COES (string)
@@ -4628,13 +4628,13 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DocumentReference: CN1600001 (required, string)
 + EDICode: 123abc (string)
 + InterfaceStatus: Y (string)
-+ DocumentStatusCode: P (string)
++ DocumentStatusCode: O (string)
 
 ## TransactionHeaderDelta (object)
 + DocumentReference: CN1600001 (required, string)
 + EDICode: 123abc (string)
 + InterfaceStatus: Y (string)
-+ DocumentStatusCode: P (string)
++ DocumentStatusCode: O (string)
 
 ## TransactionHeader List (object)
 + PostedDate: `2015-07-01T00:00:00Z` (string)
@@ -4644,7 +4644,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + InterfaceStatus: Y (string)
 + DocumentReversed: PI1600011 (string)
 + AssociateDocument: PI1600012 (string)
-+ DocumentStatusCode: P (string)
++ DocumentStatusCode: O (string)
 
 ## TransactionKey (object)
 + TransactionKey: 00040444.P||GBP||20150832||20151003||14576460 (string)
