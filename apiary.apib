@@ -3137,264 +3137,7 @@ Data endpoints for Trade Valuation
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-## Physical Trade Valuation Request [/Valuation/Physical/TradeValuationRequest]
-`POST` Request for Valuation of Trades.<br /><br />
-The body of the request can contain multiple values delimited by double pipe "&#124;&#124;" e.g. "TradingEntityId": "JT&#124;&#124;DT"
 
-### Create Physical Trade Valuation Request [POST]
-
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|TradingEntityId|Trading Entity ID|`string`||||
-|ContractType|Contract Type|`string`|||`P` or `S`|
-|ContractStatus|Contract Status|`string`|||`O`, `C` or `Q`|
-|ContractApproved|Contract Approved|`boolean`||||
-|CounterpartyCode|Counterparty Code|`string`||||
-|CommodityCodePart1|Commodity Code|`string`||||
-|CommodityCodePart2|Commodity Origin|`string`||||
-|CommodityCodePart3|Commodity Grade|`string`||||
-|CommodityCodePart4|Commodity Code Section 4|`string`||||
-|CommodityCodePart5|Commodity Code Section 5|`string`||||
-|TraderCode|Trader Code|`string`||||
-|DepartmentCode|Department Code|`string`||||
-|PaymentTermCode|Payment Term Code|`string`||||
-|ContractTermCode|Contract Term Code|`string`||||
-|ContractTermPortCode|Contract Term Port Code|`string`||||
-|ShipmentStatusCode|Shipment Status Code|`string`||||
-|SingleCcyConVal|Single Currency Contract Value|`boolean`||||
-|SingleCcyCosts|Single Currency Costs|`boolean`||||
-|RateOfExchangeDate|Rate of Exchange Date|`number`||||
-|ValuationPeriod|Valuation Period|`string`||||
-|ApplicationKey|Application Key|`string`||||
-
-
-+ Request (application/json)
-    + Header
-
-            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
-
-    + Attributes (PhysicalTradeValRequest)
-
-+ Response 201 (application/json; charset=utf-8)
-    + Attributes 
-        + Data (PhysicalTradeValResponse)
-        + Response (201 CreateResponse)
-
-+ Response 400 (application/json; charset=utf-8)
-    + Attributes (400 Response)
-
-+ Response 404 (application/json; charset=utf-8)
-    + Attributes (404 Response)
-
-+ Response 405 (application/json; charset=utf-8)
-    + Attributes (405 Response)
-
-## Physical Trade Valuation Request Information [/Valuation/Physical/TradeValuationInfo/{RequestId}]
-`GET` Information relating to the request of Physical Trade Valuation
-### Read Physical Trade Valuation Request Information  [GET]
- 
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|RequestId|Request ID|`string`|||Required|
-|RequestTime|Request Time|`datetime`||||
-|RequestStatus|Request Status|`string`|7|||
-|RequestQuery|Request Query|`object`||||
-
-+ Parameters
-    + RequestId (required, string, `10001`) ... Identify specific request ID.
-
-+ Request (application/json)
-    + Header
-
-            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
-
-+ Response 200 (application/json; charset=utf-8)
-    + Attributes 
-        + Data (PhysicalTradeValRequestInfo)
-        + Response (200 SuccessResponse)
-
-+ Response 400 (application/json; charset=utf-8)
-    + Attributes (400 BadReadResponse)
-
-+ Response 404 (application/json; charset=utf-8)
-    + Attributes (404 Response)
-
-+ Response 405 (application/json; charset=utf-8)
-    + Attributes (405 Response)
-
-
-## Physical Trade Valuation Re-Request [/Valuation/Physical/TradeValuationReRequest/{RequestId}]
-`PUT` Re-Submit Request for Valuation of Trades.
-### Create Physical Trade Valuation Re-Request [PUT]
- 
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|RequestId|Request ID|`string`|||Required|
-
-+ Parameters
-    + RequestId (required, string, `10001`) ... Identify specific request ID.
-
-+ Request (application/json)
-    + Header
-
-            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
-
-   + Attributes (PhysicalTradeValResponse)
-
-+ Response 200 (application/json; charset=utf-8)
-    + Attributes  
-        + Data 
-            + RequestId: 10001 (string)
-        + Response (200 UpdateResponse)
-
-+ Response 400 (application/json; charset=utf-8)
-    + Attributes (400 Response)
-
-+ Response 404 (application/json; charset=utf-8)
-    + Attributes (404 Response)
-
-+ Response 405 (application/json; charset=utf-8)
-    + Attributes (405 Response)
-
-
-## Physical Trades Valuation Results [/Valuation/Physical/TradeValuationResults/{RequestId}]
-`GET` Trades Valuation Results from Request Query
-### Physical Trades Valuation Results  [GET]
- 
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|RequestId|Request ID|`string`|||Required|
-|RequestStatus|Request Status|`string`|7|||
-|<b>PhysicalTradeValue</b>||[array]|
-|ContractId|Contract ID|`string`|10|||
-|TradingEntityId|Trading Entity ID|`string`|2|||
-|<b>PnLCurrency</b>|
-|CurrencyCode|Currency Code|`string`|3|||
-|ConValPnL|Contract Value PnL|`decimal`||||
-|CostValPnL|Cost Value PnL|`decimal`||||
-|ComsnValPnL|Commission Value PnL|`decimal`||||
-|PolValPnL|Polarisation Value PnL|`decimal`||||
-|FOPnL|Futures and Options PnL|`decimal`||||
-|FXPnL|Foreign Exchange PnL|`decimal`||||
-|MktValPnL|Market Value PnL|`decimal`||||
-|<b>ContractCurrency</b>|
-|CurrencyCode|Currency Code|`string`|3|||
-|ConValContract|Contract Value Contract|`decimal`||||
-|CostValContract|Cost Value Contract|`decimal`||||
-|ComsnValContract|Commission Value Contract|`decimal`||||
-|PolValContract|Polarisation Value Contract|`decimal`||||
-|FOContract|Futures and Options Contract|`decimal`||||
-|FXContract|Foreign Exchange Contract|`decimal`||||
-|MktValContract|Market Value Contract|`decimal`||||
-|<b>FunctionalCurrency</b>|
-|CurrencyCode|Currency Code|`string`|3|||
-|ConValFunctional|Contract Value Functional|`decimal`||||
-|CostValFunctional|Cost Value Functional|`decimal`||||
-|ComsnValFunctional|Commission Value Functional|`decimal`||||
-|PolValFunctional|Polarisation Value Functional|`decimal`||||
-|FOFunctional|Futures and Options Functional|`decimal`||||
-|FXFunctional|Foreign Exchange Functional|`decimal`||||
-|MktValFunctional|Market Value Functional|`decimal`||||
-
-
-+ Parameters
-    + RequestId (required, string, `10001`) ... Identify specific request ID.
-
-+ Request (application/json)
-    + Header
-
-            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
-
-+ Response 200 (application/json; charset=utf-8)
-    + Attributes 
-        + Data (PhysicalTradeValResults)
-        + Pagination (Pagination)
-        + Response (200 SuccessResponse)
-
-+ Response 400 (application/json; charset=utf-8)
-    + Attributes (400 BadReadResponse)
-
-+ Response 404 (application/json; charset=utf-8)
-    + Attributes (404 Response)
-
-+ Response 405 (application/json; charset=utf-8)
-    + Attributes (405 Response)
-
-## Physical Trades Valuation Results Summary [/Valuation/Physical/TradeValuationSummary/{RequestId}]
-`GET` Summary Valuations from Request Query
-### Physical Trades Valuation Results Summary  [GET]
-
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|RequestId|Request ID|`string`|||Required|
-|<b>CounterpartyList</b>||[array]||||
-|CounterpartyCode|Counterparty Code|`string`|10|||
-|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
-|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
-|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-|<b>CommodityList</b>||[array]|
-|CommodityFullCode|`Composite Key` delimited by double pipe "&#124;&#124;"|`string`|50|Example <b><a href="/#reference/composite-key-examples/commodityfullcode">Composite Key</a></b>||
-|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
-|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
-|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-|<b>TraderList</b>||[array]|
-|TraderCode|Trader Code|`string`|3|||
-|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
-|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
-|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-|<b>DepartmentList</b>||[array]|
-|DepartmentCode|Department Code|`string`|4|||
-|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
-|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
-|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-|<b>PaymentTermList</b>||[array]|
-|PaymentTermCode|Payment Term Code|`string`|8|||
-|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
-|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
-|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-|<b>ContractTermList</b>||[array]|
-|ContractTermCode|Contract Term Code|`string`|8|||
-|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
-|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
-|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-|<b>ContractTermPortList</b>||[array]|
-|ContractTermPortCode|Contract Term Port Code|`string`|8|||
-|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
-|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
-|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-|<b>ShipmentStatusList</b>||[array]|
-|ShipmentStatusCode|Shipment Status Code|`string`|2|||
-|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
-|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
-|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-|<b>TradingEntityList</b>||[array]|
-|TradingEntityId|Trading Entity ID|`string`|2|||
-|PnLCurrency|see <b><a href="/#reference/data-object-definitions/pnl-currency">PnL Currency</a></b> object|[array] of `object`||||
-|ContractCurrency|see <b><a href="/#reference/data-object-definitions/contract-currency">Contract Currency</a></b> object|[array] of `object`||||
-|FunctionalCurrency|see <b><a href="/#reference/data-object-definitions/functional-currency">Functional Currency</a></b> object|[array] of `object`||||
-
-+ Parameters
-    + RequestId (required, string, `10001`) ... Identify specific request ID.
-
-+ Request (application/json)
-    + Header
-
-            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
-
-+ Response 200 (application/json; charset=utf-8)
-    + Attributes 
-        + Data (PhysicalTradeValuesResultsSum)
-        + Pagination (Pagination)
-        + Response (200 SuccessResponse)
-
-+ Response 400 (application/json; charset=utf-8)
-    + Attributes (400 BadReadResponse)
-
-+ Response 404 (application/json; charset=utf-8)
-    + Attributes (404 Response)
-
-+ Response 405 (application/json; charset=utf-8)
-    + Attributes (405 Response)
 
 # Group Data Object Definitions
 List of re-usable Data Objects referenced as `object` types. Not that these endpoints are not accessable and only here for reference purposes.
@@ -3490,24 +3233,6 @@ A multipurpose object used by several endpoints.
 + Response 200 (application/json; charset=utf-8)
 + Attributes (Country)
 
-## Contract Currency [/ContractCurrency]
-A multipurpose object used by several endpoints
-### ContractCurrency [GET]
-
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|CurrencyCode|Currency Code|`string`|3||Required|
-|ConValContract|Contract Value Contract|||||
-|CostValContract|Cost Value Contract|||||
-|ComsnValContract|Commission Value Contract|||||
-|PolValContract|Polarisation Value Contract|||||
-|FOContract|F&O Contract|||||
-|FXContract|FX Contract|||||
-|MktValContract|Market Value Contract|||||
-
-+ Response 200 (application/json; charset=utf-8)
-+ Attributes (ValuesInContractCcy)
-
 
 ## DocumentDetails [/DocumentDetails]
 A multipurpose object used by several endpoints
@@ -3527,24 +3252,6 @@ A multipurpose object used by several endpoints
 + Response 200 (application/json; charset=utf-8)
 + Attributes (DocumentDetails)
 
-## Functional Currency [/FunctionalCurrency]
-A multipurpose object used by several endpoints
-### FunctionalCurrency [GET]
-
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|CurrencyCode|Currency Code|`string`|3||Required|
-|ConValFunctional|Contract Value Functional|||||
-|CostValFunctional|Cost Value Functional|||||
-|ComsnValFunctional|Commission Value Functional|||||
-|PolValFunctional|Polarisation Value Functional|||||
-|FOFunctional|F&O Functional|||||
-|FXFunctional|FX Functional|||||
-|MktValFunctional|Market Value Functional|||||
-
-+ Response 200 (application/json; charset=utf-8)
-+ Attributes (ValuesInFunctionalCcy)
-
 
 ## OnAccountDetails [/OnAccountDetails]
 A multipurpose object used by several endpoints
@@ -3559,24 +3266,6 @@ A multipurpose object used by several endpoints
 
 + Response 200 (application/json; charset=utf-8)
 + Attributes (OnAccountDetails)
-
-## PnL Currency [/PnLCurrency]
-A multipurpose object used by several endpoints
-### PnLCurrency [GET]
-
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|CurrencyCode|Currency Code|`string`|3||Required|
-|ConValPnL|Contract Value PnL|||||
-|CostValPnL|Cost Value PnL|||||
-|ComsnValPnL|Commission Value PnL|||||
-|PolValPnL|Polarisation Value PnL|||||
-|FOPnL|F&O PnL|||||
-|FXPnL|FX PnL|||||
-|MktValPnL|Market Value PnL|||||
-
-+ Response 200 (application/json; charset=utf-8)
-+ Attributes (ValuesInPnLCcy)
 
 
 ## TradeCode [/TradeCode]
@@ -3925,11 +3614,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## CommodityFullCode (object)
 + CommodityFullCode: CHE||CASO||47||QWE||RTY (required, string)
 
-## CommodityValueList (object)
-+ CommodityFullCode: CHE||CASO||47||QWE||RTY (string)
-+ PnLCurrency (array [ValuesInPnLCcy])
-+ ContractCurrency (array [ValuesInContractCcy])
-+ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## ContactDetails (object)
 + AddressLine1: Address Line #1 (string)
@@ -3959,24 +3643,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DocumentText: Document text example (string)
 + Status: F (string)
 + EDICode: abc123 (string)
-
-## ContractTermValueList (object)
-+ ContractTermCode: DEL (string)
-+ PnLCurrency (array [ValuesInPnLCcy])
-+ ContractCurrency (array [ValuesInContractCcy])
-+ FunctionalCurrency (array [ValuesInFunctionalCcy])
-
-## ContractTermPortValueList (object)
-+ ContractTermPortCode: LIV (string)
-+ PnLCurrency (array [ValuesInPnLCcy])
-+ ContractCurrency (array [ValuesInContractCcy])
-+ FunctionalCurrency (array [ValuesInFunctionalCcy])
-
-## CounterpartyValueList (object)
-+ CounterpartyCode: ABANI.P (string)
-+ PnLCurrency (array [ValuesInPnLCcy])
-+ ContractCurrency (array [ValuesInContractCcy])
-+ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## Country (object)
 + CountryId: GB (string)
@@ -4015,12 +3681,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CountryId: GB (string)
 + EDICode: 1234 (string)
 + Status: F (string)
-
-## DepartmentValueList (object)
-+ DepartmentCode: NAD (string)
-+ PnLCurrency (array [ValuesInPnLCcy])
-+ ContractCurrency (array [ValuesInContractCcy])
-+ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## DocumentDetails (object)
 + DocumentDate: `2015-07-01T00:00:00Z` (required, string)
@@ -4242,12 +3902,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Status: F (string)
 + NumberOfDaysCredit: 30 (number)
 
-## PaymentTermValueList (object)
-+ PaymentTermCode: INV30 (string)
-+ PnLCurrency (array [ValuesInPnLCcy])
-+ ContractCurrency (array [ValuesInContractCcy])
-+ FunctionalCurrency (array [ValuesInFunctionalCcy])
-
 ## PhysicalTrade (object)
 + ContractId: P00004.000 (string)
 + ContractType: P (string)
@@ -4331,65 +3985,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ContractCurrency (ValuesInContractCcy)
 + FunctionalCurrency (ValuesInFunctionalCcy) 
 
-## PhysicalTradeValResults (object)
-+ ResquestId: 10001 (string)
-+ RequestStatus: Active (string)
-+ PhysicalTradeValue (array [PhysicalTradeValuesResults])
-
-## PhysicalTradeValuesResults (object)
-+ ContractId: P00004.000 (string)
-+ TradingEntityId: JT (string)
-+ PnLCurrency (ValuesInPnLCcy)
-+ ContractCurrency (ValuesInContractCcy)
-+ FunctionalCurrency (ValuesInFunctionalCcy) 
-
-## PhysicalTradeValuesResultsSum (object)
-+ ResquestId: 10001 (string)
-+ CounterpartyList (array [CounterpartyValueList])
-+ CommodityList (array [CommodityValueList])
-+ TraderList (array [TraderValueList])
-+ DepartmentList (array [DepartmentValueList])
-+ PaymentTermList (array [PaymentTermValueList])
-+ ContractTermList (array [ContractTermValueList])
-+ ContractTermPortList (array [ContractTermPortValueList])
-+ ShipmentStatusList (array [ShipmentStatusValueList])
-+ TradingEntityList (array [TradingEntityValueList])
-
-## PhysicalTradeValQuery (object)
-+ Query (PhysicalTradeValRequest)
-
-## PhysicalTradeValRequest (object)
-+ TradingEntityId: `JT||DT` (string)
-+ ContractType: P (string)
-+ ContractStatus: O||C (string)
-+ ContractApproved: true (boolean)
-+ CounterpartyCode: FOODSWAT.S||FOODCLOT.S (string)
-+ CommodityCodePart1: CHE||SPR (string)
-+ CommodityCodePart2: PASO||INCT (string)
-+ CommodityCodePart3: 55||77 (string)
-+ CommodityCodePart4: QWE||PTY (string)
-+ CommodityCodePart5: RTY||PLE (string)
-+ TraderCode: JS||AN (string)
-+ DepartmentCode: NAD||OMP (string)
-+ PaymentTermCode: INV30||INV40 (string)
-+ ContractTermCode: DEL||INT (string)
-+ ContractTermPortCode: LIV (string)
-+ ShipmentStatusCode: D||IT (string)
-+ SingleCcyConVal: true (boolean)
-+ SingleCcyCosts: false (boolean)
-+ RateOfExchangeDate: 20161028 (number)
-+ ValuationPeriod: AUG16 (string)
-+ ApplicationKey: ABC123 (string)
-
-## PhysicalTradeValRequestInfo (object)
-+ RequestId: 10001 (string)
-+ RequestTime: `2016-07-01T12:20:30Z` (string)
-+ RequestStatus: Pending (string)
-+ RequestQuery (PhysicalTradeValRequest)
-
-## PhysicalTradeValResponse (object)
-+ RequestId: 10001 (string)
-
 ## Port (object)
 + PortId: AQABA (required, string)
 + PortDescription: Aqaba (required, string)
@@ -4448,12 +4043,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## ShippingStatus (object)
 + ShippingStatusId: OR (string)
 + ShippingStatusDescription: On Road (string)
-
-## ShipmentStatusValueList (object)
-+ ShipmentStatusCode: D (string)
-+ PnLCurrency (array [ValuesInPnLCcy])
-+ ContractCurrency (array [ValuesInContractCcy])
-+ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## StockBatch (object)
 + StockBatchId: abc123 (string)
@@ -4592,18 +4181,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## TradeCode (object)
 + CodeId: AA (string)
 + CodeDescription: Against Actuals (string)
-
-## TraderValueList (object)
-+ TraderCode: JRH (string)
-+ PnLCurrency (array [ValuesInPnLCcy])
-+ ContractCurrency (array [ValuesInContractCcy])
-+ FunctionalCurrency (array [ValuesInFunctionalCcy])
-
-## TradingEntityValueList (object)
-+ TradingEntityId: JT (string)
-+ PnLCurrency (array [ValuesInPnLCcy])
-+ ContractCurrency (array [ValuesInContractCcy])
-+ FunctionalCurrency (array [ValuesInFunctionalCcy])
 
 ## TransactionBankAccount (object)
 + DocumentReference: CN1600001 (required, string)
