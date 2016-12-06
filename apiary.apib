@@ -3137,7 +3137,7 @@ Data endpoints for Trade Valuation
 `GET` List of Trades Latest Valuations
 ### List Physical Trades Latest Valuation  [GET]
 
-<h5>Request Properties</h5>
+<h2>Request Properties</h2>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |TradingEntityId|Trading Entity ID|`string`||||
@@ -3186,6 +3186,11 @@ Data endpoints for Trade Valuation
 |FOFunctional|Futures and Options Functional|`decimal`||||
 |FXFunctional|Foreign Exchange Functional|`decimal`||||
 |MktValFunctional|Market Value Functional|`decimal`||||
+
+<b>Response Messages</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|LatestUpdate|DateTime Data Last Updated|`datetime`||||
 
 + Parameters
     + Property (optional, enum[string]) ... identify property name to filter by 
