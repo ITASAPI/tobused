@@ -3133,10 +3133,11 @@ Data endpoints for Trade Valuation
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-## Physical Trades Latest Valuation [/Valuation/Physical/TradeValuationLatestResults/{Property}/{PropertyValue}]
-`GET` Latest Trades Valuation
-### Physical Trades Latest Valuation  [GET]
+## Physical Trades Latest Valuation List [/Valuation/Physical/TradeValuationLatestResults/{Property}/{PropertyValue}]
+`GET` List of Trades Latest Valuations
+### List Physical Trades Latest Valuation  [GET]
 
+<h4>Request Properties</h4>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |TradingEntityId|Trading Entity ID|`string`||||
@@ -3152,6 +3153,39 @@ Data endpoints for Trade Valuation
 |ContractTermPortCode|Contract Term Port Code|`string`||||
 |ShipmentStatusCode|Shipment Status Code|`string`||||
 
+<b>Response Body</b> 
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|<b>Data</b>||
+|ContractId|Contract ID|`string`|10|||
+|TradingEntityId|Trading Entity ID|`string`|2|||
+|<b>PnLCurrency</b>|
+|CurrencyCode|Currency Code|`string`|3|||
+|ConValPnL|Contract Value PnL|`decimal`||||
+|CostValPnL|Cost Value PnL|`decimal`||||
+|ComsnValPnL|Commission Value PnL|`decimal`||||
+|PolValPnL|Polarisation Value PnL|`decimal`||||
+|FOPnL|Futures and Options PnL|`decimal`||||
+|FXPnL|Foreign Exchange PnL|`decimal`||||
+|MktValPnL|Market Value PnL|`decimal`||||
+|<b>ContractCurrency</b>|
+|CurrencyCode|Currency Code|`string`|3|||
+|ConValContract|Contract Value Contract|`decimal`||||
+|CostValContract|Cost Value Contract|`decimal`||||
+|ComsnValContract|Commission Value Contract|`decimal`||||
+|PolValContract|Polarisation Value Contract|`decimal`||||
+|FOContract|Futures and Options Contract|`decimal`||||
+|FXContract|Foreign Exchange Contract|`decimal`||||
+|MktValContract|Market Value Contract|`decimal`||||
+|<b>FunctionalCurrency</b>|
+|CurrencyCode|Currency Code|`string`|3|||
+|ConValFunctional|Contract Value Functional|`decimal`||||
+|CostValFunctional|Cost Value Functional|`decimal`||||
+|ComsnValFunctional|Commission Value Functional|`decimal`||||
+|PolValFunctional|Polarisation Value Functional|`decimal`||||
+|FOFunctional|Futures and Options Functional|`decimal`||||
+|FXFunctional|Foreign Exchange Functional|`decimal`||||
+|MktValFunctional|Market Value Functional|`decimal`||||
 
 + Parameters
     + Property (optional, enum[string]) ... identify property name to filter by 
@@ -3180,7 +3214,7 @@ Data endpoints for Trade Valuation
         + Data (array [PhysicalTradeValuesResults])
         + Pagination (Pagination)
         + Response (200 SuccessResponse)
-        + Messages (array [ResultsMessage])
+        + Messages (array [ResultsMessageTime])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 BadReadResponse)
@@ -4094,6 +4128,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + RequestId: 10001 (string)
 + RequestTime: `2016-07-01T12:20:30Z` (string)
 + RequestStatus: Live (string)
+
+## ResultsMessageTime (object)
++ LastUpdate: `2016-07-01T12:20:30Z` (string)
 
 ## Sample (object)
 + SampleId: abcd (string)
