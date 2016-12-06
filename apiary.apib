@@ -3133,7 +3133,70 @@ Data endpoints for Trade Valuation
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+## Physical Trades Valuation Results [/Valuation/Physical/TradeValuationResults/{RequestId}]
+`GET` Trades Valuation Results from Request Query
+### Physical Trades Valuation Results  [GET]
 
+<b>Response Body</b> 
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ContractId|Contract ID|`string`|10|||
+|TradingEntityId|Trading Entity ID|`string`|2|||
+|<b>PnLCurrency</b>|
+|CurrencyCode|Currency Code|`string`|3|||
+|ConValPnL|Contract Value PnL|`decimal`||||
+|CostValPnL|Cost Value PnL|`decimal`||||
+|ComsnValPnL|Commission Value PnL|`decimal`||||
+|PolValPnL|Polarisation Value PnL|`decimal`||||
+|FOPnL|Futures and Options PnL|`decimal`||||
+|FXPnL|Foreign Exchange PnL|`decimal`||||
+|MktValPnL|Market Value PnL|`decimal`||||
+|<b>ContractCurrency</b>|
+|CurrencyCode|Currency Code|`string`|3|||
+|ConValContract|Contract Value Contract|`decimal`||||
+|CostValContract|Cost Value Contract|`decimal`||||
+|ComsnValContract|Commission Value Contract|`decimal`||||
+|PolValContract|Polarisation Value Contract|`decimal`||||
+|FOContract|Futures and Options Contract|`decimal`||||
+|FXContract|Foreign Exchange Contract|`decimal`||||
+|MktValContract|Market Value Contract|`decimal`||||
+|<b>FunctionalCurrency</b>|
+|CurrencyCode|Currency Code|`string`|3|||
+|ConValFunctional|Contract Value Functional|`decimal`||||
+|CostValFunctional|Cost Value Functional|`decimal`||||
+|ComsnValFunctional|Commission Value Functional|`decimal`||||
+|PolValFunctional|Polarisation Value Functional|`decimal`||||
+|FOFunctional|Futures and Options Functional|`decimal`||||
+|FXFunctional|Foreign Exchange Functional|`decimal`||||
+|MktValFunctional|Market Value Functional|`decimal`||||
+
+<b>Response Messages</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|RequestId|Request ID|`string`||||
+|RequestTime|Request Time|`datetime`||||
+|RequestStatus|Request Status|`string`||||
+
++ Parameters
+    + RequestId (required, string, `10001`) ... Identify specific request ID.
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (array [PhysicalTradeValuesResults])
+        + Pagination (Pagination)
+        + Response (200 SuccessResponse)
+        + Messages (array [ResultsMessage])
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
 
 # Group Data Object Definitions
 List of re-usable Data Objects referenced as `object` types. Not that these endpoints are not accessable and only here for reference purposes.
@@ -3981,6 +4044,13 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ContractCurrency (ValuesInContractCcy)
 + FunctionalCurrency (ValuesInFunctionalCcy) 
 
+## PhysicalTradeValuesResults (object)
++ ContractId: P00004.000 (string)
++ TradingEntityId: JT (string)
++ PnLCurrency (ValuesInPnLCcy)
++ ContractCurrency (ValuesInContractCcy)
++ FunctionalCurrency (ValuesInFunctionalCcy) 
+
 ## Port (object)
 + PortId: AQABA (required, string)
 + PortDescription: Aqaba (required, string)
@@ -4029,6 +4099,11 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CommodityReference: 1bc123 (string)
 + TransactionIsMatched: true (boolean)
 + PreMatchDocumentReference: CP1503236 (string)
+
+## ResultsMessage (object)
++ RequestId: 10001 (string)
++ RequestTime: `2016-07-01T12:20:30Z` (string)
++ RequestStatus: Live (string)
 
 ## Sample (object)
 + SampleId: abcd (string)
