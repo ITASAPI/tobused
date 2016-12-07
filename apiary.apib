@@ -1907,6 +1907,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 `POST` Allows Futures and Options Trade to be created
 ### Create F&O Trade [POST] 
 
+<b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |SerialNo|Serial Number|`number`||||
@@ -1932,6 +1933,11 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Memo2|Memorandum 2|`string`|20|||
 |ExternalSerial|External Serial|`string`|10|||
 
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|UniqueId|Unique ID|`number`||||
+|SerialNo|Serial Number|`number`||||
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
@@ -2339,11 +2345,16 @@ None.
 `POST` Allows generic cash payments to be created between multiple accounts  
 ### Create PayableManual [POST]
 
-
+<b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |DocumentBody|see <b><a href="/#reference/data-object-definitions/documentdetails/documentdetails">Document Details</a></b> object|`object`|||Required|
 |AccountDetails|see <b><a href="/#reference/data-object-definitions/accountpostingdetails/accountpostingdetails">Account Posting Details</a></b> object|[array] of `object`|||Required|
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CashDocRef||`string`||||
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
