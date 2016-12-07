@@ -3302,7 +3302,21 @@ Data endpoints for Trade Valuation
 |LatestUpdate|DateTime Data Last Updated|`datetime`||||
 
 + Parameters
-    + RequestId (required, string, `10001`) ... Identify specific request ID.
+    + Property (optional, enum[string]) ... identify property name to filter by 
+       + Members
+            + TradingEntityId
+            + ContractType
+            + ContractStatus
+            + ContractApproved
+            + CounterpartyCode
+            + CommodityFullCode
+            + TraderCode
+            + DepartmentCode
+            + PaymentTermCode
+            + ContractTermCode
+            + ContractTermPortCode
+            + ShipmentStatusCode
+    + PropertyValue (optional, string, `JT`) ... required if property specified.
 
 + Request (application/json)
     + Header
