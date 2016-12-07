@@ -2384,7 +2384,7 @@ None.
 `POST` Allows cash payments to be created on account of existing (posted) accounting documents (e.g. Purchase Invoices) 
 ### Create PayableOnAccount [POST]
 
-
+<b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |DocumentBody|see <b><a href="/#reference/data-object-definitions/documentdetails/documentdetails">Document Details</a></b> object|`object`|||Required|
@@ -2392,6 +2392,10 @@ None.
 |TransactionsToMatch|see <b><a href="/#reference/data-object-definitions/onaccountdetails/onaccountdetails">On Account Details</a></b> object|[array] of `object`|||Required|
 |OtherCosts|see <b><a href="/#reference/data-object-definitions/accountpostingdetails/accountpostingdetails">Account Posting Details</a></b> object|[array] of `object`||||
 
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CashDocRef||`string`||||
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
@@ -2422,11 +2426,16 @@ None.
 `POST` Allows generic cash receipts to be created between multiple accounts  
 ### Create ReceivableManual [POST]
 
-
+<b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |DocumentBody|see <b><a href="/#reference/data-object-definitions/documentdetails/documentdetails">Document Details</a></b> object|`object`|||Required|
 |AccountDetails|see <b><a href="/#reference/data-object-definitions/accountpostingdetails/accountpostingdetails">Account Posting Details</a></b> object|[array] of `object`|||Required|
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CashDocRef||`string`||||
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
@@ -2456,7 +2465,7 @@ None.
 `POST` Allows cash receipts to be created on account of existing (posted) accounting documents (e.g. Sales Invoices) 
 ### Create ReceivableOnAccount [POST]
 
-
+<b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |DocumentBody|see <b><a href="/#reference/data-object-definitions/documentdetails/documentdetails">Document Details</a></b> object|`object`|||Required|
@@ -2464,6 +2473,10 @@ None.
 |TransactionsToMatch|see <b><a href="/#reference/data-object-definitions/onaccountdetails/onaccountdetails">On Account Details</a></b> object|[array] of `object`|||Required|
 |OtherCosts|see <b><a href="/#reference/data-object-definitions/accountpostingdetails/accountpostingdetails">Account Posting Details</a></b> object|[array] of `object`||||
 
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CashDocRef||`string`||||
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
@@ -2882,12 +2895,17 @@ None.
 ### Create StockLoading [PUT]
 `PUT` Remove current suggestions for Tanks and Create Stock Loadings
 
-
+<b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ReleaseId|Release ID|`number`|||Required. Unique Key|
 |SourceStockUnitCode|Source Stock Unit Code|`string`|11||Required|
 |Weight|Stock Unit Weight|`decimal`|||Required|
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ReleaseId|Release ID|`number`||||
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
@@ -2901,8 +2919,7 @@ None.
     + Attributes (array [StockLoadingFlat])
 
 + Response 201 (application/json; charset=utf-8)
-    + Attributes 
-        + Attributes 
+    + Attributes
         + Data
             + ReleaseId: 123 (number)
         + Response (201 CreateResponse)
@@ -2976,6 +2993,7 @@ None.
 ### Update StockMovement [PUT]
 `PUT` Full update of Information relating to the processing of the Order. All fields are required.
 
+<b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ReleaseId|Release ID|`number`|||Required|
@@ -3000,6 +3018,10 @@ None.
 |SecondWeightWeighbridgeId|Second Weight Weighbridge ID|`string`|10|||
 |SecondWeightId|Second Weight ID|`string`|10|||
 
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ReleaseId|Release ID|`number`||||
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
@@ -3030,6 +3052,7 @@ None.
 ### Delta Update StockMovement [PATCH]
 `PATCH` Update Information relating to the processing of the Order, where the field `ReleaseId` is the only required field, it cannot be updated but is used to cross reference the Id in the URI
 
+<b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ReleaseId|Release ID|`number`|||Required|
@@ -3054,6 +3077,10 @@ None.
 |SecondWeightWeighbridgeId|Second Weight Weighbridge ID|`string`|10|||
 |SecondWeightId|Second Weight ID|`string`|10|||
 
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ReleaseId|Release ID|`number`||||
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
