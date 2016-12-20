@@ -2405,7 +2405,7 @@ None.
 
             AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + Attributes (PayableReceivableOnAccount)
+    + Attributes (PayableOnAccount)
 
 + Response 201 (application/json; charset=utf-8)
     + Attributes 
@@ -3681,6 +3681,13 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DepartmentCode: BRL (required, string)
 + AmountInDocumentCurrency: `-4615.68` (required, number)
 
+## AccountPostingPayDetails (object)
++ AccountCode: AGUACHEM.P (required, string)
++ AccountLedgerType: C (required, string)
++ ExpenseCode: CASHOUT (required, string)
++ DepartmentCode: BRL (required, string)
++ AmountInDocumentCurrency: 0.01 (required, number)
+
 ## CashDocRefResponse (object)
 + CashDocRef: abc123456 (string)
 
@@ -4139,6 +4146,11 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DocumentReference: 3DIECHES.P (required, string)
 + TransactionAmountInDocumentCurrency: `-123.45` (required, number)
 
+## OnAccountPayDetails (object)
++ TransactionKey: 00040444.P||GBP||20150832||20151003||14576460 (required, string)
++ DocumentReference: 3DIECHES.P (required, string)
++ TransactionAmountInDocumentCurrency: 4615.68 (required, number)
+
 ## PackingType (object)
 + PackingTypeId: 1050 (string)
 + PackingTypeDescription: In bags of 1050 kgs net (string)
@@ -4150,6 +4162,13 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Top: 200 (number) - max number returned per message 
 + Skip: 400 (number) - number of records skipped
 + Returned: 146 (number) - actual number returned
+
+## PayableOnAccount (object)
++ DocumentBody (required, DocumentDetails)
++ BankDetails (required, AccountPostingDetails)
++ CashCurrencyDetails (OtherCcyDetails)
++ TransactionsToMatch (required, array [OnAccountPayDetails])
++ OtherCosts (array [AccountPostingPayDetails])
 
 ## PayableReceivableManual (object)
 + DocumentBody (required, DocumentDetails)
