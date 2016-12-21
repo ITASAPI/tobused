@@ -3681,19 +3681,40 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DepartmentCode: BRL (required, string)
 + AmountInDocumentCurrency: `-4615.68` (required, number)
 
-## AccountPostingOthRecDetails (object)
-+ AccountCode: AGUACHEM.P (required, string)
-+ AccountLedgerType: C (required, string)
-+ ExpenseCode: CASHOUT (required, string)
-+ DepartmentCode: BRL (required, string)
-+ AmountInDocumentCurrency: `-0.01` (required, number)
+## AccountPostingBankPayDetails (object)
++ AccountCode: BANK.ACNT (required, string)
++ AccountLedgerType: N (required, string)
++ ExpenseCode: CPD (required, string)
++ DepartmentCode: 9900 (required, string)
++ AmountInDocumentCurrency: `-4615.68` (required, number)
+
+## AccountPostingBankRecDetails (object)
++ AccountCode: BANK.ACNT (required, string)
++ AccountLedgerType: N (required, string)
++ ExpenseCode: CPD (required, string)
++ DepartmentCode: 9900 (required, string)
++ AmountInDocumentCurrency: 4615.68 (required, number)
 
 ## AccountPostingPayDetails (object)
 + AccountCode: AGUACHEM.P (required, string)
 + AccountLedgerType: C (required, string)
 + ExpenseCode: CASHOUT (required, string)
 + DepartmentCode: BRL (required, string)
-+ AmountInDocumentCurrency: 0.01 (required, number)
++ AmountInDocumentCurrency: `-4615.68` (required, number)
+
+## AccountPostingPayDetailsLess (object)
++ AccountCode: AGUACHEM.P (required, string)
++ AccountLedgerType: C (required, string)
++ ExpenseCode: CASHOUT (required, string)
++ DepartmentCode: BRL (required, string)
++ AmountInDocumentCurrency: 100.00 (required, number)
+
+## AccountPostingRecDetailsLess (object)
++ AccountCode: AGUACHEM.P (required, string)
++ AccountLedgerType: C (required, string)
++ ExpenseCode: CASHOUT (required, string)
++ DepartmentCode: BRL (required, string)
++ AmountInDocumentCurrency: `-100.00` (required, number)
 
 ## AccountPostingRecDetails (object)
 + AccountCode: AGUACHEM.P (required, string)
@@ -3702,8 +3723,14 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DepartmentCode: BRL (required, string)
 + AmountInDocumentCurrency: 4615.68 (required, number)
 
+## ApplyMatching (object)
++ TransactionsToMatch (required, array [OnAccountDetailsMatched, OnAccountDetailsMatches])
+
 ## CashDocRefResponse (object)
 + CashDocRef: abc123456 (string)
+
+## CashReversal (object)
++ CashReversal: CP6161616 (string)
 
 ## Charter (object)
 + CharterId: CHART01.000 (required, string)
@@ -3920,6 +3947,20 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ContractCurrency (array [ValuesInContractCcy])
 + FunctionalCurrency (array [ValuesInFunctionalCcy])
 
+## CounterpartyDetails (object)
++ AccountCode: TESTCLI.P (string)
++ AccountLedgerType: C (string)
++ ExpenseCode: CPD (string)
++ DepartmentCode: 9900 (string)
++ AmountInDocumentCurrency: 4615.68 (number)
+
+## CounterpartyRecDetails (object)
++ AccountCode: TESTCLI.P (string)
++ AccountLedgerType: C (string)
++ ExpenseCode: CPD (string)
++ DepartmentCode: 9900 (string)
++ AmountInDocumentCurrency: `-4615.68` (number)
+
 ## CounterpartyValueList (object)
 + CounterpartyCode: ABANI.P (string)
 + PnLCurrency (array [ValuesInPnLCcy])
@@ -3933,6 +3974,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## Currency (object)
 + CurrencyId: GBP (string)
 + CurrencyDescription: British Pound (string)
+
+## CurrencyAlternate (object)
++ CurrencyId: USD (string)
++ CurrencyDescription: `U.S. Dollar` (string)
 
 ## DeliveryInOrder (object)
 + ReleaseId: 12345 (number)
@@ -4157,13 +4202,40 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## OnAccountDetails (object)
 + TransactionKey: 00040444.P||GBP||20150832||20151003||14576460 (required, string)
-+ DocumentReference: 3DIECHES.P (required, string)
++ DocumentReference: XX1234567 (required, string)
 + TransactionAmountInDocumentCurrency: `-4615.68` (required, number)
 
-## OnAccountPayDetails (object)
+## OnAccountPayDetailsLess (object)
 + TransactionKey: 00040444.P||GBP||20150832||20151003||14576460 (required, string)
-+ DocumentReference: 3DIECHES.P (required, string)
-+ TransactionAmountInDocumentCurrency: 4615.68 (required, number)
++ DocumentReference: XX1234567 (required, string)
++ TransactionAmountInDocumentCurrency: 4515.68 (required, number)
+
+## OnAccountRecDetailsLess (object)
++ TransactionKey: 00040444.P||GBP||20150832||20151003||14576460 (required, string)
++ DocumentReference: XX1234567 (required, string)
++ TransactionAmountInDocumentCurrency: `-4515.68` (required, number)
+
+## OnAccountDetailsMatched (object)
++ TransactionKey: 00040444.P||GBP||20150832||20151003||14576460 (required, string)
++ DocumentReference: XX1234567 (required, string)
++ TransactionAmountInDocumentCurrency: `-123.45` (required, number)
+
+## OnAccountDetailsMatches (object)
++ TransactionKey: 00080888.P||GBP||20150832||20151003||14576460 (required, string)
++ DocumentReference: XX7654321 (required, string)
++ TransactionAmountInDocumentCurrency: 123.45 (required, number)
+
+## OtherCcyDetails (object)
++ OtherCurrencyCode: USD (string)
++ AmountInOtherCurrency: `-3200` (number)
+
+## OtherCcyPayDetails (object)
++ OtherCurrencyCode: USD (string)
++ AmountInOtherCurrency: `-3200` (number)
+
+## OtherCcyRecDetails (object)
++ OtherCurrencyCode: USD (string)
++ AmountInOtherCurrency: 3200 (number)
 
 ## PackingType (object)
 + PackingTypeId: 1050 (string)
@@ -4177,15 +4249,23 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Skip: 400 (number) - number of records skipped
 + Returned: 146 (number) - actual number returned
 
-## PayableOnAccount (object)
+## PayableOnPrePayment (object)
 + DocumentBody (required, DocumentDetails)
-+ BankDetails (required, AccountPostingDetails)
-+ TransactionsToMatch (required, array [OnAccountPayDetails])
-+ OtherCosts (array [AccountPostingPayDetails])
++ PrePaymentDetails (required, PrePaymentDetails)
++ AlternateCurrencyDetails (OtherCcyPayDetails)
++ BankDetails (required, AccountPostingBankPayDetails)
++ CounterpartyDetails (required, CounterpartyDetails)
 
 ## PayableManual (object)
 + DocumentBody (required, DocumentDetails)
-+ AccountDetails (required, array [AccountPostingDetails])
++ AccountDetails (required, array [AccountPostingBankPayDetails, AccountPostingRecDetails])
+
+## PayableOnAccount (object)
++ DocumentBody (required, DocumentDetails)
++ BankDetails (required, AccountPostingBankPayDetails)
++ CashCurrencyDetails (OtherCcyDetails)
++ TransactionsToMatch (required, array [OnAccountPayDetailsLess])
++ OtherCosts (array [AccountPostingPayDetailsLess])
 
 ## PaymentTerm (object)
 + PaymentTermId: ADV (required, string)
@@ -4269,6 +4349,30 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ContractTermPortCode: LIV (string)
 + ShipmentStatusCode: D (string)
 
+## PhysicalTradePrePayment (object)
++ InstructionReference: XX123456 (string)
++ ContractReference: S01234.000 (string)
++ RequestDate: `2016-06-01T00:00:00Z` (string)
++ ContractCurrency (Currency)
++ AmountInContractCurrency: 650 (number)
++ AlternateCurrency (CurrencyAlternate)
++ RateOfExchangeAgreed: 3.5 (number)
++ RateOfExchangeType: M (string)
++ PrePaymentPercentage: 20 (number)
++ Counterparty (AccountHeaderC)
+
+## PhysicalTradePrePayment List (object)
++ InstructionReference: XX123456 (string)
++ ContractReference: S01234.000 (string)
++ RequestDate: `2016-06-01T00:00:00Z` (string)
++ ContractCurrencyCode: USD (string)
++ AmountInContractCurrency: 650 (number)
++ AlternateCurrencyCode: GBP (string)
++ RateOfExchangeAgreed: 3.5 (number)
++ RateOfExchangeType: M (string)
++ PrePaymentPercentage: 20 (number)
++ CounterpartyCode: TESTCLI.P (string)
+
 ## PhysicalTradeShipment List (object)
 + ContractId: P00004.000 (string)
 + VesselReference: abc123 (string)
@@ -4351,15 +4455,26 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + TransactionIsMatched: true (boolean)
 + PreMatchDocumentReference: CP1503236 (string)
 
+## PrePaymentDetails (object)
++ InstructionReference: REF123 (string)
+
 ## ReceivableManual (object)
 + DocumentBody (required, DocumentDetails)
-+ AccountDetails (required, array [AccountPostingRecDetails])
++ AccountDetails (required, array [AccountPostingBankRecDetails, AccountPostingPayDetails])
 
 ## ReceivableOnAccount (object)
 + DocumentBody (required, DocumentDetails)
-+ BankDetails (required, AccountPostingRecDetails)
-+ TransactionsToMatch (required, array [OnAccountDetails])
-+ OtherCosts (array [AccountPostingOthRecDetails])
++ BankDetails (required, AccountPostingBankRecDetails)
++ CashCurrencyDetails (OtherCcyRecDetails)
++ TransactionsToMatch (required, array [OnAccountRecDetailsLess])
++ OtherCosts (array [AccountPostingRecDetailsLess])
+
+## ReceivableOnPrePayment (object)
++ DocumentBody (required, DocumentDetails)
++ PrePaymentDetails (required, PrePaymentDetails)
++ AlternateCurrencyDetails (OtherCcyRecDetails)
++ BankDetails (required, AccountPostingBankRecDetails)
++ CounterpartyDetails (required, CounterpartyRecDetails)
 
 ## ResultsMessage (object)
 + RequestId: 10001 (string)
