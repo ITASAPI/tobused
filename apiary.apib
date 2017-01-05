@@ -3155,10 +3155,11 @@ Data endpoints for Trade Valuation
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |TradingEntityId|Trading Entity ID|`string`||||
-|ContractType|Contract Type|`string`|||`P` or `S`|
-|ContractStatus|Contract Status|`string`|||`O`, `C` or `Q`|
-|ContractApproved|Contract Approved|`boolean`||||
+|ContractType|Contract Type|`string`||TBC|`P` or `S`|
+|ContractStatus|Contract Status|`string`||TBC|`O`, `C` or `Q`|
+|ContractApproved|Contract Approved|`boolean`||TBC||
 |CounterpartyCode|Counterparty Code|`string`||||
+|CommodityFullCode|`Composite Key` delimited by double pipe "&#124;&#124;"|`string`|50|Example <b><a href="/#reference/composite-key-examples/commodityfullcode">Composite Key</a></b>||
 |TraderCode|Trader Code|`string`||||
 |DepartmentCode|Department Code|`string`||||
 |PaymentTermCode|Payment Term Code|`string`||||
@@ -3185,10 +3186,8 @@ Data endpoints for Trade Valuation
     + Property (optional, enum[string]) ... identify property name to filter by 
        + Members
             + TradingEntityId
-            + ContractType
-            + ContractStatus
-            + ContractApproved
             + CounterpartyCode
+            + CommodityFullCode
             + TraderCode
             + DepartmentCode
             + PaymentTermCode
@@ -3223,10 +3222,11 @@ Data endpoints for Trade Valuation
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |TradingEntityId|Trading Entity ID|`string`||||
-|ContractType|Contract Type|`string`|||`P` or `S`|
-|ContractStatus|Contract Status|`string`|||`O`, `C` or `Q`|
-|ContractApproved|Contract Approved|`boolean`||||
+|ContractType|Contract Type|`string`||TBC|`P` or `S`|
+|ContractStatus|Contract Status|`string`||TBC|`O`, `C` or `Q`|
+|ContractApproved|Contract Approved|`boolean`||TBC||
 |CounterpartyCode|Counterparty Code|`string`||||
+|CommodityFullCode|`Composite Key` delimited by double pipe "&#124;&#124;"|`string`|50|Example <b><a href="/#reference/composite-key-examples/commodityfullcode">Composite Key</a></b>||
 |TraderCode|Trader Code|`string`||||
 |DepartmentCode|Department Code|`string`||||
 |PaymentTermCode|Payment Term Code|`string`||||
@@ -3292,10 +3292,8 @@ Data endpoints for Trade Valuation
     + Property (optional, enum[string]) ... identify property name to filter by 
        + Members
             + TradingEntityId
-            + ContractType
-            + ContractStatus
-            + ContractApproved
             + CounterpartyCode
+            + CommodityFullCode
             + TraderCode
             + DepartmentCode
             + PaymentTermCode
