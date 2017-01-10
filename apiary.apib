@@ -3505,6 +3505,8 @@ A multipurpose object used by several endpoints
 |ExpenseCode|Expense Code|`string`|7||Required|
 |DepartmentCode|Department Code|`string`|4||Required|
 |AmountInDocumentCurrency|Amount in Document Currency|`decimal`||Can Contain Negative Values|Required|
+|AmountInInvoiceCurrency|Amount in Invoice Currency|`decimal`||Can Contain Negative Values||
+|AmountInFunctionalCurrency|Amount in Functional Currency|`decimal`||Can Contain Negative Values||
 
 
 + Response 200 (application/json; charset=utf-8)
@@ -3571,6 +3573,8 @@ A multipurpose object used by several endpoints
 |DocumentDate|Document Date|`datetime`|20||Required|
 |ValueDate|Value Date|`datetime`|20||Required|
 |DocumentCurrencyCode|Document Currency|`string`|3||Required|
+|InvoiceCurrencyCode|Invoice Currency Code|`string`|3|||
+|FunctionalCurrencyCode|Functional Currency Code|`string`|3|||
 |PayeeName|Payee Name|`string`|60|||
 |Narrative|Narrative|`string`|30|||
 |EDICode|Document EDI Code|`string`|25|||
@@ -3607,6 +3611,8 @@ A multipurpose object used by several endpoints
 |TransactionKey|see<b><a href="/#reference/composite-key-examples/transactionkey"> TransactionKey</a></b> object|`object`|||Required|
 |DocumentReference|Document Reference|`string`|9||Required|
 |TransactionAmountInDocumentCurrency|Transaction Amount in Document Currency|`decimal`||Can Contain Negative Values|Required|
+|TransactionAmountInInvoiceCurrency|Transaction Amount in Invoice Currency|`decimal`||Can Contain Negative Values||
+|TransactionAmountInFunctionalCurrency|Transaction Amount in Functional Currency|`decimal`||Can Contain Negative Values||
 
 + Response 200 (application/json; charset=utf-8)
 + Attributes (OnAccountDetails)
