@@ -8,13 +8,19 @@ VERSION: 2.11
 ## New Endpoints
 
 <ul>
-<li>None<strong>None</strong>: None<a href="/#reference/valuation-physical/physical-trades-latest-valuation-list"> Link</a></li>
+<li>Accounting-Matching<strong> Transactions Matched List</strong>: GET Returns a list of matched client (posted) transactions associated with the document provided. This should be done as part of any reversal process/request to ensure the consequences of removing a match are understood. Multiple matches may be identified for a single document as client legs can be split, so please note that the response contains an array of match flags with associated transactions.<a href="/#reference/accounting-matching/transactions-matched-list"> Link</a></li>
+<li>Accounting-Matching<strong> Remove Match</strong>: PUT Request the removal of a specific Match Flag. This process is usually required prior to any attempt to reverse a document using the ReverseCashDocument endpoint.<a href="/#reference/accounting-matching/remove-match"> Link</a></li>
+<li>Finance-Cash<strong> Create ReverseCashDocument</strong>: POST Request a cash (accounting) document be fully reversed.<a href="/#reference/finance-cash/reversecashdocument"> Link</a></li>
+
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>none</li>
+<li>Finance-Cash<strong> Create PayableManual</strong>: Additional Optional Properties added to <b>DocumentDetails</b> Object and <b>AccountPostingDetails</b> Object<a href="/#reference/finance-cash/payablemanual"> Link</a></li>
+<li>Finance-Cash<strong> Create PayableOnAccount</strong>: Additional Optional Properties added to <b>DocumentDetails</b> Object, <b>OnAccountDetails</b> Object and <b>AccountPostingDetails</b> Object<a href="/#reference/finance-cash/payableonaccount"> Link</a></li>
+<li>Finance-Cash<strong> Create ReceivableManual</strong>: Additional Optional Properties added to <b>DocumentDetails</b> Object and <b>AccountPostingDetails</b> Object<a href="/#reference/finance-cash/receivablemanual"> Link</a></li>
+<li>Finance-Cash<strong> Create ReceivableOnAccount</strong>: Additional Optional Properties added to <b>DocumentDetails</b> Object, <b>OnAccountDetails</b> Object and Account Posting Details Object<a href="/#reference/finance-cash/receivableonaccount"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
