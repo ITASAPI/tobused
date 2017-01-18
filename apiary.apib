@@ -2182,6 +2182,8 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |PaymentTermCode|Payment Term Code|`string`|8|||
 |ContractTermCode|Contract Term Code|`string`|8|||
 |ContractTermPortCode|Contract Term Port Code|`string`|8|||
+|PortOfOrigin|Port Of Origin|`string`|8|||
+|PortOfDestination|Port Of Destination|`string`|8|||
 |UnitOfMeasurementCode|Unit of Measurement Code|`string`|4|||
 |OriginalContractQuantity|Original Contract Quantity|`decimal`||||
 |CurrentContractQuantity|Current Contract Quantity|`decimal`||||
@@ -2241,6 +2243,8 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |PaymentTerm|see <b><a href="/#reference/physicals-reference-data/paymentterm-list/list-paymentterms">PaymentTerm List</a></b> endpoint|`object`||||
 |ContractTerm|see <b><a href="/#reference/physicals-reference-data/contract-term-list/list-contractterms">ContractTerm List</a></b> endpoint|`object`||||
 |ContractTermPort|see <b><a href="/#reference/physicals-reference-data/port-list/list-ports">Port List</a></b> endpoint|`object`||||
+|PortOfOrigin|see <b><a href="/#reference/physicals-reference-data/port-list/list-ports">Port List</a></b> endpoint|`object`||||
+|PortOfDestination|see <b><a href="/#reference/physicals-reference-data/port-list/list-ports">Port List</a></b> endpoint|`object`||||
 |UnitOfMeasurement|see <b><a href="/#reference/physicals-reference-data/weight-list/list-weights">Weight List</a></b> endpoint|`object`||||
 |OriginalContractQuantity|Original Contract Quantity|`decimal`||||
 |CurrentContractQuantity|Current Contract Quantity|`decimal`||||
@@ -4426,6 +4430,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PaymentTerm (PaymentTerm)
 + ContractTerm (ContractTerm)
 + ContractTermPort (Port List)
++ PortOfOrigin (Port List)
++ PortOfDestination (Port List)
 + UnitOfMeasurement (Weight)
 + OriginalContractQuantity: 423.118 (number)
 + CurrentContractQuantity: 26.92 (number)
@@ -4447,6 +4453,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PaymentTermCode: INV30 (string)
 + ContractTermCode: DEL (string)
 + ContractTermPortCode: LIV (string)
++ PortOfOrigin: PORT1 (string)
++ PortOfDestination: PORT2 (string)
 + UnitOfMeasurementCode: MT (string)
 + OriginalContractQuantity: 423.118 (number)
 + CurrentContractQuantity: 26.92 (number)
