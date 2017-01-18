@@ -2345,6 +2345,83 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+## Physical Trade PrePayment Request List [/Contract/{TradingEntityId}/Physical/PhysicalTradePrePayRequest/{Property}/{PropertyValue}]
+`GET` List PrePayment request made against physical contracts
+### List Physical Trade PrePayment Requests [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|InstructionReference|Instruction Reference|`string`|10||Unique Key|
+|ContractReference|Contract Reference|`string`|11|||
+|RequestDate|Request Date|`datetime`||||
+|ContractCurrencyCode|Contract Currency Code|`string`|3|||
+|AmountInContractCurrency|Amount In Contract Currency|`decimal`||||
+|AlternateCurrencyCode|Alternate Currency Code|`string`|3|||
+|RateOfExchangeAgreed|Rate of Exchange Agreed|`decimal`||||
+|RateOfExchangeType|Rate of Exchange Type|`string`|1|||
+|PrePaymentPercentage|PrePaymentPercentage|`decimal`||||
+|CounterpartyCode|CounterpartyCode|`string`|10|||
+
++ Request
+    [AccessToken][]
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + Property (optional, enum[string])  
+       + Members
+            + InstructionReference (optional, string) 
+            + ContractReference (optional, string)
+            + CounterpartyCode (optional, string)
+    + PropertyValue (optional, string, `XX123456`)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (array [PhysicalTradePrePayment List])
+        + Pagination (Pagination)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadPropertyResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
+
+## Physical Trade PrePayment Request [/Contract/{TradingEntityId}/Physical/PhysicalTradePrePayRequest/{InstructionReference}]
+`GET` Details of a PrePayment request made against a physicals contract
+### Read Physical Trade PrePayment Request [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|InstructionReference|Instruction Reference|`string`|10||Required. Unique Key|
+|ContractReference|Contract Reference|`string`|11|||
+|RequestDate|Request Date|`datetime`||||
+|ContractCurrency|see <b><a href="/#reference/global-reference-data/currency-list/list-currencies">Currency List</a></b> endpoint|`object`||||
+|AmountInContractCurrency|Amount In Contract Currency|`decimal`||||
+|AlternateCurrency|see <b><a href="/#reference/global-reference-data/currency-list/list-currencies">Currency List</a></b> endpoint|`object`||||
+|RateOfExchangeAgreed|Rate of Exchange Agreed|`decimal`||||
+|RateOfExchangeType|Rate of Exchange Type|`string`|1|||
+|PrePaymentPercentage|PrePaymentPercentage|`decimal`||||
+|Counterparty|see <b><a href="/#reference/data-object-definitions">Account Header</a></b> object|`object`||||
+
++ Request
+    [AccessToken][]
+    
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + InstructionReference (required, string, `XX123456`) ... Code for physical trade prepayment request to read.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (PhysicalTradePrePayment)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
 ## Physical Trade Shipments List [/Contract/{TradingEntityId}/Physical/PhysicalTradeShipment/{Property}/{PropertyValue}]
 `GET` List of Logistics information for Physical Contracts.
 ### List Physical Trade Shipment [GET]
