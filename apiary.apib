@@ -2604,7 +2604,7 @@ None.
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |DocumentBody|see <b><a href="/#reference/data-object-definitions/documentdetails/documentdetails">Document Details</a></b> object|`object`|||Required|
-|PrePaymentDetails|see <b><a href="/#reference/data-object-definitions/prepayment-details">Pre Payment Details</a></b> object|`object`||||
+|PrePaymentDetails|see <b><a href="/#reference/data-object-definitions/prepayment-details">Pre Payment Details</a></b> object|`object`|||Required|
 |AccountDetails|see <b><a href="/#reference/data-object-definitions/accountpostingdetails/accountpostingdetails">Account Posting Details</a></b> object|[array] of `object`|||Required|
 
 <b>Response Data</b>
@@ -3801,7 +3801,8 @@ A multipurpose object used by several endpoints
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|InstructionReference|Instruction Reference|`string`|||Required|
+|InstructionReference|Instruction Reference|`string`|9||Required|
+|ContractReference|Contract Reference|`string`|10||Required|
 
 + Response 200 (application/json; charset=utf-8)
 + Attributes (PrePaymentDetails)
@@ -4759,6 +4760,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## PrePaymentDetails (object)
 + InstructionReference: REF123 (string)
++ ContractReference: SC00338 (string)
 
 ## ReceivableManual (object)
 + DocumentBody (required, DocumentDetails)
