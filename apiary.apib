@@ -2163,6 +2163,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 
 
 # Group Contract-Physical
+Endpoints covering reading data associated with Physical Contracts (trades)
 
 ## Physical Trade List [/Contract/{TradingEntityId}/Physical/PhysicalTrade/{Property}/{PropertyValue}]
 `GET` List of Principle Physical Contracts (agreements)
@@ -2468,7 +2469,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 Endpoints covering an extensive range of functionality around creating, authorising and reversing cash documents. Note that there are options around how currencies are applied but examples provided work to the principle that cash, invoice and reporting currencies are the same. The endpoints do, however, support variations including paying in a differant currency to the original invoice and/or functional (local reporting) currency. Contact Hivedome Helpdesk for assistance in working with these variations.
 
 ## AuthoriseForPosting [/Finance/{TradingEntityId}/Cash/AuthoriseForPosting/{DocumentReference}]
-`PUT` Mark an accounting document as Authorised to be posted.
+`PUT` Mark a cash document as Authorised to be posted.
 ### AuthoriseForPosting [PUT]
 
 
