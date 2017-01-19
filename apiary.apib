@@ -3802,7 +3802,7 @@ A multipurpose object used by several endpoints
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |InstructionReference|Instruction Reference|`string`|9||Required|
-|ContractReference|Contract Reference|`string`|11||Required|
+|ContractReference|Contract Reference|`string`|10||Required|
 
 + Response 200 (application/json; charset=utf-8)
 + Attributes (PrePaymentDetails)
@@ -4759,8 +4759,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PreMatchDocumentReference: CP1503236 (string)
 
 ## PrePaymentDetails (object)
-+ InstructionReference: REF123 (string)
-+ ContractReference: SC00338 (string)
++ InstructionReference: XX123456 (string)
++ ContractReference: S01234.000 (string)
 
 ## ReceivableManual (object)
 + DocumentBody (required, DocumentDetails)
