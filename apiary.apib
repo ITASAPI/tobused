@@ -4550,7 +4550,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## PayableOnPrePayment (object)
 + DocumentBody (required, DocumentDetails)
 + PrePaymentDetails (required, PrePaymentDetails)
-+ AccountDetails (required, array [AccountPostingBankPayDetails])
++ AccountDetails (required, array [AccountPostingBankPayDetails, AccountPostingRecDetails])
 
 ## PayableManual (object)
 + DocumentBody (required, DocumentDetails)
@@ -4772,7 +4772,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## ReceivableOnPrePayment (object)
 + DocumentBody (required, DocumentDetails)
 + PrePaymentDetails (required, PrePaymentDetails)
-+ AccountDetails (required, array [AccountPostingBankRecDetails])
++ AccountDetails (required, array [AccountPostingBankRecDetails, AccountPostingPayDetails])
 
 ## ResultsMessage (object)
 + RequestId: 10001 (string)
