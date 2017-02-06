@@ -4453,9 +4453,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + OtherCurrencyCode: USD (string)
 + AmountInOtherCurrency: `-3200` (number)
 
-## OtherCcyRecDetails (object)
-+ OtherCurrencyCode: USD (string)
-+ AmountInOtherCurrency: 3200 (number)
 
 ## PackingType (object)
 + PackingTypeId: 1050 (string)
@@ -4481,7 +4478,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## PayableOnAccount (object)
 + DocumentBody (required, DocumentDetails)
 + BankDetails (required, AccountPostingBankPayDetails)
-+ CashCurrencyDetails (OtherCcyDetails)
 + TransactionsToMatch (required, array [OnAccountPayDetailsLess])
 + OtherCosts (array [AccountPostingPayDetailsLess])
 
@@ -4688,7 +4684,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## ReceivableOnAccount (object)
 + DocumentBody (required, DocumentDetails)
 + BankDetails (required, AccountPostingBankRecDetails)
-+ CashCurrencyDetails (OtherCcyRecDetails)
 + TransactionsToMatch (required, array [OnAccountRecDetailsLess])
 + OtherCosts (array [AccountPostingRecDetailsLess])
 
