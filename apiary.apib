@@ -3,6 +3,12 @@ HOST: http://itas.apiary.io/
 VERSION: 2.12
 
 # ITAS API 2.12
+
+## Disclaimer
+
+**** Warning: at this point, ITAS API does not support asynchronus calls for POST, PUT and PATCH requests. Async requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
+<br />
+<br />
 <strong>Release notes</strong> (2<sup>nd</sup> February 2017)
 
 ## New Endpoints
@@ -147,7 +153,7 @@ Codes relating to the Client Ledger and related endpoints.
 
 
 ### Create Update ClientAccount [PUT]
-`PUT` For Update requests the field `ClientAccountId` is used to check the corresponding value in the URI
+`PUT` For Update requests the field `ClientAccountId` is used to check the corresponding value in the URI. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
@@ -223,7 +229,7 @@ Codes relating to the Client Ledger and related endpoints.
     + Attributes (405 Response)
 
 ### Delta Update ClientAccount [PATCH]
-`PATCH` Delta Update is to be used to update ClientAcount, where the field `ClientAccountId` is the only required field, it cannot be updated but is used to cross reference the Id in the URI
+`PATCH` Delta Update is to be used to update ClientAcount, where the field `ClientAccountId` is the only required field, it cannot be updated but is used to cross reference the Id in the URI. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
@@ -539,7 +545,7 @@ Master Data access to various Data objects
 
 
 ### Create Update Master Data [PUT]
-`PUT` Master Data
+`PUT` Master Data. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
@@ -777,7 +783,7 @@ Codes relating to Nominal Ledger and related endpoints.
     + Attributes (405 Response)
 
 ### Update NominalAccount [PUT]
-`PUT` Update Nominal (General) Ledger Acccount profile.
+`PUT` Update Nominal (General) Ledger Acccount profile. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |NominalAccountId|Nominal Account ID|`string`|9||Required|
@@ -813,7 +819,7 @@ Codes relating to Nominal Ledger and related endpoints.
     + Attributes (405 Response)
 
 ### Delta Update NominalAccount [PATCH]
-`PATCH` Update Nominal (General) Ledger Account profile.
+`PATCH` Update Nominal (General) Ledger Account profile. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |NominalAccountId|Nominal Account ID|`string`|9||Required|
@@ -1593,7 +1599,7 @@ WIP Ledger related reference data.
 Endpoints covering functionality around the match process within ITAS accounting including listing and removing matching information.
 
 ## Remove Match [/Accounting/{TradingEntityId}/Matching/RemoveMatch/{MatchFlag}]
-`PUT` Request the removal of a specific Match Flag. This process is usually required prior to any attempt to reverse a document using the ReverseCashDocument endpoint.
+`PUT` Request the removal of a specific Match Flag. This process is usually required prior to any attempt to reverse a document using the ReverseCashDocument endpoint. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Remove Match [PUT]
 
 <b>URI Parameters</b>
@@ -1921,7 +1927,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 
 
 ### Update Transaction Header [PUT]
-`PUT` Document summary information including properties specific to integration requirements.          
+`PUT` Document summary information including properties specific to integration requirements. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>         
 
 
 |Property|Description|Type|Max Length|Notes|Constraint|
@@ -1958,7 +1964,7 @@ Data Objects and endpoints providing access to accounting transactions generated
     + Attributes (405 Response)
 
 ### Delta Update Transaction Header [PATCH]
-`PATCH` Document summary information including properties specific to integration requirements.
+`PATCH` Document summary information including properties specific to integration requirements. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
@@ -1997,7 +2003,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 Data Objects and endpoints providing access to and creation of Futures and Options Trades.
 
 ## F&O Trade Create [/Contract/{TradingEntityId}/FuturesAndOptions/Trade]
-`POST` Allows Futures and Options Trade to be created
+`POST` Allows Futures and Options Trade to be created. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Create F&O Trade [POST] 
 
 <b>Request Body</b>
@@ -2469,7 +2475,7 @@ Endpoints covering reading data associated with Physical Contracts (trades)
 Endpoints covering an extensive range of functionality around creating, authorising and reversing cash documents.<br />Note that there are options around how currencies are applied but examples provided work to the principle that cash, invoice and reporting currencies are the same.<br />The endpoints do, however, support variations including paying in a differant currency to the original invoice and/or functional (local reporting) currency.<br /><b>Currency Variations:</b><br /><b>DocumentCurrency</b> - Principle currency for the document, essentially the cash (paid/received) currency.<br /><b>InvoiceCurrency</b> - Original/picking/contract currency of the invoice/prepayment being paid/received (if different to DocumentCurrency).<br /><b>FunctionalCurrency</b> - Local/reporting for single-currency accounting scenarios, required when the cash generated off-system and potential discrepencies in rates, timing etc.<br />Contact Hivedome Helpdesk for assistance in working with these variations.
 
 ## AuthoriseForPosting [/Finance/{TradingEntityId}/Cash/AuthoriseForPosting/{DocumentReference}]
-`PUT` Mark a cash document as Authorised to be posted.
+`PUT` Mark a cash document as Authorised to be posted. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### AuthoriseForPosting [PUT]
 
 
@@ -2517,7 +2523,7 @@ None.
     + Attributes (405 Response)
 
 ## PayableManual [/Finance/{TradingEntityId}/Cash/PayableManual]
-`POST` Create 'simple' cash payments between multiple (general and/or client ledger) accounts.  
+`POST` Create 'simple' cash payments between multiple (general and/or client ledger) accounts. * <a href="/#introduction/disclaimer"> (Disclaimer)</a> 
 ### Create PayableManual [POST]
 
 <b>Request Body</b>
@@ -2556,7 +2562,7 @@ None.
     + Attributes (405 Response)
 
 ## PayableOnAccount [/Finance/{TradingEntityId}/Cash/PayableOnAccount]
-`POST` Create part/full cash payments against existing transactions (principally Purchase Invoices/Credit Notes). 
+`POST` Create part/full cash payments against existing transactions (principally Purchase Invoices/Credit Notes). * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Create PayableOnAccount [POST]
 
 <b>Request Body</b>
@@ -2597,7 +2603,7 @@ None.
     + Attributes (405 Response)
 
 ## PayableOnPrePayment [/Finance/{TradingEntityId}/Cash/PayableOnPrePayment]
-`POST` Create part/full cash payments against exisiting Pre-Payment requests (invoices).
+`POST` Create part/full cash payments against exisiting Pre-Payment requests (invoices). * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Create PayableOnPrePayment [POST]
 
 <b>Request Body</b>
@@ -2635,7 +2641,7 @@ None.
 
 
 ## ReceivableManual [/Finance/{TradingEntityId}/Cash/ReceivableManual]
-`POST` Create 'simple' cash receipts between multiple (General and/or Client Ledger) accounts.  
+`POST` Create 'simple' cash receipts between multiple (General and/or Client Ledger) accounts. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>  
 ### Create ReceivableManual [POST]
 
 <b>Request Body</b>
@@ -2674,7 +2680,7 @@ None.
     + Attributes (405 Response)
 
 ## ReceivableOnAccount [/Finance/{TradingEntityId}/Cash/ReceivableOnAccount]
-`POST` Create part/full cash receipts against transactions (principally Sales Invoices/Debit Notes).  
+`POST` Create part/full cash receipts against transactions (principally Sales Invoices/Debit Notes). * <a href="/#introduction/disclaimer"> (Disclaimer)</a>  
 ### Create ReceivableOnAccount [POST]
 
 <b>Request Body</b>
@@ -2715,7 +2721,7 @@ None.
     + Attributes (405 Response)
 
 ## ReceivableOnPrePayment [/Finance/{TradingEntityId}/Cash/ReceivableOnPrePayment]
-`POST` Create part/full cash receipts against exisiting Pre-Payment requests (invoices).
+`POST` Create part/full cash receipts against exisiting Pre-Payment requests (invoices). * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Create ReceivableOnPrePayment [POST]
 
 <b>Request Body</b>
@@ -2752,7 +2758,7 @@ None.
     + Attributes (404 Response)
 
 ## ReverseCashDocument [/Finance/{TradingEntityId}/Cash/ReverseCashDocument/{DocumentReference}]
-`POST` Request a cash (accounting) document be fully reversed.
+`POST` Request a cash (accounting) document be fully reversed. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Create ReverseCashDocument [POST]
 
 <b>URI Parameters</b>
@@ -3112,7 +3118,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 Production Order processing services.
 
 ## MarkOrderAsProcessed [/Inventory/{TradingEntityId}/Physicals/OrderProcessing/MarkOrderAsProcessed/{ReleaseId}]
-`PUT` Trigger call to complete an order (e.g. create stock journals etc)
+`PUT` Trigger call to complete an order (e.g. create stock journals etc). * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Update MarkOrderAsProcessed [PUT]
 
 
@@ -3189,7 +3195,7 @@ None.
     + Attributes (405 Response)
 
 ### Create StockLoading [PUT]
-`PUT` Remove current suggestions for Tanks and Create Stock Loadings
+`PUT` Remove current suggestions for Tanks and Create Stock Loadings. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 <b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
@@ -3287,8 +3293,8 @@ None.
     + Attributes (405 Response)
 
 ### Update StockMovement [PUT]
-`PUT` Full update of Information relating to the processing of the Order. All fields are required.
-
+`PUT` Full update of Information relating to the processing of the Order. All fields are required. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+ 
 <b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
@@ -3346,7 +3352,7 @@ None.
     + Attributes (405 Response)
 
 ### Delta Update StockMovement [PATCH]
-`PATCH` Update Information relating to the processing of the Order, where the field `ReleaseId` is the only required field, it cannot be updated but is used to cross reference the Id in the URI
+`PATCH` Update Information relating to the processing of the Order, where the field `ReleaseId` is the only required field, it cannot be updated but is used to cross reference the Id in the URI. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 <b>Request Body</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
