@@ -208,12 +208,14 @@ Codes relating to the Client Ledger and related endpoints.
         + Data
             + ClientAccountID: ABCDEF.P (string)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
         + Data
             + ClientAccountID: ABCDEF.P (string)
         + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
     
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -283,6 +285,7 @@ Codes relating to the Client Ledger and related endpoints.
         + Data
             + ClientAccountID: ABCDEF.P (string)
         + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
     
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -566,11 +569,13 @@ Master Data access to various Data objects
     + Attributes 
         + Data (MasterDataTradingEntityList)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
         + Data (MasterDataTradingEntityList)
         + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
     
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -804,6 +809,7 @@ Codes relating to Nominal Ledger and related endpoints.
         + Data
             + NominalAccountId: 1234.5678 (string)
         + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -840,6 +846,7 @@ Codes relating to Nominal Ledger and related endpoints.
         + Data
             + NominalAccountId: 1234.5678 (string)
         + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -1950,6 +1957,7 @@ Data Objects and endpoints providing access to accounting transactions generated
         + Data
             + DocumentReference: CN1600001 (string)
         + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -1986,6 +1994,7 @@ Data Objects and endpoints providing access to accounting transactions generated
         + Data
             + DocumentReference: CN1600001 (string)
         + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -2549,6 +2558,7 @@ None.
     + Attributes 
         + Data (CashDocRefResponse)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -2590,6 +2600,7 @@ None.
     + Attributes 
         + Data (CashDocRefResponse)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -2630,6 +2641,7 @@ None.
     + Attributes 
         + Data (CashDocRefResponse)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -2667,6 +2679,7 @@ None.
     + Attributes 
         + Data (CashDocRefResponse)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -2708,6 +2721,7 @@ None.
     + Attributes 
         + Data (CashDocRefResponse)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -2748,6 +2762,7 @@ None.
     + Attributes 
         + Data (CashDocRefResponse)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -2795,6 +2810,7 @@ None.
     + Attributes 
         + Data (CashReversal)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -3223,6 +3239,7 @@ None.
         + Data
             + ReleaseId: 123 (number)
         + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes  
@@ -3339,6 +3356,7 @@ None.
         + Data 
             + ReleaseId: 123 (number)
         + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -3398,6 +3416,7 @@ None.
         + Data 
             + ReleaseId: 123 (number)
         + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
