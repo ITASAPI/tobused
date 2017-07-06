@@ -418,7 +418,7 @@ Global (system-wide) codes
        + Members
             + DocumentStatusId
             + DocumentLocked
-    + PropertyValue (optional, string, `O`)
+    + PropertyValue (optional, string, `L`)
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
@@ -4361,9 +4361,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + EDICode: abc123 (string)
 
 ## DocumentStatus (object)
-+ DocumentStatusId: O (string)
-+ DocumentStatusDescription: Open (string)
-+ DocumentLocked: false (boolean)
++ DocumentStatusId: L (string)
++ DocumentStatusDescription: Locked (string)
++ DocumentLocked: true (boolean)
 
 ## Expense List (object)
 + ExpenseId: 1COES (string)
@@ -5006,13 +5006,13 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DocumentReference: CN1600001 (required, string)
 + EDICode: 123abc (string)
 + InterfaceStatus: Y (string)
-+ DocumentStatusCode: O (string)
++ DocumentStatusCode: L (string)
 
 ## TransactionHeaderDelta (object)
 + DocumentReference: CN1600001 (required, string)
 + EDICode: 123abc (string)
 + InterfaceStatus: Y (string)
-+ DocumentStatusCode: O (string)
++ DocumentStatusCode: L (string)
 
 ## TransactionHeader List (object)
 + PostedDate: `2015-07-01T00:00:00Z` (string)
@@ -5022,7 +5022,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + InterfaceStatus: Y (string)
 + DocumentReversed: PI1600011 (string)
 + AssociateDocument: PI1600012 (string)
-+ DocumentStatusCode: O (string)
++ DocumentStatusCode: L (string)
 
 ## TransactionsMatched (object)
 + MatchFlag: ABC123 (string)
