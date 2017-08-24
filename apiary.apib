@@ -9,7 +9,7 @@ VERSION: 2.14
 **** Warning: at this point, ITAS API does not support asynchronus or multithreading calls for POST, PUT and PATCH requests. Async or multithreading requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
 <br />
 <br />
-<strong>Release notes</strong> (8<sup>th</sup> May 2017)
+<strong>Release notes</strong> (99<sup>th</sup>  2017)
 
 ## New Endpoints
 
@@ -23,7 +23,8 @@ VERSION: 2.14
 ## Updated Endpoints
 
 <ul>
-<li>none</li>
+<li>Accounting-Transactions <b>PostedTransactions</b>: Additional Properties Branch and Creator now incuded in the read<a href="/#reference/accounting-transactions/posted-transaction/read-posted-transaction"> Link</a> </li>
+<li>Accounting-Transactions <b>UnPostedTransactions</b>: Additional Properties Branch and Creator now incuded in the read<a href="/#reference/accounting-transactions/unposted-transaction/read-unposted-transaction"> Link</a> </li>
 <li>none</li>
 </ul>
 <chandiv>** ends ** </div>
@@ -1846,7 +1847,8 @@ Data Objects and endpoints providing access to accounting transactions generated
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |TransactionIsMatched|Is Transaction Matched|`boolean`|5|||
 |PreMatchDocumentReference|Pre Matched Document Reference Code|`string`|9|||
-
+|Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
+|Creator|see <b><a href="/#reference/global-reference-data/useraccount-list">UserAccount List</a></b> endpoint|`object`||||
 
 + Request
     [AccessToken][]
@@ -1903,6 +1905,8 @@ Data Objects and endpoints providing access to accounting transactions generated
 |PromptMonth|Transaction Prompt Month|`datetime`|20|||
 |OptionType|Transaction Option Type|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
+|Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
+|Creator|see <b><a href="/#reference/global-reference-data/useraccount-list">UserAccount List</a></b> endpoint|`object`||||
 
 
 + Request
@@ -4979,6 +4983,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CommodityReference: 1bc123 (string)
 + TransactionIsMatched: true (boolean)
 + PreMatchDocumentReference: CP1503236 (string)
++ Branch (AccountHeader)
++ Creator (UserAccount)
 
 ## PrePaymentDetails (object)
 + InstructionReference: XX123456 (string)
@@ -5288,6 +5294,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PromptMonth: `2015-08-01T00:00:00Z` (string)
 + OptionType: C (string)
 + CommodityReference: reference info (string)
++ Branch (AccountHeader)
++ Creator (UserAccount)
 
 
 ## UserAccount (object)
