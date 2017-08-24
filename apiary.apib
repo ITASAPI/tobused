@@ -298,10 +298,10 @@ Codes relating to the Client Ledger and related endpoints.
     + Attributes (405 Response)
 
 
-## Client Bank Account [/ReferenceData/{TradingEntityId}/ClientLedger/ClientBankAccount/{ClientAccountId}]
+## Client Bank Accounts [/ReferenceData/{TradingEntityId}/ClientLedger/ClientBankAccount/{ClientAccountId}]
 `GET` Bank Accounts associated with Clients.
 
-### Read Client Bank Account [GET]
+### Read Client Bank Accounts [GET]
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ClientAccountId|Client Account ID|`string`|10||Required|
@@ -323,7 +323,8 @@ Codes relating to the Client Ledger and related endpoints.
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
-        + Data (ClientBankAcc)
+        + Data (array [ClientBankAcc])
+        + Pagination (Pagination)
         + Response (200 SuccessResponse)
 
 + Response 400 (application/json; charset=utf-8)
