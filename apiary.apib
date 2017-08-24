@@ -297,6 +297,46 @@ Codes relating to the Client Ledger and related endpoints.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+
+## Client Bank Account [/ReferenceData/{TradingEntityId}/ClientLedger/ClientBankAccount/{ClientAccountId}]
+`GET` Bank Accounts associated with Clients.
+
+### Read Client Bank Account [GET]
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ClientAccountId|Client Account ID|`string`|10||Required|
+|BankAccountName|Bank Account Name|`string`|40|||
+|BankAccountNumber|Bank Account Number|`string`|34|||
+|BankNumber|Bank Number|`number`||||
+|BankBranch|Bank Branch|`number`||||
+|BankSwift|Bank Swift|`string`|50|||
+|NominalCategory|see <b><a href="/#reference/nominal-reference-data/nominalcategory-list/list-nominalcategories">Nominal Category List</a></b> endpoint|`object`||||
+|EDICode|EDI Code|`string`|35|||
+|Status|Status|`string`|1||`O` or `F`|
+
++ Request
+    [AccessToken][]
+    
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + ClientAccountId (required, string, `ABCDEF.P`) ... Code of client account to read.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (ClientBankAcc)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
+  
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
 ## ClientType List [/ReferenceData/{TradingEntityId}/ClientLedger/ClientType/{Property}/{PropertyValue}]
 `GET` User-defined list of codes used for classification purposes on Client Account profile.
 
@@ -938,6 +978,42 @@ Codes relating to Nominal Ledger and related endpoints.
 # Group Physicals Reference Data
 Codes relating to Physicals Trading and related endpoints.
 
+## Business Sector List [/ReferenceData/{TradingEntityId}/Physicals/BusinessSector/{Property}/{PropertyValue}]
+`GET` Market Sectors in Physical Trade.
+### List Business Sectors [GET]
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|SectorId|Sector ID|`string`|4|||
+|SectorDescription|Sector Description|`string`|60|||
+|Status|Report Group Status|`string`|1||`O` or `F`|
+
++ Request
+    [AccessToken][]
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
+    + Property (optional, enum[string]) ... identify property name to filter by 
+       + Members
+            + SectorId (optional, string)
+            + Status (optional, string) 
+    + PropertyValue (optional, string, `WEST`)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (array [BusinessSector List])
+        + Pagination (Pagination)
+        + Response (200 SuccessResponse)
+    
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadPropertyResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
 ## Commodity List [/ReferenceData/{TradingEntityId}/Physicals/Commodity/{Property}/{PropertyValue}]
 `GET` Commodity/Product codes, used to identify goods
 ### List Commodities [GET]
@@ -1147,6 +1223,42 @@ Codes relating to Physicals Trading and related endpoints.
 
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
+
+## Reporting Group List [/ReferenceData/{TradingEntityId}/Physicals/ReportGroup/{Property}/{PropertyValue}]
+`GET` Reporting Group values in both Physical and Commodity.
+### List Reporting Groups [GET]
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ReportGroupId|Report Group ID|`string`|15|||
+|ReportGroupDescription|Report Group Description|`string`|50|||
+|Status|Report Group Status|`string`|1||`O` or `F`|
+
++ Request
+    [AccessToken][]
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
+    + Property (optional, enum[string]) ... identify property name to filter by 
+       + Members
+            + ReportGroupId (optional, string)
+            + Status (optional, string) 
+    + PropertyValue (optional, string, `WHITE`)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (array [ReportGrp List])
+        + Pagination (Pagination)
+        + Response (200 SuccessResponse)
+    
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadPropertyResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
 
 ## Sample List [/ReferenceData/{TradingEntityId}/Physicals/Sample/{Property}/{PropertyValue}]
 `GET` Codes used to identify specific product qualities.
@@ -2005,6 +2117,64 @@ Data Objects and endpoints providing access to accounting transactions generated
 
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
+
+## Transaction Physical Trade [/Accounting/{TradingEntityId}/Transaction/PhysicalTrade/{ContractId}]
+`GET` Details relevent to a Physical Trade referenced on the Posted and UnPosted Transaction Endpoints, with an emphasis on data useful for external consumers of accounting transactions.
+### Read Transaction Physical Trade [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ContractId|Contract ID|`string`|10||Required|
+|ContractType|Contract Type|`string`|1|||
+|ContractDate|Contract Date|`datetime`||||
+|AllocationReference|Allocation Reference|`string`|11|||
+|AssignmentReference|Assignment Reference|`string`|11|||
+|Department|see <b><a href="/#reference/nominal-reference-data/department/read-department">Department</a></b> endpoint|`object`||||
+|Trader|see <b><a href="/#reference/global-reference-data/useraccount-list">UserAccount List</a></b> endpoint|`object`||||
+|ClientReference|Client Reference|`string`|40|||
+|Counterparty|see <b><a href="/#reference/data-object-definitions">Account Header</a></b> object|`object`||||
+|Commodity|see <b><a href="/#reference/physicals-reference-data/commodity-list/list-commodities">Commodity List</a></b> endpoint|`object`||||
+|CommodityGroup|Commodity Group|`string`|3|||
+|CommodityCountry|Commodity Country|`string`|3|||
+|ReportingGroup|see link|`object`||||
+|PaymentTerm|see <b><a href="/#reference/physicals-reference-data/paymentterm-list/list-paymentterms">PaymentTerm List</a></b> endpoint|`object`||||
+|ContractTerm|see <b><a href="/#reference/physicals-reference-data/contract-term-list/list-contractterms">ContractTerm List</a></b> endpoint|`object`||||
+|ContractTermPort|see <b><a href="/#reference/physicals-reference-data/port-list/list-ports">Port List</a></b> endpoint|`object`||||
+|MarketSector|see link|`object`||||
+|PortOfOrigin|see <b><a href="/#reference/physicals-reference-data/port-list/list-ports">Port List</a></b> endpoint|`object`||||
+|PortOfDestination|see <b><a href="/#reference/physicals-reference-data/port-list/list-ports">Port List</a></b> endpoint|`object`||||
+|Terminal|see <b><a href="/#reference/physicals-reference-data/terminal-list">Terminals List</a></b> endpoint|`object`||||
+|Warehouse|see <b><a href="/#reference/data-object-definitions">Account Header</a></b> object|`object`||||
+|WarehouseLocation|see <b><a href="/#reference/physicals-reference-data/port-list/list-ports">Port List</a></b> endpoint|`object`||||
+|VesselReference|Vessel Reference|`string`|30|||
+|BillOfLandingDate|Bill of Landing Date|`datetime`||||
+|BillOfLandingReference|Bill of Landing Reference|`string`|255|||
+|ShipmentPeriod|Shipment Period|`string`|23|||
+|ShipmentStartDate|Shipment Start Date|`datetime`||||
+|ShipmentEndDate|Shipment End Date|`datetime`||||
+|CropYear|Crop Year|`string`|11|||
+
++ Request
+    [AccessToken][]
+    
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.  
+    + ContractId (required, string, `P00004.000`) ... Code for transaction physical trade to read.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (TransactionPhysicalTrade)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
 
 # Group Contract-F&O
 Data Objects and endpoints providing access to and creation of Futures and Options Trades.
@@ -4063,6 +4233,11 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## ApplyMatching (object)
 + TransactionsToMatch (required, array [OnAccountDetailsMatched, OnAccountDetailsMatches])
 
+## BusinessSector List (object)
++ SectorId: WEST (string)
++ SectorDescription: West (string)
++ Status O (string)
+
 ## CashDocRefResponse (object)
 + CashDocRef: abc123456 (string)
 
@@ -4212,6 +4387,17 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + FamilyPaymentLimit: 2000000 (number)
 + FamilyMarketDefaultRiskLimit: 3000000 (number)
 + FamilyCommitmentLimit: 2750000 (number)
+
+## ClientBankAcc (object)
++ ClientAccountId: ABCDEF.P (required, string)
++ BankAccountName: Bank 1 (string)
++ BankAccountNumber: `2121-1212` (string)
++ BankNumber: 12345 (number)
++ BankBranch: 18542 (number)
++ BankSwift: SWIFT2468 (string)
++ NominalCategory (NominalCategory)
++ EDICode: EDI123 (string)
++ Status: O (string)
 
 ## ClientType (object)
 + ClientTypeId: H (string) 
@@ -4809,6 +4995,11 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PrePaymentDetails (required, PrePaymentDetails)
 + AccountDetails (required, array [AccountPostingBankRecDetails, AccountPostingPayDetails])
 
+## ReportGrp List (object)
++ ReportGroupId: WHITE (string)
++ ReportGroupDescription: White Suger (string)
++ Status: O (string)
+
 ## ResultsMessage (object)
 + RequestId: 10001 (string)
 + RequestTime: `2016-07-01T12:20:30Z` (string)
@@ -5030,6 +5221,38 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## TransactionKey (object)
 + TransactionKey: 00040444.P||GBP||20150832||20151003||14576460 (string)
+
+## TransactionPhysicalTrade (object)
++ ContractId: P00004.000 (string)
++ ContractType: P (string)
++ ContactDate: `2015-07-01T00:00:00Z` (string)
++ AllocationReference: S00001.000 (string)
++ AssignmentReference: P00001.000 (string)
++ Department (Department)
++ Trader (UserAccount)
++ ClientReference: AB1234 (string)
++ Counterparty (AccountHeaderC)
++ Commodity (Commodity)
++ CommodityGroup: WHT (string)
++ CommodityCountry: GBP (string)
++ ReportingGroup (ReportGrp List)
++ PaymentTerm (PaymentTerm)
++ ContractTerm (ContractTerm)
++ ContractTermPort (Port List)
++ MarketSector (BusinessSector List)
++ PortOfOrigin (Port List)
++ PortOfDestination (Port List)
++ Terminal (Terminal)
++ Warehouse (AccountHeaderC)
++ WarehouseLocation (Port List)
++ VesselReference: BOAT 2 (string)
++ BillOfLandingDate: `2015-08-01T00:00:00Z` (string)
++ BillOfLandingReference: ABC DEF (string)
++ ShipmentPeriod: JULY15 (string)
++ ShipmentStartDate: `2015-07-20T00:00:00Z` (string)
++ ShipmentEndDate: `2015-07-28T00:00:00Z` (string)
++ CropYear: 2015 (string)
+
 
 ## UniqueNoResponse (object)
 + UniqueId: 123 (number)
