@@ -1050,7 +1050,7 @@ Codes relating to Physicals Trading and related endpoints.
 |EDICode|Commodity EDI Code|`string`|50|||
 |InternalCode|Internal Code|`string`|15|||
 |Status|Commodity Status|`string`|1||`O` or `F`|
-|ReportingGroup|Reporting Group|`string`|15|||
+|ReportingGroupCode|Reporting Group Code|`string`|15|||
 
 + Request
     [AccessToken][]
@@ -1083,6 +1083,7 @@ Codes relating to Physicals Trading and related endpoints.
 
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
+
 
 ## Contract Term List [/ReferenceData/{TradingEntityId}/Physicals/ContractTerm/{Property}/{PropertyValue}]
 `GET` Contract Terms (aka Incoterms) usually setup to represent pre-defined, internationally recognised, commercial terms of contract.
@@ -4507,7 +4508,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CountryCode: MAL (string)
 + EDICode: ABC1234 (string)
 + Status: F (string) 
-+ ReportingGroup: WHITE (string)
++ ReportingGroupCode: WHITE (string)
 
 ## CommodityFullCode (object)
 + CommodityFullCode: CHE||CASO||47||QWE||RTY (required, string)
