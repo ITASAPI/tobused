@@ -1176,6 +1176,8 @@ Codes relating to Physicals Trading and related endpoints.
 |EDICode|Payment Term EDI Code|`string`|20|||
 |Status|Payment Term Status|`string`|1||`O` or `F`|
 |NumberOfDaysCredit |Number of Days Credit|`number`||||
+|OtherCode|Other Code|`string`||||
+
 
 
 + Request
@@ -4881,6 +4883,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + EDICode: abc123 (string)
 + Status: F (string)
 + NumberOfDaysCredit: 30 (number)
++ OtherCode: DEFG987 (string)
 
 ## PaymentTermValueList (object)
 + PaymentTermCode: INV30 (string)
