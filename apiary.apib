@@ -964,6 +964,8 @@ Codes relating to Nominal Ledger and related endpoints.
 |VatRateDescription|VAT Rate ID Description|`string`|40|||
 |VatRate|VAT Rate|`decimal`||||
 |Status|VAT Rate Status|`string`|1||`O` or `F`|
+|CountryCode|Country Code|`string`|3|||
+
 
 + Request
     [AccessToken][]
@@ -5426,6 +5428,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + VatRateDescription: STANDARD RATE GB (string)
 + VatRate: 20 (number)
 + Status: F (string)
++ CountryCode: GB (string)
 
 ## Vessel List (object)
 + VesselId: MV MERSEY FISHER (string)
