@@ -25,7 +25,7 @@ VERSION: 2.14
 <ul>
 <li>Accounting-Transactions <b>Posted Transactions</b>: Additional Properties Branch and Creator now incuded in the read<a href="/#reference/accounting-transactions/posted-transaction/read-posted-transaction"> Link</a> </li>
 <li>Accounting-Transactions <b>UnPosted Transactions</b>: Additional Properties Branch and Creator now incuded in the read<a href="/#reference/accounting-transactions/unposted-transaction/read-unposted-transaction"> Link</a> </li>
-<li>none</li>
+<li>Global Reference Data <b>User Account List</b>: Additional Properties EmailAddress, PhoneNumber and PersonalId are now included in the list<a href="/#reference/global-reference-data/useraccount-list/list-user-accounts"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -525,6 +525,9 @@ Global (system-wide) codes
 |UserAccountId|User Account Initials|`string`|3|||
 |UserAccountName|User Account Username|`string`|255|||
 |UserAccountDescription|User Account Full Name|`string`|40|||
+|EmailAddress|Email Address|`string`|255|||
+|PhoneNumber|Phone Number|`string`|255|||
+|PersonalId|Personal ID|`string`|20|||
 
 
 + Request
@@ -5302,6 +5305,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + UserAccountId: JS (string)
 + UserAccountName: JSMITH (string)
 + UserAccountDescription: Joseph Smith (string)
++ EmailAddress: jsmith@me2you.com (string)
++ PhoneNumber: 01702 433030 (string)
++ PersonalId: 1234P (string)
 
 ## ValuesInContractCcy (object)
 + CurrencyCode: USD (string)
