@@ -1483,6 +1483,11 @@ WIP Ledger related reference data.
 |PrivilegeLevel|Charter Account Privilege Level|`number`|1||`0` to `9`|
 |EDICode|Charter Account EDI Code|`string`|9|||
 |Status|Charter Account Status|`string`|1||`O` or `F`|
+|AreGoodsFinanced|Are Goods Financed|`boolean`|5|||
+|FinanceBankCli|Finance Bank Client|`string`|10|||
+|FinanceBankName|Finance Bank Name|`string`|40|||
+|FinanceBankAccount|Finance Bank Account|`string`|34|||
+|FinanceId|Finance ID|`string`||||
 
 
 + Request
@@ -1532,6 +1537,9 @@ WIP Ledger related reference data.
 |PrivilegeLevel|Charter Acccount Privilege Level|`number`|1||`0` to `9`|
 |EDICode|Charter Account EDI Code|`string`|9|||
 |Status|Charter Account Status|`string`|1||`O` or `F`|
+|AreGoodsFinanced|Are Goods Financed|`boolean`|5|||
+|FinanceBank|see <b><a href="/#reference/client-reference-data/client-bank-accounts/read-client-bank-accounts">Client Bank Accounts</a></b> endpoint|`object`||||
+|FinanceId|Finance ID|`string`||||
 
 + Request
     [AccessToken][]
@@ -4274,6 +4282,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PrivilegeLevel: 5 (number)
 + EDICode: xyz321 (string)
 + Status: F (string)
++ AreGoodsFinanced: true (boolean)
++ FinanceBank (ClientBankAcc)
++ FinanceId: TUID (string)
 
 
 ## Charter List (object)
@@ -4288,6 +4299,11 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PrivilegeLevel: 5 (number)
 + EDICode: xyz321 (string)
 + Status: F (string)
++ AreGoodsFinanced: true (boolean)
++ FinanceBankCli: ABCDEF.P (string)
++ FinanceBankName: ACME Trading Company (string)
++ FinanceBankAccount: `1234-3242-21` (string)
++ FinanceId: TUID (string)
 
 
 ## ClientAccount (object)
@@ -4412,8 +4428,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## ClientBankAcc (object)
 + ClientAccountId: ABCDEF.P (required, string)
-+ BankAccountName: Bank 1 (string)
-+ BankAccountNumber: `2121-1212` (string)
++ BankAccountName: ACME Trading Company (string)
++ BankAccountNumber: `1234-3242-21` (string)
 + BankNumber: 12345 (number)
 + BankBranch: 18542 (number)
 + BankSwift: SWIFT2468 (string)
