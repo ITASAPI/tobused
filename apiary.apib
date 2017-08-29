@@ -1050,6 +1050,7 @@ Codes relating to Physicals Trading and related endpoints.
 |EDICode|Commodity EDI Code|`string`|50|||
 |InternalCode|Internal Code|`string`|15|||
 |Status|Commodity Status|`string`|1||`O` or `F`|
+|ReportingGroup|Reporting Group|`string`|15|||
 
 + Request
     [AccessToken][]
@@ -4506,6 +4507,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CountryCode: MAL (string)
 + EDICode: ABC1234 (string)
 + Status: F (string) 
++ ReportingGroup: WHITE (string)
 
 ## CommodityFullCode (object)
 + CommodityFullCode: CHE||CASO||47||QWE||RTY (required, string)
