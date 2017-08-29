@@ -18,7 +18,6 @@ VERSION: 2.14
 <li>Client Reference Data <b>Client Bank Account</b>: GET Bank Accounts associated with Client,<a href="/#reference/client-reference-data/client-bank-accounts/read-client-bank-accounts"> Link</a></li>
 <li>Physicals Reference Data <b>Business Sector List</b>: GET List of Market Sectors in Physical Trade,<a href="/#reference/physicals-reference-data/business-sector-list/list-business-sectors"> Link</a></li>
 <li>Physicals Reference Data <b>Reporting Group List</b>: GET List of Reporting Group values in both Physical and Commodity,<a href="/#reference/physicals-reference-data/reporting-group-list/list-reporting-groups"> Link</a></li>
-<li>WIP Reference Data <b>Delta Update Charter</b>: PATCH Charter Finance information,<a href="/#reference/physicals-reference-data/reporting-group-list/list-reporting-groups"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
@@ -220,7 +219,7 @@ Codes relating to the Client Ledger and related endpoints.
 + Response 201 (application/json; charset=utf-8)
     + Attributes 
         + Data
-            + ClientAccountId: ABCDEF.P (string)
+            + ClientAccountID: ABCDEF.P (string)
         + Response (201 CreateResponse)
         + Messages (array [201 ErrorMessageDetail])
 
@@ -298,7 +297,7 @@ Codes relating to the Client Ledger and related endpoints.
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
         + Data
-            + ClientAccountId: ABCDEF.P (string)
+            + ClientAccountID: ABCDEF.P (string)
         + Response (200 UpdateResponse)
         + Messages (array [201 ErrorMessageDetail])
     
@@ -1558,46 +1557,6 @@ WIP Ledger related reference data.
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 BadReadResponse)
-
-+ Response 404 (application/json; charset=utf-8)
-    + Attributes (404 Response)
-
-+ Response 405 (application/json; charset=utf-8)
-    + Attributes (405 Response)
-
-
-### Delta Update Charter [PATCH]
-`PATCH` For Update requests the field `CharterId` is used to check the corresponding value in the URI. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
-
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|CharterId|Charter Account ID|`string`|11||Required|
-|AreGoodsFinanced|Are Goods Financed|`boolean`|5|||
-|FinanceBankCli|Finance Bank Client|`string`|10|||
-|FinanceBankName|Finance Bank Name|`string`|40|||
-|FinanceBankAccount|Finance Bank Account|`string`|34|||
-|FinanceId|Finance ID|`string`||||
-
-+ Request (application/json)
-    + Header
-
-            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
-
-    + Attributes (Charter Update)
-
-+ Parameters
-    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
-    + CharterId (required, string, `CHART01.000`) ... Code for charter to update.
-
-+ Response 200 (application/json; charset=utf-8)
-    + Attributes 
-        + Data
-            + CharterId: CHART01.000 (string)
-        + Response (200 UpdateResponse)
-        + Messages (array [201 ErrorMessageDetail])
-    
-+ Response 400 (application/json; charset=utf-8)
-    + Attributes (400 Response)
 
 + Response 404 (application/json; charset=utf-8)
     + Attributes (404 Response)
