@@ -14,18 +14,21 @@ VERSION: 2.14
 ## New Endpoints
 
 <ul>
-<li>Accounting-Transactions <b>Transaction Physical Trade</b>: GET Details relevent to a Physical Trade referenced on the Posted and UnPosted Transaction Endpoints, with an emphasis on data useful for external comsumers of accounting transactions<a href="/#reference/accounting-transactions/transaction-physical-trade/read-transaction-physical-trade"> Link</a></li>
-<li>Client Reference Data <b>Client Bank Account</b>: GET Bank Accounts associated with Client<a href="/#reference/client-reference-data/client-bank-accounts/read-client-bank-accounts"> Link</a></li>
-<li>Physicals Reference Data <b>Business Sector List</b>: GET List of Market Sectors in Physical Trade<a href="/#reference/physicals-reference-data/business-sector-list/list-business-sectors"> Link</a></li>
-<li>Physicals Reference Data <b>Reporting Group List</b>: GET List of Reporting Group values in both Physical and Commodity<a href="/#reference/physicals-reference-data/reporting-group-list/list-reporting-groups"> Link</a></li>
+<li>Accounting-Transactions <b>Transaction Physical Trade</b>: GET Details relevent to a Physical Trade referenced on the Posted and UnPosted Transaction Endpoints, with an emphasis on data useful for external comsumers of accounting transactions,<a href="/#reference/accounting-transactions/transaction-physical-trade/read-transaction-physical-trade"> Link</a></li>
+<li>Client Reference Data <b>Client Bank Account</b>: GET Bank Accounts associated with Client,<a href="/#reference/client-reference-data/client-bank-accounts/read-client-bank-accounts"> Link</a></li>
+<li>Physicals Reference Data <b>Business Sector List</b>: GET List of Market Sectors in Physical Trade,<a href="/#reference/physicals-reference-data/business-sector-list/list-business-sectors"> Link</a></li>
+<li>Physicals Reference Data <b>Reporting Group List</b>: GET List of Reporting Group values in both Physical and Commodity,<a href="/#reference/physicals-reference-data/reporting-group-list/list-reporting-groups"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>Accounting-Transactions <b>Posted Transactions</b>: Additional Properties Branch and Creator now incuded in the read<a href="/#reference/accounting-transactions/posted-transaction/read-posted-transaction"> Link</a> </li>
-<li>Accounting-Transactions <b>UnPosted Transactions</b>: Additional Properties Branch and Creator now incuded in the read<a href="/#reference/accounting-transactions/unposted-transaction/read-unposted-transaction"> Link</a> </li>
-<li>Global Reference Data <b>User Account List</b>: Additional Properties EmailAddress, PhoneNumber and PersonalId are now included in the list<a href="/#reference/global-reference-data/useraccount-list/list-user-accounts"> Link</a></li>
+<li>Accounting-Transactions <b>Posted Transactions</b>: Additional Properties Branch and Creator now incuded in the read,<a href="/#reference/accounting-transactions/posted-transaction/read-posted-transaction"> Link</a> </li>
+<li>Accounting-Transactions <b>UnPosted Transactions</b>: Additional Properties Branch and Creator now incuded in the read,<a href="/#reference/accounting-transactions/unposted-transaction/read-unposted-transaction"> Link</a> </li>
+<li>Global Reference Data <b>User Account List</b>: Additional Properties EmailAddress, PhoneNumber and PersonalId are now included in the list,<a href="/#reference/global-reference-data/useraccount-list/list-user-accounts"> Link</a></li>
+<li>Client Reference Data <b>Client Account List</b>: Additional Property AcceptsNettingInstruction now included in the list,<a href="/#reference/client-reference-data/clientaccount-list/list-clientaccounts"> Link</a></li>
+<li>Client Reference Data <b>Client Account</b>: Addittional Property AcceptsNettingInstruction now included in the read, create and updates,<a href="/#reference/client-reference-data/clientaccount/read-clientaccount"> Link</a></li>
+<li></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -60,6 +63,7 @@ Codes relating to the Client Ledger and related endpoints.
 |CanBeDerivativeClient|Is Client a Derivative Client|`boolean`|5|||
 |CanBeDerivativeBroker|Is Client a Derivative Broker|`boolean`|5|||
 |EDICode|Account EDI Code|`string`|50|||
+|AcceptsNettingInstruction|Accepts Netting Instruction|`boolean`|5|||
 
 
 + Request
@@ -115,6 +119,7 @@ Codes relating to the Client Ledger and related endpoints.
 |GroupAccountMember|Is Client a Group Account Member|`boolean`|5|||
 |HeadOfFamilyAccountCode|Head of Family Account Code|`string`|10|||
 |EDICode|Account EDI Code|`string`|50|||
+|AcceptsNettingInstruction|Accepts Netting Instruction|`boolean`|5|||
 |ContactDetails|see <b><a href="/#reference/data-object-definitions/address">Address</a></b> object|`object`||||
 |<strong>Client Limits</strong>|
 |ClientDateLimitsApproved|Date Client Limits Approved|`datetime`|20|||
@@ -173,6 +178,7 @@ Codes relating to the Client Ledger and related endpoints.
 |GroupAccountMember|Is Client a Group Account Memeber|`boolean`|5|||
 |HeadOfFamilyAccountCode|Head of Family Account Code|`string`|10|||
 |EDICode|Account EDI Code|`string`|50|||
+|AcceptsNettingInstruction|Accepts Netting Instruction|`boolean`|5|||
 |<strong>Contact Details</strong>|
 |AddressLine1|Address Line 1|`string`|60|||
 |AddressLine2|Address Line 2|`string`|60|||
@@ -251,6 +257,7 @@ Codes relating to the Client Ledger and related endpoints.
 |GroupAccountMember|Is Client a Group Account Memeber|`boolean`|5|||
 |HeadOfFamilyAccountCode|Head of Family Account Code|`string`|10|||
 |EDICode|Account EDI Code|`string`|50|||
+|AcceptsNettingInstruction|Accepts Netting Instruction|`boolean`|5|||
 |<strong>Contact Details</strong>|
 |AddressLine1|Address Line 1|`string`|60|||
 |AddressLine2|Address Line 2|`string`|60|||
@@ -4299,6 +4306,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + GroupAccountMember: true (boolean)
 + HeadOfFamilyAccountCode: HEAD.P (string)
 + EDICode: extABCDEF (string) 
++ AcceptsNettingInstruction: true (boolean)
 + ContactDetails (ContactDetails)
 + ClientLimits - Client limits section
     + ClientDateLimitsApproved: `2015-12-01T00:00:00Z` (string)
@@ -4329,6 +4337,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + GroupAccountMember: true (boolean)
 + HeadOfFamilyAccountCode: HEAD.P (string)
 + EDICode: extABCDEF (string) 
++ AcceptsNettingInstruction: true (boolean)
 + AddressLine1: Address Line #1 (string)
 + AddressLine2: Address Line #2 (string) 
 + AddressLine3: Address Line #3 (string) 
@@ -4362,6 +4371,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CanBeDerivativeClient: false (boolean) 
 + CanBeDerivativeBroker: false (boolean) 
 + EDICode: extABCDEF (string)
++ AcceptsNettingInstruction: true (boolean)
 
 ## ClientAccount Update (object)
 + ClientAccountId: ABCDEF.P (required, string) 
@@ -4379,6 +4389,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + GroupAccountMember: true (boolean)
 + HeadOfFamilyAccountCode: HEAD.P (string)
 + EDICode: extABCDEF (string) 
++ AcceptsNettingInstruction: true (boolean)
 + AddressLine1: Address Line #1 (string)
 + AddressLine2: Address Line #2 (string) 
 + AddressLine3: Address Line #3 (string) 
