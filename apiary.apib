@@ -1124,6 +1124,52 @@ Codes relating to Physicals Trading and related endpoints.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+## Commodity [/ReferenceData/{TradingEntityId}/Physicals/Commodity/{CommodityCodePart1}/{CommodityCodePart2}/{CommodityCodePart3}/{CommodityCodePart4}/{CommodityCodePart5}]
+`GET` Commodity/Product codes, used to identify goods
+### Read Commodity [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CommodityCodePart1|Commodity Code|`string`|3|||
+|CommodityCodePart2|Commodity Origin|`string`|6|||
+|CommodityCodePart3|Commodity Grade|`string`|6|||
+|CommodityCodePart4|Commodity Code Section 4|`string`|6|||
+|CommodityCodePart5|Commodity Code Section 5|`string`|6|||
+|CommodityDescription|Commodity Description|`string`|250|||
+|DocumentText|Document Text|`string`|4000|||
+|CommodityGroup|Commodity Group Code|`string`|3|||
+|CountryCode|Commodity Country Code|`string`|3|||
+|EDICode|Commodity EDI Code|`string`|50|||
+|InternalCode|Internal Code|`string`|15|||
+|Status|Commodity Status|`string`|1||`O` or `F`|
+|ReportingGroup|see <b><a href="">Reporting Group List</a></b> endpoint|`object`||||
+
++ Request
+    [AccessToken][]
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + CommodityCodePart1 (required, string, `ORG`) ... Code 1 of commodity to read.
+    + CommodityCodePart2 (string, `WHITE`)
+    + CommodityCodePart3 (string, `FAIRTR`)
+    + CommodityCodePart4 (string, `EXP`)
+    + CommodityCodePart5 (string, `ABC`)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (CommodityRead)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
+  
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
 
 ## Contract Term List [/ReferenceData/{TradingEntityId}/Physicals/ContractTerm/{Property}/{PropertyValue}]
 `GET` Contract Terms (aka Incoterms) usually setup to represent pre-defined, internationally recognised, commercial terms of contract.
@@ -4540,17 +4586,31 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## Commodity (object)
 + CommodityCodePart1: ORG (string)
-+ CommodityCodePart2: `S1-45` (string)
-+ CommodityCodePart3: FAIRT (string)
-+ CommodityCodePart4: QWE (string)
-+ CommodityCodePart5: TY (string)
-+ CommodityDescription: Organic Golden Fairtrade Sugar (string)
-+ DocumentText: Org Golden S1 45 ICUMSA (string)
++ CommodityCodePart2: `WHITE` (string)
++ CommodityCodePart3: FAIRTR (string)
++ CommodityCodePart4: EXP (string)
++ CommodityCodePart5: ABC (string)
++ CommodityDescription: Organic White Fairtrade Export Sugar (string)
++ DocumentText: Org White Fairtrade ICUMSA (string)
 + CommodityGroup: SPL (string)
 + CountryCode: MAL (string)
 + EDICode: ABC1234 (string)
 + Status: F (string) 
 + ReportingGroupCode: WHITE (string)
+
+## CommodityRead (object)
++ CommodityCodePart1: ORG (string)
++ CommodityCodePart2: `WHITE` (string)
++ CommodityCodePart3: FAIRTR (string)
++ CommodityCodePart4: EXP (string)
++ CommodityCodePart5: ABC (string)
++ CommodityDescription: Organic White Fairtrade Export Sugar (string)
++ DocumentText: Org White Fairtrade ICUMSA (string)
++ CommodityGroup: SPL (string)
++ CountryCode: MAL (string)
++ EDICode: ABC1234 (string)
++ Status: F (string) 
++ ReportingGroup (ReportGrp List)
 
 ## CommodityFullCode (object)
 + CommodityFullCode: CHE||CASO||47||QWE||RTY (required, string)
