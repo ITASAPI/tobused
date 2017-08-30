@@ -1130,7 +1130,7 @@ Codes relating to Physicals Trading and related endpoints.
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|CommodityCodePart1|Commodity Code|`string`|3|||
+|CommodityCodePart1|Commodity Code|`string`|3||Required|
 |CommodityCodePart2|Commodity Origin|`string`|6|||
 |CommodityCodePart3|Commodity Grade|`string`|6|||
 |CommodityCodePart4|Commodity Code Section 4|`string`|6|||
@@ -1150,10 +1150,10 @@ Codes relating to Physicals Trading and related endpoints.
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
     + CommodityCodePart1 (required, string, `ORG`) ... Code 1 of commodity to read.
-    + CommodityCodePart2 (string, `WHITE`)
-    + CommodityCodePart3 (string, `FAIRTR`)
-    + CommodityCodePart4 (string, `EXP`)
-    + CommodityCodePart5 (string, `ABC`)
+    + CommodityCodePart2 (optional, string, `WHITE`)
+    + CommodityCodePart3 (optional, string, `FAIRTR`)
+    + CommodityCodePart4 (optional, string, `EXP`)
+    + CommodityCodePart5 (optional, string, `ABC`)
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
