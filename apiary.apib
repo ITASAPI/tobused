@@ -30,7 +30,9 @@ VERSION: 2.14
 <li>Accounting-Transactions <b>UnPosted Transactions</b>: Additional Properties Branch and Creator now incuded in the read,<a href="/#reference/accounting-transactions/unposted-transaction/read-unposted-transaction"> Link</a> </li>
 <li>Global Reference Data <b>User Account List</b>: Additional Properties EmailAddress, PhoneNumber and PersonalId are now included in the list,<a href="/#reference/global-reference-data/useraccount-list/list-user-accounts"> Link</a></li>
 <li>Client Reference Data <b>Client Account List</b>: Additional Property AcceptsNettingInstruction now included in the list,<a href="/#reference/client-reference-data/clientaccount-list/list-clientaccounts"> Link</a></li>
-<li>Client Reference Data <b>Client Account</b>: Addittional Property AcceptsNettingInstruction now included in the read, create and updates,<a href="/#reference/client-reference-data/clientaccount/read-clientaccount"> Link</a></li>
+<li>Client Reference Data <b>Client Account</b>: Addittional Property AcceptsNettingInstruction now included in the read,<a href="/#reference/client-reference-data/clientaccount/read-clientaccount"> Link</a></li>
+<li>Client Reference Data <b>Client Account</b>: Addittional Property AcceptsNettingInstruction now included in the Create/Update,<a href="/#reference/client-reference-data/clientaccount/create-update-clientaccount"> Link</a></li>
+<li>Client Reference Data <b>Client Account</b>: Addittional Property AcceptsNettingInstruction now included in the Delta Update,<a href="/#reference/client-reference-data/clientaccount/delta-update-clientaccount"> Link</a></li>
 <li>WIP Reference Data <b>Charter List</b>: Additional Properties AreGoodsFinanced, FinanceBankCli, FinanceBankName, FinanceBankAccount and FinanceId now included in the list,<a href="/#reference/wip-reference-data/charter-list/list-charter"> Link</a></li>
 <li>WIP Reference Data <b>Charter</b>: Additional Properties AreGoodsFinanced, FinanceBank and FinanceId are now included in the read,<a href="/#reference/wip-reference-data/charter/read-charter"> Link</a></li>
 <li>Physicals Reference Data <b>Commodity List</b>: New Property ReportingGroupCode now included in the list,<a href="/#reference/physicals-reference-data/commodity-list/list-commodities"> Link</a></li>
@@ -89,6 +91,7 @@ Codes relating to the Client Ledger and related endpoints.
             + CanBeDerivativeClient 
             + CanBeDerivativeBroker 
             + EDICode
+            + AcceptsNettingInstruction
     + PropertyValue (optional, string, `O`)
 
 + Response 200 (application/json; charset=utf-8)
