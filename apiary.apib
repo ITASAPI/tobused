@@ -18,9 +18,10 @@ VERSION: 2.14
 <li>Client Reference Data <b>Client Bank Account</b>: GET Bank Accounts associated with Client,<a href="/#reference/client-reference-data/client-bank-accounts/read-client-bank-accounts"> Link</a></li>
 <li>Physicals Reference Data <b>Business Sector List</b>: GET List of Market Sectors in Physical Trade,<a href="/#reference/physicals-reference-data/business-sector-list/list-business-sectors"> Link</a></li>
 <li>Physicals Reference Data <b>Reporting Group List</b>: GET List of Reporting Group values in both Physical and Commodity,<a href="/#reference/physicals-reference-data/reporting-group-list/list-reporting-groups"> Link</a></li>
-<li>WIP Reference Data <b>Delta Update Charter</b>: PATCH Charter Finance information,<a href="/#reference/wip-reference-data/charter/delta-update-charter"> Link</a></li>
+<li>WIP Reference Data <b>Update Charter</b>: PATCH Charter Finance information,<a href="/#reference/wip-reference-data/charter/delta-update-charter"> Link</a></li>
 <li>Nominal Reference Data <b>Vat Rate</b>: GET Codes applied as part of any VAT/GST accounting practice,<a href="/#reference/nominal-reference-data/vat-rate/read-vat-rate"> Link</a></li>
 <li>Physicals Reference Data <b>Commodity</b>: GET Commodity/Product codes information, used to identify goods,<a href="/#reference/physicals-reference-data/commodity/read-commodity"> Link</a></li>
+<li>Inventory-Physicals-Stock Management <b>Update Stock Batch</b>: PATCH Update Stock Batch information</li>
 </ul>
 
 ## Updated Endpoints
@@ -38,7 +39,8 @@ VERSION: 2.14
 <li>Physicals Reference Data <b>Commodity List</b>: New Property ReportingGroupCode now included in the list,<a href="/#reference/physicals-reference-data/commodity-list/list-commodities"> Link</a></li>
 <li>Physicals Reference Data <b>Payment Term List</b>: New Property OtherCode now included in the list,<a href="/#reference/physicals-reference-data/paymentterm-list/list-paymentterms"> Link</a></li>
 <li>Nominal Reference Data <b>Vat Rate List</b>: New Property CountryCode now included in the list,<a href="/#reference/nominal-reference-data/vat-rate-list/list-vatrates"> Link</a></li>
-
+<li>Inventory-Physicals-Stock Management <b>Stock Batch List</b>: New Property BatchAcknowledged now included in the list,<a href="/#reference/inventory-physicals-stock-management/stockbatch-list/list-stockbatches"> Link</a></li>
+<li>Inventory-Physicals-Stock Management <b>Stock Batch</b>: New Property BatchAcknowledged now included in the read,<a href="/#reference/inventory-physicals-stock-management/stockbatch/read-stockbatch"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -1660,7 +1662,7 @@ WIP Ledger related reference data.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-### Delta Update Charter [PATCH]
+### Update Charter [PATCH]
 `PATCH` For Update requests the field `CharterId` is used to check the corresponding value in the URI. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 |Property|Description|Type|Max Length|Notes|Constraint|
@@ -3464,6 +3466,40 @@ Management activities of Stock Units (where represented by WIP Accounts).
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+### Update StockBatch [PATCH]
+`PATCH` Update Stock Batch information. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|StockBatchId|Stock Batch ID|`string`|20||Required|
+|BatchAcknowledged|Batch Acknowledged|`datetime`|20|||
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (StockBatchUpdate)
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + StockBatchId (required, string, `abc123`) ... Code for stock batch to update. 
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data
+            + StockBatchId: abc123 (string)
+        + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
 # Group Inventory-Physicals-Stock Processing
 Production Order processing services.
 
@@ -5238,6 +5274,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + StockUnitCode: W123.XYZ (string)
 + BatchCreateDate: `2015-08-01T00:00:00Z` (string)
 + BatchText: abc (string)
++ BatchAcknowledged: `2015-08-02T00:00:00Z` (string)
+
+## StockBatchUpdate (object)
++ StockBatchId: abc123 (string)
 + BatchAcknowledged: `2015-08-02T00:00:00Z` (string)
 
 ## StockLoading (object)
