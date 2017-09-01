@@ -3401,6 +3401,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 |StockUnitCode|Stock Unit Code|`string`|11|||
 |BatchCreateDate|Date Batch Created|`datetime`|20|||
 |BatchText|Batch Text|`string`|1000|||
+|BatchAcknowledged|Batch Acknowledged|`datetime`|20|||
 
 
 + Request
@@ -3439,6 +3440,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 |StockUnitCode|see <b><a href="/#reference/wip-reference-data/stockunit">StockUnit</a></b> endpoint|`object`||||
 |BatchCreateDate|Date Batch Created|`datetime`|20|||
 |BatchText|Batch Text|`string`|1000|||
+|BatchAcknowledged|Batch Acknowledged|`datetime`|20|||
 
 
 + Request
@@ -5229,12 +5231,14 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + StockUnitCode (StockUnit)
 + BatchCreateDate: `2015-08-01T00:00:00Z` (string)
 + BatchText: abc (string)
++ BatchAcknowledged: `2015-08-02T00:00:00Z` (string)
 
 ## StockBatch List (object)
 + StockBatchId: abc123 (string)
 + StockUnitCode: W123.XYZ (string)
 + BatchCreateDate: `2015-08-01T00:00:00Z` (string)
 + BatchText: abc (string)
++ BatchAcknowledged: `2015-08-02T00:00:00Z` (string)
 
 ## StockLoading (object)
 + ReleaseId: 123 (number)
