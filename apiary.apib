@@ -40,7 +40,7 @@ VERSION: 2.14
 <li>Physicals Reference Data <b>Payment Term List</b>: New Property OtherCode now included in the list,<a href="/#reference/physicals-reference-data/paymentterm-list/list-paymentterms"> Link</a></li>
 <li>Nominal Reference Data <b>Vat Rate List</b>: New Property CountryCode now included in the list,<a href="/#reference/nominal-reference-data/vat-rate-list/list-vatrates"> Link</a></li>
 <li>Inventory-Physicals-Stock Management <b>Stock Batch List</b>: New Property BatchAcknowledged now included in the list,<a href="/#reference/inventory-physicals-stock-management/stockbatch-list/list-stockbatches"> Link</a></li>
-<li>Inventory-Physicals-Stock Management <b>Stock Batch</b>: New Property BatchAcknowledged now included in the read,<a href="/#reference/inventory-physicals-stock-management/stockbatch/read-stockbatch"> Link</a></li>
+<li>Inventory-Physicals-Stock Management <b>Stock Batch</b>: New Property BatchAcknowledgedDate now included in the read,<a href="/#reference/inventory-physicals-stock-management/stockbatch/read-stockbatch"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -3403,7 +3403,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 |StockUnitCode|Stock Unit Code|`string`|11|||
 |BatchCreateDate|Date Batch Created|`datetime`|20|||
 |BatchText|Batch Text|`string`|1000|||
-|BatchAcknowledged|Batch Acknowledged|`datetime`|20|||
+|BatchAcknowledgedDate|Batch Acknowledged Date|`datetime`|20|||
 
 
 + Request
@@ -3442,7 +3442,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 |StockUnitCode|see <b><a href="/#reference/wip-reference-data/stockunit">StockUnit</a></b> endpoint|`object`||||
 |BatchCreateDate|Date Batch Created|`datetime`|20|||
 |BatchText|Batch Text|`string`|1000|||
-|BatchAcknowledged|Batch Acknowledged|`datetime`|20|||
+|BatchAcknowledgedDate|Batch Acknowledged Date|`datetime`|20|||
 
 
 + Request
@@ -3471,7 +3471,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |StockBatchId|Stock Batch ID|`string`|20||Required|
-|BatchAcknowledged|Batch Acknowledged|`datetime`|20|||
+|BatchAcknowledgedDate|Batch Acknowledged Date|`datetime`|20|||
 
 + Request (application/json)
     + Header
@@ -5269,18 +5269,18 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + StockUnitCode (StockUnit)
 + BatchCreateDate: `2015-08-01T00:00:00Z` (string)
 + BatchText: abc (string)
-+ BatchAcknowledged: `2015-08-02T00:00:00Z` (string)
++ BatchAcknowledgedDate: `2015-08-02T00:00:00Z` (string)
 
 ## StockBatch List (object)
 + StockBatchId: abc123 (string)
 + StockUnitCode: W123.XYZ (string)
 + BatchCreateDate: `2015-08-01T00:00:00Z` (string)
 + BatchText: abc (string)
-+ BatchAcknowledged: `2015-08-02T00:00:00Z` (string)
++ BatchAcknowledgedDate: `2015-08-02T00:00:00Z` (string)
 
 ## StockBatchUpdate (object)
 + StockBatchId: abc123 (string)
-+ BatchAcknowledged: `2015-08-02T00:00:00Z` (string)
++ BatchAcknowledgedDate: `2015-08-02T00:00:00Z` (string)
 
 ## StockLoading (object)
 + ReleaseId: 123 (number)
