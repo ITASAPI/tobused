@@ -1177,6 +1177,49 @@ Codes relating to Physicals Trading and related endpoints.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+## CommodityFullCode [/ReferenceData/{TradingEntityId}/Physicals/Commodity/{CommodityFullCode}]
+`GET` Commodity/Product codes, used to identify goods
+### Read Commodity by Full Code [GET]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CommodityCodePart1|Commodity Code|`string`|3||Required|
+|CommodityCodePart2|Commodity Origin|`string`|6|||
+|CommodityCodePart3|Commodity Grade|`string`|6|||
+|CommodityCodePart4|Commodity Code Section 4|`string`|6|||
+|CommodityCodePart5|Commodity Code Section 5|`string`|6|||
+|CommodityDescription|Commodity Description|`string`|250|||
+|DocumentText|Document Text|`string`|4000|||
+|CommodityGroup|Commodity Group Code|`string`|3|||
+|Country|see <b><a href="/#reference/global-reference-data/country-list/list-countries">Countries List</a></b> endpoint|`object`||||
+|EDICode|Commodity EDI Code|`string`|50|||
+|InternalCode|Internal Code|`string`|15|||
+|Status|Commodity Status|`string`|1||`O` or `F`|
+|ReportingGroup|see <b><a href="">Reporting Group List</a></b> endpoint|`object`||||
+
++ Request
+    [AccessToken][]
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + CommodityCodeFullCode (required, string, `ORG||WHITE||FAIRTR||EXP||ABC`) ... CommodityFullCode to read.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (CommodityRead)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
+  
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
 
 ## Contract Term List [/ReferenceData/{TradingEntityId}/Physicals/ContractTerm/{Property}/{PropertyValue}]
 `GET` Contract Terms (aka Incoterms) usually setup to represent pre-defined, internationally recognised, commercial terms of contract.
