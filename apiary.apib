@@ -1143,6 +1143,7 @@ Codes relating to Physicals Trading and related endpoints.
 |CommodityCodePart3|Commodity Grade|`string`|6|||
 |CommodityCodePart4|Commodity Code Section 4|`string`|6|||
 |CommodityCodePart5|Commodity Code Section 5|`string`|6|||
+|CommodityFullCode|Commodity Full Code|`string`|35|||
 |CommodityDescription|Commodity Description|`string`|250|||
 |DocumentText|Document Text|`string`|4000|||
 |CommodityGroup|Commodity Group Code|`string`|3|||
@@ -1184,7 +1185,8 @@ Codes relating to Physicals Trading and related endpoints.
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|CommodityCodePart1|Commodity Code|`string`|3||Required|
+|CommodityFullCode|Commodity Full Code|`string`|35||Required|
+|CommodityCodePart1|Commodity Code|`string`|3|||
 |CommodityCodePart2|Commodity Origin|`string`|6|||
 |CommodityCodePart3|Commodity Grade|`string`|6|||
 |CommodityCodePart4|Commodity Code Section 4|`string`|6|||
@@ -1207,7 +1209,7 @@ Codes relating to Physicals Trading and related endpoints.
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
-        + Data (CommodityRead)
+        + Data (CommodityFullCodeRead)
         + Response (200 SuccessResponse)
 
 + Response 400 (application/json; charset=utf-8)
@@ -4673,7 +4675,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## Commodity (object)
 + CommodityCodePart1: ORG (string)
-+ CommodityCodePart2: `WHITE` (string)
++ CommodityCodePart2: WHITE (string)
 + CommodityCodePart3: FAIRTR (string)
 + CommodityCodePart4: EXP (string)
 + CommodityCodePart5: ABC (string)
@@ -4692,6 +4694,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CommodityCodePart3: FAIRTR (string)
 + CommodityCodePart4: EXP (string)
 + CommodityCodePart5: ABC (string)
++ CommodityFullCode: ORG||WHITE||FAIRTR||EXP||ABC (string)
 + CommodityDescription: Organic White Fairtrade Export Sugar (string)
 + DocumentText: Org White Fairtrade ICUMSA (string)
 + CommodityGroup: SPL (string)
@@ -4703,6 +4706,22 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## CommodityFullCode (object)
 + CommodityFullCode: CHE||CASO||47||QWE||RTY (required, string)
+
+## CommodityFullCodeRead (object)
++ CommodityFullCode: ORG||WHITE||FAIRTR||EXP||ABC (string)
++ CommodityCodePart1: ORG (string)
++ CommodityCodePart2: WHITE (string)
++ CommodityCodePart3: FAIRTR (string)
++ CommodityCodePart4: EXP (string)
++ CommodityCodePart5: ABC (string)
++ CommodityDescription: Organic White Fairtrade Export Sugar (string)
++ DocumentText: Org White Fairtrade ICUMSA (string)
++ CommodityGroup: SPL (string)
++ CountryCode (Country)
++ EDICode: ABC1234 (string)
++ InternalCode: ABCIntern (string)
++ Status: F (string) 
++ ReportingGroup (ReportGrp List)
 
 ## CommodityValueList (object)
 + CommodityFullCode: CHE||CASO||47||QWE||RTY (string)
