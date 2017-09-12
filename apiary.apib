@@ -37,7 +37,7 @@ VERSION: 2.14
 <li>Client Reference Data <b>Client Account</b>: Addittional Property AcceptsNettingInstruction now included in the Delta Update,<a href="/#reference/client-reference-data/clientaccount/delta-update-clientaccount"> Link</a></li>
 <li>WIP Reference Data <b>Charter List</b>: Additional Properties AreGoodsFinanced, FinanceBankCli, FinanceBankName, FinanceBankAccount and FinanceId now included in the list,<a href="/#reference/wip-reference-data/charter-list/list-charter"> Link</a></li>
 <li>WIP Reference Data <b>Charter</b>: Additional Properties AreGoodsFinanced, FinanceBank and FinanceId are now included in the read,<a href="/#reference/wip-reference-data/charter/read-charter"> Link</a></li>
-<li>Physicals Reference Data <b>Commodity List</b>: New Property ReportingGroupCode now included in the list,<a href="/#reference/physicals-reference-data/commodity-list/list-commodities"> Link</a></li>
+<li>Physicals Reference Data <b>Commodity List</b>: New Properties ReportingGroupCode and CommodityFullCode now included in the list,<a href="/#reference/physicals-reference-data/commodity-list/list-commodities"> Link</a></li>
 <li>Physicals Reference Data <b>Payment Term List</b>: New Property OtherCode now included in the list,<a href="/#reference/physicals-reference-data/paymentterm-list/list-paymentterms"> Link</a></li>
 <li>Nominal Reference Data <b>Vat Rate List</b>: New Property CountryCode now included in the list,<a href="/#reference/nominal-reference-data/vat-rate-list/list-vatrates"> Link</a></li>
 <li>Inventory-Physicals-Stock Management <b>Stock Batch List</b>: New Property BatchAcknowledged now included in the list,<a href="/#reference/inventory-physicals-stock-management/stockbatch-list/list-stockbatches"> Link</a></li>
@@ -1091,6 +1091,7 @@ Codes relating to Physicals Trading and related endpoints.
 |CommodityCodePart3|Commodity Grade|`string`|6|||
 |CommodityCodePart4|Commodity Code Section 4|`string`|6|||
 |CommodityCodePart5|Commodity Code Section 5|`string`|6|||
+|CommodityFullCode|`Composite Key` delimited by double pipe "&#124;&#124;"|`string`|50|Example <b><a href="/#reference/composite-key-examples/commodityfullcode">Composite Key</a></b>||
 |CommodityDescription|Commodity Description|`string`|250|||
 |DocumentText|Document Text|`string`|4000|||
 |CommodityGroup|Commodity Group Code|`string`|3|||
@@ -1113,6 +1114,7 @@ Codes relating to Physicals Trading and related endpoints.
             + CommodityCodePart3 (optional, string)
             + CommodityCodePart4 (optional, string)
             + CommodityCodePart5 (optional, string)
+            + CommodityFullCode (optional, string)
             + CommodityGroup (optional, string)
             + EDICode (optional, string)
     + PropertyValue (optional, string, `F`)
@@ -4679,6 +4681,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CommodityCodePart3: FAIRTR (string)
 + CommodityCodePart4: EXP (string)
 + CommodityCodePart5: ABC (string)
++ CommodityFullCode: ORG||WHITE||FAIRTR||EXP||ABC (string)
 + CommodityDescription: Organic White Fairtrade Export Sugar (string)
 + DocumentText: Org White Fairtrade ICUMSA (string)
 + CommodityGroup: SPL (string)
@@ -4705,7 +4708,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ReportingGroup (ReportGrp List)
 
 ## CommodityFullCode (object)
-+ CommodityFullCode: CHE||CASO||47||QWE||RTY (required, string)
++ CommodityFullCode: ORG||WHITE||FAIRTR||EXP||ABC (required, string)
 
 ## CommodityFullCodeRead (object)
 + CommodityFullCode: ORG||WHITE||FAIRTR||EXP||ABC (string)
