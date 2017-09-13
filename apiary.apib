@@ -2042,7 +2042,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |Expense|see <b><a href="/#reference/nominal-reference-data/expense-list/list-expenses">Expense</a></b> endpoint|`object`||||
 |Department|see <b><a href="/#reference/nominal-reference-data/department">Department</a></b> endpoint|`object`||||
 |PaymentTerm|see <b><a href="/#reference/physicals-reference-data/paymentterm-list">PaymentTerm</a></b> endpoint|`object`||||
-|VatRate|see <b><a href="/#reference/nominal-reference-data/vat-rate-list">VATRate</a></b> endpoint|`object`||||
+|VatRate|see <b><a href="/#reference/nominal-reference-data/vat-rate/read-vat-rate">VATRate</a></b> endpoint|`object`||||
 |VatTurnover|VAT Turnover|`decimal`||||
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
@@ -2102,7 +2102,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |Expense|see <b><a href="/#reference/nominal-reference-data/expense-list/list-expenses">Expense</a></b> endpoint|`object`||||
 |Department|see <b><a href="/#reference/nominal-reference-data/department">Department</a></b> endpoint|`object`||||
 |PaymentTerm|see <b><a href="/#reference/physicals-reference-data/paymentterm-list">PaymentTerm</a></b> endpoint|`object`||||
-|VatRate|see <b><a href="/#reference/nominal-reference-data/vat-rate-list">VATRate</a></b> endpoint|`object`||||
+|VatRate|see <b><a href="/#reference/nominal-reference-data/vat-rate/read-vat-rate">VATRate</a></b> endpoint|`object`||||
 |VatTurnover|VAT Turnover|`decimal`||||
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
@@ -5269,7 +5269,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Expense (Expense List)
 + Department (Department)
 + PaymentTerm (PaymentTerm)
-+ VatRate (VATRate)
++ VatRate (VatRateRead)
 + VatTurnover: 11.1 (number)
 + ClientReference: fmbnj (string)
 + Narrative: `WEEKEND/MIDNIGHT - VESSEL, 153` (string)
@@ -5588,7 +5588,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Expense (Expense List)
 + Department (Department)
 + PaymentTerm (PaymentTerm)
-+ VatRate (VATRate)
++ VatRate (VatRateRead)
 + VatTurnover: 11.1 (number)
 + ClientReference: abc123 (string)
 + Narrative: Reversal of SI1501924 (string)
