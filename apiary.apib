@@ -2014,7 +2014,7 @@ None.
 # Group Accounting-Transactions
 Data Objects and endpoints providing access to accounting transactions generated through ITAS processes.
 
-## Additional Invoicing Details [/Accounting/{TradingEntityId}/Transaction/AdditionalInvDetails/{DocumentReference}]
+## Additional Document Invoicing Details [/Accounting/{TradingEntityId}/Transaction/AdditionalDocInvDetails/{DocumentReference}]
 `GET` Details associated with external use of invoices
 ### Read Additional Invoicing Details [GET]
 
@@ -2057,7 +2057,55 @@ Data Objects and endpoints providing access to accounting transactions generated
     + Attributes (404 Response)
 
 + Response 405 (application/json; charset=utf-8)
-    + Attributes (405 Response)   
+    + Attributes (405 Response)
+
+
+## Additional Invoicing Details [/Accounting/{TradingEntityId}/Transaction/AdditionalInvDetails/{InvoiceDetailId}]
+`PATCH` Update Details associated with external use of invoices
+### Update Additional Invoicing Details [PATCH]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|InvoiceDetailId|Invoice Detail Id|`number`|||Required|
+|Void|Void|`boolean`|5|||
+|VoidMemo|Void Memo|`string`|100|||
+|Token|Token|`string`|255|||
+|EnvelopeId|Envelope Id|`number`||||
+|CounterpartyEnvelopeId|Counterparty Envelope Id|`number`||||
+|CounterpartyId|CounterpartyId|`number`||||
+|Acknowledged|Is Acknowldged|`boolean`|5|||
+|StatusTimeStamp|Status Time Stamp|`datetime`||||
+|Status|Status |`string`|20|||
+|TrackId|Track Id|`string`|20|||
+|OneTimePassword|One Time Password|`string`|30|||
+|ConfirmCode|ConfirmCode|`string`|30|||
+
++ Request
+    [AccessToken][]
+  
+    + Attributes (AdditionalInvDetailsUpdate)
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + DocumentReference (required, number, `10`) ... Code for additional invoicing details to read.
+
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data
+            + InvoiceDetailId: 10 (number)
+        + Response (200 UpdateResponse)
+        + Messages (array [201 ErrorMessageDetail])
+
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
 
 
 ## Posted Transaction [/Accounting/{TradingEntityId}/Transaction/PostedTransaction/{DocumentReference}]
@@ -4536,6 +4584,22 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + TrackId: YNBCVW742 (string)
 + OneTimePassword: JohnSmith1234 (string)
 + ConfirmCode: 1234ABC (string)
+
+## AdditionalInvDetailsUpdate (object)
++ InvoiceDetailId: 10 (number)
++ Void: true (boolean)
++ VoidMemo: MemoABC (string)
++ Token: `88868718-bd78-42e9-b78a-1f99dc9999f9` (string)
++ EnvelopeId: 50 (number)
++ CounterpartyEnvelopeId: 35 (number)
++ CounterpartyId: 2 (number)
++ Acknowledged: true (boolean)
++ StatusTimeStamp: `2015-12-01T05:35:00Z` (string)
++ Status: Complete (string)
++ TrackId: YNBCVW742 (string)
++ OneTimePassword: JohnSmith1234 (string)
++ ConfirmCode: 1234ABC (string)
+
 
 ## ApplyMatching (object)
 + TransactionsToMatch (required, array [OnAccountDetailsMatched, OnAccountDetailsMatches])
