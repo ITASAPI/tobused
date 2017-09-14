@@ -2014,13 +2014,13 @@ None.
 # Group Accounting-Transactions
 Data Objects and endpoints providing access to accounting transactions generated through ITAS processes.
 
-## Documents Additional Invoicing Details [/Accounting/{TradingEntityId}/Transaction/DocAdditionalInvDetail/{DocumentReference}]
-`GET` Details associated with external use of invoices
-### Read Documents Additional Invoicing Details [GET]
+## Additional Invoicing Details List [/Accounting/{TradingEntityId}/Transaction/AdditionalInvDetailList/{Property}/{PropertyValue}]
+`GET` List Details associated with external use of invoices
+### List Additional Invoicing Details [GET]
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|DocumentReference|Transaction Document Reference|`string`|9||Required|
+|DocumentReference|Transaction Document Reference|`string`|9|||
 |InvoiceDetailId|Invoice Detail Id|`number`||||
 |SerialNumber|Serial Number|`number`||||
 |SquenceNumber|Sequence Number|`string`|50|||
@@ -2039,14 +2039,22 @@ Data Objects and endpoints providing access to accounting transactions generated
 
 + Request
     [AccessToken][]
-    
+
+
 + Parameters
-    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
-    + DocumentReference (required, string, `PI1500000`) ... Code for additional invoicing details to read.
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
+    + Property (optional, enum[string]) ... identify property name to filter by 
+       + Members
+            + DocumentReference (optional, string)
+            + InvoiceDetailId (optional, string) 
+            + SerialNo (optional, string)
+            + SequenceNo (optional, string)
+            + Void (optional, string)
+    + PropertyValue (optional, string, `PI1500000`)
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
-        + Data (array [AdditionalInvoiceDet])
+        + Data (array[AdditionalInvoiceDet])
         + Pagination (Pagination)
         + Response (200 SuccessResponse)
 
