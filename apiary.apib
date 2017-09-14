@@ -2014,6 +2014,53 @@ None.
 # Group Accounting-Transactions
 Data Objects and endpoints providing access to accounting transactions generated through ITAS processes.
 
+## Additional Invoicing Details [/Accounting/{TradingEntityId}/Transaction/AdditionalInvDetails/{DocumentReference}]
+`GET` Details associated with external use of invoices
+### Read Additional Invoicing Details
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|DocumentReference|Transaction Document Reference|`string`|9||Required|
+|InvoiceDetailId|Invoice Detail Id|`number`||||
+|SerialNumber|Serial Number|`number`||||
+|SquenceNumber|Sequence Number|`string`|50|||
+|Void|Void|`boolean`|5|||
+|VoidMemo|Void Memo|`string`|100|||
+|Token|Token|`string`|255|||
+|EnvelopeId|Envelope Id|`number`||||
+|CounterpartyEnvelopeId|Counterparty Envelope Id|`number`||||
+|CounterpartyId|CounterpartyId|`number`||||
+|Acknowledged|Is Acknowldged|`boolean`|5|||
+|StatusTimeStamp|Status Time Stamp|`datetime`||||
+|Status|Status |`string`|20|||
+|TrackId|Track Id|`string`|20|||
+|OneTimePassword|One Time Password|`string`|30|||
+|ConfirmCode|ConfirmCode|`string`|30|||
+
++ Request
+    [AccessToken][]
+    
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + DocumentReference (required, string, `PI1500000`) ... Code for additional invoicing details to read.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (array [AdditionalInvoiceDet])
+        + Pagination (Pagination)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
+
 ## Posted Transaction [/Accounting/{TradingEntityId}/Transaction/PostedTransaction/{DocumentReference}]
 `GET` Provides access to full accounting ledger by Document Reference.
 ### Read Posted Transaction [GET]
@@ -4113,6 +4160,7 @@ A multipurpose object used by several endpoints
 + Response 200 (application/json; charset=utf-8)
 + Attributes (AccountPostingDetails)
 
+
 ## Address [/Address]
 A multipurpose object used by several endpoints. 
 
@@ -4471,6 +4519,24 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ExpenseCode: CASHOUT (required, string)
 + DepartmentCode: BRL (required, string)
 + AmountInDocumentCurrency: 4615.68 (required, number)
+
+## AdditionalInvoiceDet (object)
++ DocumentReference: PI1500000 (required, string)
++ InvoiceDetailId: 10 (number)
++ SerialNumber: 5 (number)
++ SequenceNumber: A000001 (string)
++ Void: true (boolean)
++ VoidMemo: MemoABC (string)
++ Token: 88868718-bd78-42e9-b78a-1f99dc9999f9 (string)
++ EnvelopeId: 50 (number)
++ CounterpartyEnvelopeId: 35 (number)
++ CounterpartyId: 2 (number)
++ Acknowledged: true (number)
++ StatusTimeStamp: `2015-12-01T05:35:00Z` (string)
++ Status: Complete (string)
++ TrackId: YNBCVW742 (string)
++ OneTimePassword: JohnSmith1234 (string)
++ ConfirmCode: 1234ABC (string)
 
 ## ApplyMatching (object)
 + TransactionsToMatch (required, array [OnAccountDetailsMatched, OnAccountDetailsMatches])
