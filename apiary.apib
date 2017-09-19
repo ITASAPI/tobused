@@ -1165,12 +1165,12 @@ Codes relating to Physicals Trading and related endpoints.
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|CommodityFullCode|`Composite Key` delimited by double pipe "&#124;&#124;"|`string`|50|Example <b><a href="/#reference/composite-key-examples/commodityfullcode">Composite Key</a></b>|Required|
 |CommodityCodePart1|Commodity Code|`string`|3|||
 |CommodityCodePart2|Commodity Origin|`string`|6|||
 |CommodityCodePart3|Commodity Grade|`string`|6|||
 |CommodityCodePart4|Commodity Code Section 4|`string`|6|||
 |CommodityCodePart5|Commodity Code Section 5|`string`|6|||
+|CommodityFullCode|`Composite Key` delimited by double pipe "&#124;&#124;"|`string`|50|Example <b><a href="/#reference/composite-key-examples/commodityfullcode">Composite Key</a></b>|Required|
 |CommodityDescription|Commodity Description|`string`|250|||
 |DocumentText|Document Text|`string`|4000|||
 |CommodityGroup|Commodity Group Code|`string`|3|||
@@ -4819,12 +4819,12 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CommodityFullCode: ORG||WHITE||FAIRTR||EXP||ABC (required, string)
 
 ## CommodityFullCodeRead (object)
-+ CommodityFullCode: ORG||WHITE||FAIRTR||EXP||ABC (string)
 + CommodityCodePart1: ORG (string)
 + CommodityCodePart2: WHITE (string)
 + CommodityCodePart3: FAIRTR (string)
 + CommodityCodePart4: EXP (string)
 + CommodityCodePart5: ABC (string)
++ CommodityFullCode: ORG||WHITE||FAIRTR||EXP||ABC (string)
 + CommodityDescription: Organic White Fairtrade Export Sugar (string)
 + DocumentText: Org White Fairtrade ICUMSA (string)
 + CommodityGroup: SPL (string)
