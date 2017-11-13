@@ -1,27 +1,27 @@
 FORMAT: 1A
 HOST: http://itas.apiary.io/
-VERSION: 2.15
+VERSION: 2.16
 
-# ITAS API 2.15
+# ITAS API 2.16
 
 ## Disclaimer
 
 **** Warning: at this point, ITAS API does not support asynchronus or multithreading calls for POST, PUT and PATCH requests. Async or multithreading requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
 <br />
 <br />
-<strong>Release notes</strong> (18<sup>th</sup> October 2017)
+<strong>Release notes</strong> (16<sup>th</sup> November 2017)
 
 ## New Endpoints
 
 <ul>
-<li>Accounting-Transactions <b>Additional Invoicing Details List</b>: GET List of Details associated with external use of Invoices,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
-<li>Accounting-Transactions <b>Additional Invoicing Details</b>: PATCH Update Details associated with external use of Invoices,<a href="/#reference/accounting-transactions/additional-invoicing-details"> Link</a></li>
+<li>Accounting-Transactions <b>Authorise For Posting</b>: Mark a non-cash documment as Authorised to be posted,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>None</li>
+<li>Accounting-Transactions <b>Posted Transaction</b>: New properties AssociateClient and PLVatCode added to read,<a href="/#reference/accounting-transactions/posted-transaction"> Link</a></li>
+<li>Accounting-Transactions <b>UnPosted Transaction</b>: New properties AssociateClient and PLVatCode added to read,<a href="/#reference/accounting-transactions/unposted-transaction"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -2096,6 +2096,55 @@ Data Objects and endpoints providing access to accounting transactions generated
     + Attributes (405 Response)
 
 
+## AuthoriseForPosting [/Accounting/{TradingEntityId}/Transaction/AuthoriseForPosting/{DocumentReference}]
+`PUT` Mark a non-cash document as Authorised to be posted. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+### AuthoriseForPosting [PUT]
+
+
+<strong>URI Parameters</strong>
+
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|DocumentReference|Document Reference|`string`|9||Required|
+
+<strong>Body Parameters</strong>
+<br />
+None.
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + DocumentReference (required, string, `SA1515151`)
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Body 
+    
+            {
+                none
+            }
+
+
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data
+            + DocumentReference: SA1515151 (string)
+        + Response (200 UpdateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
 ## Posted Transaction [/Accounting/{TradingEntityId}/Transaction/PostedTransaction/{DocumentReference}]
 `GET` Provides access to full accounting ledger by Document Reference.
 ### Read Posted Transaction [GET]
@@ -2136,6 +2185,8 @@ Data Objects and endpoints providing access to accounting transactions generated
 |PreMatchDocumentReference|Pre Matched Document Reference Code|`string`|9|||
 |Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
 |Creator|see <b><a href="/#reference/global-reference-data/useraccount-list">UserAccount List</a></b> endpoint|`object`||||
+|AssociateClient|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
+|PLVatCode|see <b><a href="/#reference/nominal-reference-data/vat-rate/read-vat-rate">VATRate</a></b> endpoint|`object`||||
 
 + Request
     [AccessToken][]
@@ -2194,6 +2245,8 @@ Data Objects and endpoints providing access to accounting transactions generated
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
 |Creator|see <b><a href="/#reference/global-reference-data/useraccount-list">UserAccount List</a></b> endpoint|`object`||||
+|AssociateClient|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
+|PLVatCode|see <b><a href="/#reference/nominal-reference-data/vat-rate/read-vat-rate">VATRate</a></b> endpoint|`object`||||
 
 
 + Request
@@ -5389,6 +5442,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PreMatchDocumentReference: CP1503236 (string)
 + Branch (AccountHeader)
 + Creator (UserAccount)
++ AssociateClient (AccountHeader)
++ PLVatCode (VatRateRead)
 
 ## PrePaymentDetails (object)
 + InstructionReference: XX123456 (string)
@@ -5706,6 +5761,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CommodityReference: reference info (string)
 + Branch (AccountHeader)
 + Creator (UserAccount)
++ AssociateClient (AccountHeader)
++ PLVatCode (VatRateRead)
 
 
 ## UserAccount (object)
