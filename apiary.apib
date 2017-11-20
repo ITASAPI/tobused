@@ -2187,8 +2187,8 @@ None.
 |PreMatchDocumentReference|Pre Matched Document Reference Code|`string`|9|||
 |Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
 |Creator|see <b><a href="/#reference/global-reference-data/useraccount-list">UserAccount List</a></b> endpoint|`object`||||
-|AssociateClient|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
-|PLVatRate|see <b><a href="/#reference/nominal-reference-data/vat-rate/read-vat-rate">VATRate</a></b> endpoint|`object`||||
+|AssociateClientCode|Associate Client Code|`string`|10|||
+|PLVatCode|PL Vat Code|`string`|2|||
 
 + Request
     [AccessToken][]
@@ -2247,8 +2247,8 @@ None.
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
 |Creator|see <b><a href="/#reference/global-reference-data/useraccount-list">UserAccount List</a></b> endpoint|`object`||||
-|AssociateClient|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
-|PLVatRate|see <b><a href="/#reference/nominal-reference-data/vat-rate/read-vat-rate">VATRate</a></b> endpoint|`object`||||
+|AssociateClientCode|Associate Client Code|`string`|10|||
+|PLVatCode|PL Vat Code|`string`|2|||
 
 
 + Request
@@ -5444,8 +5444,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PreMatchDocumentReference: CP1503236 (string)
 + Branch (AccountHeader)
 + Creator (UserAccount)
-+ AssociateClient (AccountHeader)
-+ PLVatRate (VatRateRead)
++ AssociateClientCode: 00040444.P (string)
++ PLVatCode: GS (string)
 
 ## PrePaymentDetails (object)
 + InstructionReference: XX123456 (string)
@@ -5763,8 +5763,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CommodityReference: reference info (string)
 + Branch (AccountHeader)
 + Creator (UserAccount)
-+ AssociateClient (AccountHeader)
-+ PLVatRate (VatRateRead)
++ AssociateClientCode: 00040444.P (string)
++ PLVatCode: GS (string)
 
 
 ## UserAccount (object)
