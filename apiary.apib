@@ -1,29 +1,26 @@
 FORMAT: 1A
 HOST: http://itas.apiary.io/
-VERSION: 2.16
+VERSION: 2.17
 
-# ITAS API 2.16
+# ITAS API 2.17
 
 ## Disclaimer
 
 **** Warning: at this point, ITAS API does not support asynchronus or multithreading calls for POST, PUT and PATCH requests. Async or multithreading requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
 <br />
 <br />
-<strong>Release notes</strong> (16<sup>th</sup> November 2017)
+<strong>Release notes</strong> (XX<sup>th</sup> February 2018)
 
 ## New Endpoints
 
 <ul>
-<li>Accounting-Transactions <b>Authorise For Posting</b>: Mark a non-cash documment as Authorised to be posted,<a href="/#reference/accounting-transactions/authoriseforposting"> Link</a></li>
+<li>None</li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>Accounting-Transactions <b>Posted Transaction</b>: Additional properties AssociateClientCode and PLVatCode now included in the read,<a href="/#reference/accounting-transactions/posted-transaction"> Link</a></li>
-<li>Accounting-Transactions <b>UnPosted Transaction</b>: Additional properties AssociateClientCode and PLVatCode now included in the read,<a href="/#reference/accounting-transactions/unposted-transaction"> Link</a></li>
-<li>Accounting-Transactions <b>Additional Invoicing Details List</b>: Property VoidMemo max length increased to 1000,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
-<li>Accounting-Transactions <b>Additional Invoicing Details</b>: Property VoidMemo max length increased to 1000,<a href="/#reference/accounting-transactions/additional-invoicing-details"> Link</a></li>
+<li>Accounting-Transactions <b>Additional Invoicing Details List</b>: Additional Property SetUpBy added to the list,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -2016,6 +2013,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |TrackId|Track Id|`string`|20|||
 |OneTimePassword|One Time Password|`string`|30|||
 |ConfirmCode|Confirm Code|`string`|30|||
+|SetUpBy|Set Up By|`string`|3|||
 
 + Request
     [AccessToken][]
@@ -4629,6 +4627,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + TrackId: YNBCVW742 (string)
 + OneTimePassword: JohnSmith1234 (string)
 + ConfirmCode: 1234ABC (string)
++ SetUpBy: PG (string)
 
 ## AdditionalInvDetailsUpdate (object)
 + InvoiceDetailId: 10 (number)
