@@ -2473,7 +2473,7 @@ None.
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ContractId|Contract ID|`string`|10||Required|
-|ContractType|Contract Type|`string`|1|||
+|ContractType|Contract Type|`string`|1||`P` or `S`|
 |ContractDate|Contract Date|`datetime`||||
 |AllocationReference|Allocation Reference|`string`|11|||
 |AssignmentReference|Assignment Reference|`string`|11|||
@@ -2545,7 +2545,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
 |BuySell|Buy or Sell|`string`|1||`B` or `S`|
-|Lots|Lots|`decimal`|||Required. Greater than `0`|
+|Lots|Lots|`number`|||Required. Greater than `0`|
 |PhysRef|Physical Reference|`string`|11|||
 |BrokerCode|Broker Account|`string`|10|||
 |Price|Price|`decimal`|||Required|
@@ -2659,7 +2659,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
 |BuySell|Buy or Sell|`string`|1||`B` or `S`|
-|Lots|Lots|`decimal`|||Greater than `0`|
+|Lots|Lots|`number`|||Greater than `0`|
 |PhysRef|Physical Reference|`string`|11|||
 |Broker|Broker Account delivered as an <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
 |Price|Price|`decimal`||||
@@ -3407,7 +3407,7 @@ Production Order scheduling services.
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ReleaseId|Release ID|`number`||||
-|ContractType|Contract Type|`string`|1|||
+|ContractType|Contract Type|`string`|1||`P` or `S`|
 |ContractDate|Contract Date|`datetime`|20|||
 |DeliveryDate|Delivery Date|`datetime`|20|||
 |DepartmentCode|Department Code|`string`|4|||
@@ -3473,7 +3473,7 @@ Production Order scheduling services.
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ReleaseId|Release ID|`number`|||Required|
-|ContractType|Contract Type|`string`|1|||
+|ContractType|Contract Type|`string`|1||`P` or `S`|
 |ContractDate|Contract Date|`datetime`|20|||
 |DeliveryDate|Delivery Date|`datetime`|20|||
 |Department|see <b><a href="/#reference/nominal-reference-data/departments">Departments List</a></b> endpoint|`object`||||
