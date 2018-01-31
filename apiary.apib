@@ -1742,7 +1742,7 @@ WIP Ledger related reference data.
 |StockOwnerCode|Stock Owner Account Code|`string`|50|||
 |ReleaseState|Release State|`number`|2|||
 |CurrentStatus|Stock Unit Current Status|`number`|2|||
-|PrivilegeLevel|Stock Unit Account Privilege Level|`number`|1||`0` to `9`|
+|PrivilegeLevel|Stock Unit Account Privilege Level|`string`|1||`0` to `9`|
 |EDICode|Stock Unit Account EDI Code|`string`|9|||
 |Status|Stock Unit Account Status|`string`|1||`O` or `F`|
 
@@ -1789,7 +1789,7 @@ WIP Ledger related reference data.
 |StockOwner|Stock Owner delivered as an <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
 |ReleaseState|Release State|`number`|2|||
 |CurrentStatus|Stock Unit Current Status|`number`|2|||
-|PrivilegeLevel|Stock Unit Account Privilege Level|`number`|1||`0` to `9`|
+|PrivilegeLevel|Stock Unit Account Privilege Level|`string`|1||`0` to `9`|
 |EDICode|Stock Unit Account EDI Code|`string`|9|||
 |Status|Stock Unit Account Status|`string`|1||`O` or `F`|
 
@@ -5613,7 +5613,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + StockOwner (AccountHeaderC)
 + ReleaseState: 3 (number)
 + CurrentStatus: 1 (number)
-+ PrivilegeLevel: 5 (number)
++ PrivilegeLevel: 5 (string)
 + EDICode: ext12345 (string) 
 + Status: O (string)
 
@@ -5627,7 +5627,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + StockOwnerCode: ABCDEF.S (string)
 + ReleaseState: 3 (number)
 + CurrentStatus: 1 (number)
-+ PrivilegeLevel: 5 (number)
++ PrivilegeLevel: 5 (string)
 + EDICode: ext12345 (string) 
 + Status: O (string)
 
