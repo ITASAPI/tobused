@@ -340,7 +340,7 @@ Codes relating to the Client Ledger and related endpoints.
     + Attributes (405 Response)
 
 
-## Client Interface Codes [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCodes/{Property}/{PropertyValue}]
+## Client Interface Codes List [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCodes/{Property}/{PropertyValue}]
 `GET` Interface Codes associated with and used by clients.
 
 ### List Client Interface Codes [GET]
@@ -377,6 +377,37 @@ Codes relating to the Client Ledger and related endpoints.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+## Client Interface Codes [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCodes/{ClientAccountId}]
+`GET` Interface Codes associated with and used by clients.
+
+### Read Client Interface Codes [GET]
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ClientAccountId|Client Account ID|`string`|10|||
+|InterfaceType|see <b><a href="/#reference/global-reference-data/currency-list/list-currencies">Interface Type</a></b> endpoint|`object`||||
+|CodeMapping|Code Mapping|`string`|20|||
+
++ Request
+    [AccessToken][]
+    
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + ClientAccountId (required, string, `ABCDEF.P`) ... Code of client account to read.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (ClientInterfaceCode)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
+  
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
 
 
 ## ClientType List [/ReferenceData/{TradingEntityId}/ClientLedger/ClientType/{Property}/{PropertyValue}]
@@ -407,6 +438,38 @@ Codes relating to the Client Ledger and related endpoints.
     
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 BadPropertyResponse)
+  
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
+## Interface Types [/ReferenceData/{TradingEntityId}/ClientLedger/InterfaceTypes/{InterfaceTypeId}]
+`GET` Interface Codes associated with and used by clients.
+
+### Read Interface Types [GET]
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|InterfaceTypeId|InterfaceType ID|`string`|8|||
+|InterfaceTypeDescription|InterfaceType Description|`string`|50|||
+
++ Request
+    [AccessToken][]
+    
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+    + InterfaceTypeId (required, string, `XYZ`) ... Code of InterfaceType to read.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (InterfaceType)
+        + Response (200 SuccessResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 BadReadResponse)
+
   
 + Response 404 (application/json; charset=utf-8)
     + Attributes (404 Response)
@@ -4870,6 +4933,11 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + EDICode: EDI123 (string)
 + Status: O (string)
 
+## ClientInterfaceCode (object)
++ ClientAccountId: ABCDEF.P (string)
++ InterfaceType (InterfaceType)
++ CodeMapping: AB1234 (string)
+
 ## ClientInterfaceCodeList (object)
 + ClientAccountId: ABCDEF.P (string)
 + InterfaceTypeCode: XYZ (string)
@@ -5199,6 +5267,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + InstrumentId: NY11 (string)
 + InstrumentDescription: ICE US SUGAR (string)
 + Status: O (string)
+
+## InterfaceType (object)
++ InterfaceTypeId: XYZ (string)
++ InterfaceDescription: Interface XYZ (string)
 
 ## MasterDataTradingEntityId (object)
 + TradingEntityId: JT (string)
