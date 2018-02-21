@@ -14,7 +14,9 @@ VERSION: 2.17
 ## New Endpoints
 
 <ul>
-<li>None</li>
+<li>Client Reference Data<b>Client Interface Codes List</b>: Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes-list"> Link</a> </li>
+<li>Client Reference Data<b>Client Interface Codes</b>: Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes"> Link</a> </li>
+<li>Client Reference Data<b>Interface Types</b>: Client-maintained codes used for mapping interfaces,<a href="/#reference/client-reference-data/interface-types"> Link</a> </li>
 </ul>
 
 ## Updated Endpoints
@@ -384,7 +386,7 @@ Codes relating to the Client Ledger and related endpoints.
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ClientAccountId|Client Account ID|`string`|10|||
-|InterfaceType|see <b><a href="/#reference/global-reference-data/currency-list/list-currencies">Interface Type</a></b> endpoint|`object`||||
+|InterfaceType|see <b><a href="/#reference/client-reference-data/interface-types">Interface Type</a></b> endpoint|`object`||||
 |CodeMapping|Code Mapping|`string`|20|||
 
 + Request
@@ -447,7 +449,7 @@ Codes relating to the Client Ledger and related endpoints.
 
 
 ## Interface Types [/ReferenceData/{TradingEntityId}/ClientLedger/InterfaceTypes/{InterfaceTypeId}]
-`GET` Interface Codes associated with and used by clients.
+`GET` Client-maintained codes used for mapping interfaces.
 
 ### Read Interface Types [GET]
 |Property|Description|Type|Max Length|Notes|Constraint|
