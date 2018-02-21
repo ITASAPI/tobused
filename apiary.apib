@@ -472,11 +472,11 @@ Codes relating to the Client Ledger and related endpoints.
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
     + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to create or update.
 
-+ Response 201 (application/json; charset=utf-8)
++ Response 200 (application/json; charset=utf-8)
     + Attributes 
         + Data
             + ClientAccountId: ABCDEF.P (string)
-        + Response (201 CreateResponse)
+        + Response (200 UpdateResponse)
     
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 Response)
@@ -487,7 +487,41 @@ Codes relating to the Client Ledger and related endpoints.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+### Delete Client Interface Code [DELETE]
+`DELETE` Delete Interface code record associated with a client. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ClientAccountId|Client Account ID|`string`|10||Required|
+|InterfaceTypeCode|Interface Type|`string`|8|||
+|CodeMapping|Code Mapping|`string`|20|||
+
+
++ Request (application/json)
+    + Header
+
+            AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (ClientAccount CreateUpdate)
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
+    + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to create or update.
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data
+            + ClientAccountId: ABCDEF.P (string)
+        + Response (200 DeletedResponse)
+    
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
 
 
 ## ClientType List [/ReferenceData/{TradingEntityId}/ClientLedger/ClientType/{Property}/{PropertyValue}]
@@ -4640,6 +4674,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## 200 UpdateResponse (object)
 + Value: Updated (string)
+
+## 200 DeletedResponse (object)
++ Value: Deleted (string)
 
 ## 200 AuthoriseResponse (object)
 + Value: Authorised (string)
