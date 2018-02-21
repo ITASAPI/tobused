@@ -18,6 +18,7 @@ VERSION: 2.17
 <li>Client Reference Data <b>Client Interface Code</b>: Interface Code associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes"> Link</a> </li>
 <li>Client Reference Data <b>Client Interface Code</b>: Create record of an Interface Code accosicated with a client,<a href="/#reference/client-reference-data/client-interface-codes/create-client-interface-codes"> Link</a> </li>
 <li>Client Reference Data <b>Client Interface Code</b>: Update Interface Code record associated with a client,<a href="/#reference/client-reference-data/client-interface-codes/update-client-interface-codes"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Code</b>: Delete Interface Code record associated with a client,<a href="/#reference/client-reference-data/client-interface-code/delete-client-interface-code"> Link</a> </li>
 <li>Client Reference Data <b>Interface Types</b>: Client-maintained codes used for mapping interfaces,<a href="/#reference/client-reference-data/interface-types"> Link</a> </li>
 </ul>
 
@@ -429,7 +430,7 @@ Codes relating to the Client Ledger and related endpoints.
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + Attributes (ClientAccount CreateUpdate)
+    + Attributes (ClientInterfaceCode CreateUpdateDelete)
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
@@ -466,7 +467,7 @@ Codes relating to the Client Ledger and related endpoints.
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + Attributes (ClientAccount CreateUpdate)
+    + Attributes (ClientInterfaceCode CreateUpdateDelete)
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
@@ -493,8 +494,10 @@ Codes relating to the Client Ledger and related endpoints.
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ClientAccountId|Client Account ID|`string`|10||Required|
-|InterfaceTypeCode|Interface Type|`string`|8|||
-|CodeMapping|Code Mapping|`string`|20|||
+
+<strong>Body Parameters</strong>
+<br />
+None.
 
 
 + Request (application/json)
@@ -502,7 +505,11 @@ Codes relating to the Client Ledger and related endpoints.
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + Attributes (ClientAccount CreateUpdate)
+    + Body 
+    
+            {
+                none
+            }
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
@@ -5053,6 +5060,11 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## ClientInterfaceCode (object)
 + ClientAccountId: ABCDEF.P (string)
 + InterfaceType (InterfaceType)
++ CodeMapping: AB1234 (string)
+
+## ClientInterfaceCode CreateUpdateDelete (object)
++ ClientAccountId: ABCDEF.P (string)
++ InterfaceTypeCode: XYZ (string)
 + CodeMapping: AB1234 (string)
 
 ## ClientInterfaceCodeList (object)
