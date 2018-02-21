@@ -14,8 +14,8 @@ VERSION: 2.17
 ## New Endpoints
 
 <ul>
-<li>Client Reference Data <b>Client Interface Codes List</b>: GET Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes-list"> Link</a> </li>
-<li>Client Reference Data <b>Client Interface Code</b>: Interface Code associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Codes List</b>: Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes-list"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Codes</b>: Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes"> Link</a> </li>
 <li>Client Reference Data <b>Client Interface Code</b>: Create record of an Interface Code accosicated with a client,<a href="/#reference/client-reference-data/client-interface-codes/create-client-interface-codes"> Link</a> </li>
 <li>Client Reference Data <b>Client Interface Code</b>: Update Interface Code record associated with a client,<a href="/#reference/client-reference-data/client-interface-codes/update-client-interface-codes"> Link</a> </li>
 <li>Client Reference Data <b>Client Interface Code Delete</b>: Delete Interface Code record associated with a client,<a href="/#reference/client-reference-data/client-interface-code/delete-client-interface-code"> Link</a> </li>
@@ -382,10 +382,10 @@ Codes relating to the Client Ledger and related endpoints.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-## Client Interface Code [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCode/{ClientAccountId}]
-`GET` Interface Code associated with and used by clients.
+## Client Interface Codes [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCode/{ClientAccountId}]
+`GET` Interface Codes associated with and used by clients.
 
-### Read Client Interface Code [GET]
+### Read Client Interface Codes [GET]
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ClientAccountId|Client Account ID|`string`|10||Required|
@@ -416,6 +416,10 @@ Codes relating to the Client Ledger and related endpoints.
     + Attributes (405 Response)
 
 
+## Client Interface Codes CUD [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCode/{ClientAccountId}/{InterfaceTypeCode}]
+Create, Update and Delete Interface code records associated with a client.
+
+
 ### Create Client Interface Code [PUT]
 `PUT` Create record of an Interface code associated with a client. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
@@ -435,7 +439,8 @@ Codes relating to the Client Ledger and related endpoints.
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
-    + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to create or update.
+    + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to create.
+    + InterfaceTypeCode (required, string, `XYZ`) ... Code for interface type to delete.
 
 + Response 201 (application/json; charset=utf-8)
     + Attributes 
@@ -460,7 +465,7 @@ Codes relating to the Client Ledger and related endpoints.
 |--------|-----------|----|----------|-----|----------|
 |ClientAccountId|Client Account ID|`string`|10||Required|
 |InterfaceTypeCode|Interface Type|`string`|8||Required|
-|CodeMapping|Code Mapping|`string`|20|||
+|CodeMapping|Code Mapping|`string`|20||Required|
 
 
 + Request (application/json)
@@ -472,7 +477,8 @@ Codes relating to the Client Ledger and related endpoints.
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
-    + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to create or update.
+    + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to update.
+    + InterfaceTypeCode (required, string, `XYZ`) ... Code for interface type to delete.
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
@@ -489,10 +495,9 @@ Codes relating to the Client Ledger and related endpoints.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-## Client Interface Code Delete [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCode/{ClientAccountId}/{InterfaceTypeCode}]
-`DELETE` Delete Interface code record associated with a client. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 ### Delete Client Interface Code [DELETE]
+`DELETE` Interface code record associated with a client. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
@@ -517,13 +522,15 @@ None.
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
-    + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to create or update.
+    + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to delete.
+    + InterfaceTypeCode (required, string, `XYZ`) ... Code for interface type to delete.
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
         + Data
             + ClientAccountId: ABCDEF.P (string)
             + InterfaceTypeCode: XYZ (string)
+            + CodeMapping: AB1234 (string)
         + Response (200 DeletedResponse)
     
 + Response 400 (application/json; charset=utf-8)
@@ -5068,13 +5075,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CodeMapping: AB1234 (string)
 
 ## ClientInterfaceCode Create (object)
-+ ClientAccountId: ABCDEF.P (required, string)
-+ InterfaceTypeCode: XYZ (required, string)
 + CodeMapping: AB1234 (required, string)
 
 ## ClientInterfaceCode Update (object)
-+ ClientAccountId: ABCDEF.P (required, string)
-+ InterfaceTypeCode: XYZ (required, string)
 + CodeMapping: AB1234 (string)
 
 ## ClientInterfaceCodeList (object)
