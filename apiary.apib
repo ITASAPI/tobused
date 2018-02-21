@@ -14,8 +14,10 @@ VERSION: 2.17
 ## New Endpoints
 
 <ul>
-<li>Client Reference Data <b>Client Interface Codes List</b>: Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes-list"> Link</a> </li>
-<li>Client Reference Data <b>Client Interface Codes</b>: Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Codes List</b>: GET Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes-list"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Code</b>: Interface Code associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Code</b>: Create record of an Interface Code accosicated with a client,<a href="/#reference/client-reference-data/client-interface-codes/create-client-interface-codes"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Code</b>: Update Interface Code record associated with a client,<a href="/#reference/client-reference-data/client-interface-codes/update-client-interface-codes"> Link</a> </li>
 <li>Client Reference Data <b>Interface Types</b>: Client-maintained codes used for mapping interfaces,<a href="/#reference/client-reference-data/interface-types"> Link</a> </li>
 </ul>
 
@@ -379,10 +381,10 @@ Codes relating to the Client Ledger and related endpoints.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-## Client Interface Codes [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCodes/{ClientAccountId}]
-`GET` Interface Codes associated with and used by clients.
+## Client Interface Code [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCode/{ClientAccountId}]
+`GET` Interface Code associated with and used by clients.
 
-### Read Client Interface Codes [GET]
+### Read Client Interface Code [GET]
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ClientAccountId|Client Account ID|`string`|10||Required|
@@ -412,8 +414,8 @@ Codes relating to the Client Ledger and related endpoints.
     + Attributes (405 Response)
 
 
-### Create Client Interface Codes [PUT]
-`PUT` Create record of a Interface code associated with a client. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+### Create Client Interface Code [PUT]
+`PUT` Create record of an Interface code associated with a client. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
@@ -449,7 +451,7 @@ Codes relating to the Client Ledger and related endpoints.
     + Attributes (405 Response)
 
 
-### Update Client Interface Codes [PATCH]
+### Update Client Interface Code [PATCH]
 `PATCH` Update Interface code record associated with a client. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 
 |Property|Description|Type|Max Length|Notes|Constraint|
