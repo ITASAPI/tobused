@@ -6,7 +6,7 @@ VERSION: 2.17
 
 ## Disclaimer
 
-**** Warning: at this point, ITAS API does not support asynchronus or multithreading calls for POST, PUT and PATCH requests. Async or multithreading requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
+**** Warning: at this point, ITAS API does not support asynchronus or multithreading calls for POST, PUT, PATCH and DELETE requests. Async or multithreading requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
 <br />
 <br />
 <strong>Release notes</strong> (XX<sup>th</sup> February 2018)
@@ -401,7 +401,8 @@ Codes relating to the Client Ledger and related endpoints.
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
-        + Data (ClientInterfaceCode)
+        + Data (array [ClientInterfaceCode])
+        + Pagination (Pagination)
         + Response (200 SuccessResponse)
 
 + Response 400 (application/json; charset=utf-8)
@@ -422,7 +423,7 @@ Codes relating to the Client Ledger and related endpoints.
 |--------|-----------|----|----------|-----|----------|
 |ClientAccountId|Client Account ID|`string`|10||Required|
 |InterfaceTypeCode|Interface Type|`string`|8||Required|
-|CodeMapping|Code Mapping|`string`|20|||
+|CodeMapping|Code Mapping|`string`|20||Required|
 
 
 + Request (application/json)
@@ -430,7 +431,7 @@ Codes relating to the Client Ledger and related endpoints.
 
             AccessToken:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
 
-    + Attributes (ClientInterfaceCode CreateUpdateDelete)
+    + Attributes (ClientInterfaceCode Create)
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
@@ -458,7 +459,7 @@ Codes relating to the Client Ledger and related endpoints.
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ClientAccountId|Client Account ID|`string`|10||Required|
-|InterfaceTypeCode|Interface Type|`string`|8|||
+|InterfaceTypeCode|Interface Type|`string`|8||Required|
 |CodeMapping|Code Mapping|`string`|20|||
 
 
@@ -488,12 +489,15 @@ Codes relating to the Client Ledger and related endpoints.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-### Delete Client Interface Code [DELETE]
+## Client Interface Code Delete [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCode/{ClientAccountId}/{InterfaceTypeCode}]
 `DELETE` Delete Interface code record associated with a client. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+
+### Delete Client Interface Code [DELETE]
 
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |ClientAccountId|Client Account ID|`string`|10||Required|
+|InterfaceTypeCode|Interface Type|`string`|8||Required|
 
 <strong>Body Parameters</strong>
 <br />
@@ -519,6 +523,7 @@ None.
     + Attributes 
         + Data
             + ClientAccountId: ABCDEF.P (string)
+            + InterfaceTypeCode: XYZ (string)
         + Response (200 DeletedResponse)
     
 + Response 400 (application/json; charset=utf-8)
@@ -5062,9 +5067,14 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + InterfaceType (InterfaceType)
 + CodeMapping: AB1234 (string)
 
-## ClientInterfaceCode CreateUpdateDelete (object)
-+ ClientAccountId: ABCDEF.P (string)
-+ InterfaceTypeCode: XYZ (string)
+## ClientInterfaceCode Create (object)
++ ClientAccountId: ABCDEF.P (required, string)
++ InterfaceTypeCode: XYZ (required, string)
++ CodeMapping: AB1234 (required, string)
+
+## ClientInterfaceCode Udpate (object)
++ ClientAccountId: ABCDEF.P (required, string)
++ InterfaceTypeCode: XYZ (required, string)
 + CodeMapping: AB1234 (string)
 
 ## ClientInterfaceCodeList (object)
