@@ -16,9 +16,9 @@ VERSION: 2.17
 <ul>
 <li>Client Reference Data <b>Client Interface Codes List</b>: Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes-list"> Link</a> </li>
 <li>Client Reference Data <b>Client Interface Codes</b>: Interface Codes associated with and used by clients,<a href="/#reference/client-reference-data/client-interface-codes"> Link</a> </li>
-<li>Client Reference Data <b>Client Interface Code</b>: Create record of an Interface Code accosicated with a client,<a href="/#reference/client-reference-data/client-interface-codes/create-client-interface-codes"> Link</a> </li>
-<li>Client Reference Data <b>Client Interface Code</b>: Update Interface Code record associated with a client,<a href="/#reference/client-reference-data/client-interface-codes/update-client-interface-codes"> Link</a> </li>
-<li>Client Reference Data <b>Client Interface Code Delete</b>: Delete Interface Code record associated with a client,<a href="/#reference/client-reference-data/client-interface-code/delete-client-interface-code"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Code CUD</b>: Create record of an Interface Code accosicated with a client,<a href="/#reference/client-reference-data/client-interface-codes-cud/create-client-interface-code"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Code CUD</b>: Update Interface Code record associated with a client,<a href="/#reference/client-reference-data/client-interface-codes-cud/update-client-interface-code"> Link</a> </li>
+<li>Client Reference Data <b>Client Interface Code CUD</b>: Delete Interface Code record associated with a client,<a href="/#reference/client-reference-data/client-interface-codes-cud/delete-client-interface-code"> Link</a> </li>
 <li>Client Reference Data <b>Interface Types</b>: Client-maintained codes used for mapping interfaces,<a href="/#reference/client-reference-data/interface-types"> Link</a> </li>
 </ul>
 
@@ -345,7 +345,7 @@ Codes relating to the Client Ledger and related endpoints.
     + Attributes (405 Response)
 
 
-## Client Interface Codes List [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCodes/{Property}/{PropertyValue}]
+## Client Interface Codes List [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCode/{Property}/{PropertyValue}]
 `GET` Interface Codes associated with and used by clients.
 
 ### List Client Interface Codes [GET]
@@ -416,7 +416,7 @@ Codes relating to the Client Ledger and related endpoints.
     + Attributes (405 Response)
 
 
-## Client Interface Codes CUD [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCode/{ClientAccountId}/{InterfaceTypeCode}]
+## Client Interface Code CUD [/ReferenceData/{TradingEntityId}/ClientLedger/ClientInterfaceCode/{ClientAccountId}/{InterfaceTypeCode}]
 Create, Update and Delete Interface code records associated with a client.
 
 
@@ -440,7 +440,7 @@ Create, Update and Delete Interface code records associated with a client.
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
     + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to create.
-    + InterfaceTypeCode (required, string, `XYZ`) ... Code for interface type to delete.
+    + InterfaceTypeCode (required, string, `XYZ`) ... Code for interface type to create.
 
 + Response 201 (application/json; charset=utf-8)
     + Attributes 
@@ -478,7 +478,7 @@ Create, Update and Delete Interface code records associated with a client.
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity.
     + ClientAccountId (required, string, `ABCDEF.P`) ... Code for client account to update.
-    + InterfaceTypeCode (required, string, `XYZ`) ... Code for interface type to delete.
+    + InterfaceTypeCode (required, string, `XYZ`) ... Code for interface type to update.
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
