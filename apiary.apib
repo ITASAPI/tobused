@@ -579,38 +579,6 @@ None.
     + Attributes (405 Response)
 
 
-## Interface Types [/ReferenceData/{TradingEntityId}/ClientLedger/InterfaceTypes/{InterfaceTypeId}]
-`GET` Client-maintained codes used for mapping interfaces.
-
-### Read Interface Types [GET]
-|Property|Description|Type|Max Length|Notes|Constraint|
-|--------|-----------|----|----------|-----|----------|
-|InterfaceTypeId|InterfaceType ID|`string`|8|||
-|InterfaceTypeDescription|InterfaceType Description|`string`|50|||
-
-+ Request
-    [AccessToken][]
-    
-+ Parameters
-    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
-    + InterfaceTypeId (required, string, `XYZ`) ... Code of InterfaceType to read.
-
-+ Response 200 (application/json; charset=utf-8)
-    + Attributes 
-        + Data (InterfaceType)
-        + Response (200 SuccessResponse)
-
-+ Response 400 (application/json; charset=utf-8)
-    + Attributes (400 BadReadResponse)
-
-  
-+ Response 404 (application/json; charset=utf-8)
-    + Attributes (404 Response)
-
-+ Response 405 (application/json; charset=utf-8)
-    + Attributes (405 Response)
-
-
 # Group Global Reference Data
 Global (system-wide) codes 
 
@@ -4574,6 +4542,18 @@ A multipurpose object used by several endpoints
 
 + Response 200 (application/json; charset=utf-8)
 + Attributes (ValuesInFunctionalCcy)
+
+## Interface Type [/InterfaceType]
+A multipurpose object used by several endpoints
+### Interface Type [GET]
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|InterfaceTypeId|InterfaceType ID|`string`|8|||
+|InterfaceTypeDescription|InterfaceType Description|`string`|50|||
+
++ Response 200 (application/json; charset=utf-8)
++ Attributes (InterfaceType)
+
 
 ## OnAccountDetails [/OnAccountDetails]
 A multipurpose object used by several endpoints
