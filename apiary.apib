@@ -25,6 +25,11 @@ VERSION: 2.17
 
 <ul>
 <li>Accounting-Transactions <b>Additional Invoicing Details List</b>: Additional Property SetUpBy added to the list,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
+<li>Client Reference Data <b>ClientAccount List</b>: Additional Properties CanBeForwarder and CanBeServiceProvider added to the list,<a href="/#reference/client-reference-data/clientaccount-list"> Link</a></li>
+<li>Client Reference Data <b>ClientAccount</b>: Additional Properties CanBeForwarder and CanBeServiceProvider are now included in the read,<a href="/#reference/client-reference-data/clientaccount-list"> Link</a></li>
+<li>Client Reference Data <b>ClientAccount Create/Update</b>: Additional Properties CanBeForwarder and CanBeServiceProvider are now available in the create/update,<a href="/#reference/client-reference-data/clientaccount-list"> Link</a></li>
+<li>Client Reference Data <b>ClientAccount Delta Update</b>: Additional Properties CanBeForwarder and CanBeServiceProvider are now available in the delta update,<a href="/#reference/client-reference-data/clientaccount-list"> Link</a></li>
+
 </ul>
 <chandiv>** ends ** </div>
 
@@ -58,6 +63,8 @@ Codes relating to the Client Ledger and related endpoints.
 |CanBeShipper|Is Client a Shipper|`boolean`|5|||
 |CanBeDerivativeClient|Is Client a Derivative Client|`boolean`|5|||
 |CanBeDerivativeBroker|Is Client a Derivative Broker|`boolean`|5|||
+|CanBeForwarder|Is Client a Forwarder|`boolean`|5|||
+|CanBeServiceProvider|Is Client a Service Provider|`boolean`|5|||
 |EDICode|Account EDI Code|`string`|50|||
 |AcceptsNettingInstruction|Accepts Netting Instruction|`boolean`|5|||
 
@@ -75,7 +82,9 @@ Codes relating to the Client Ledger and related endpoints.
             + CanBeAgent
             + CanBeShipper
             + CanBeDerivativeClient 
-            + CanBeDerivativeBroker 
+            + CanBeDerivativeBroker
+            + CanBeForwarder
+            + CanBeServiceProvider
             + EDICode
             + AcceptsNettingInstruction
     + PropertyValue (optional, string, `O`)
@@ -112,6 +121,8 @@ Codes relating to the Client Ledger and related endpoints.
 |CanBeShipper|Is Client a Shipper|`boolean`|5|||
 |CanBeDerivativeClient|Is Client a Derivative Client|`boolean`|5|||
 |CanBeDerivativeBroker|Is Client a Derivative Broker|`boolean`|5|||
+|CanBeForwarder|Is Client a Forwarder|`boolean`|5|||
+|CanBeServiceProvider|Is Client a Service Provider|`boolean`|5|||
 |GlobalTraderProgramMember|Is Client a Global Trader Program Member|`boolean`|5|||
 |GroupAccountMember|Is Client a Group Account Member|`boolean`|5|||
 |HeadOfFamilyAccountCode|Head of Family Account Code|`string`|10|||
@@ -171,6 +182,8 @@ Codes relating to the Client Ledger and related endpoints.
 |CanBeShipper|Is Client a Shipper|`boolean`|5|||
 |CanBeDerivativeClient|Is Client a Derivative Client|`boolean`|5|||
 |CanBeDerivativeBroker|Is Client a Derivative Broker|`boolean`|5|||
+|CanBeForwarder|Is Client a Forwarder|`boolean`|5|||
+|CanBeServiceProvider|Is Client a Service Provider|`boolean`|5|||
 |GlobalTraderProgramMember|Is Client a Global Trader Program Member|`boolean`|5|||
 |GroupAccountMember|Is Client a Group Account Memeber|`boolean`|5|||
 |HeadOfFamilyAccountCode|Head of Family Account Code|`string`|10|||
@@ -249,6 +262,8 @@ Codes relating to the Client Ledger and related endpoints.
 |CanBeShipper|Is Client a Shipper|`boolean`|5|||
 |CanBeDerivativeClient|Is Client a Derivative Client|`boolean`|5|||
 |CanBeDerivativeBroker|Is Client a Derivative Broker|`boolean`|5|||
+|CanBeForwarder|Is Client a Forwarder|`boolean`|5|||
+|CanBeServiceProvider|Is Client a Service Provider|`boolean`|5|||
 |GlobalTraderProgramMember|Is Client a Global Trader Program Member|`boolean`|5|||
 |GroupAccountMember|Is Client a Group Account Memeber|`boolean`|5|||
 |HeadOfFamilyAccountCode|Head of Family Account Code|`string`|10|||
@@ -4930,7 +4945,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CanBeAgent: true (boolean) 
 + CanBeShipper: true (boolean) 
 + CanBeDerivativeClient: false (boolean) 
-+ CanBeDerivativeBroker: false (boolean) 
++ CanBeDerivativeBroker: false (boolean)
++ CanBeForwarder: true (boolean)
++ CanBeServiceProvider: true (boolean) 
 + GlobalTraderProgramMember: true (boolean)
 + GroupAccountMember: true (boolean)
 + HeadOfFamilyAccountCode: HEAD.P (string)
@@ -4962,6 +4979,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CanBeShipper: true (boolean) 
 + CanBeDerivativeClient: false (boolean) 
 + CanBeDerivativeBroker: false (boolean) 
++ CanBeForwarder: true (boolean)
++ CanBeServiceProvider: true (boolean)
 + GlobalTraderProgramMember: false (boolean)
 + GroupAccountMember: true (boolean)
 + HeadOfFamilyAccountCode: HEAD.P (string)
@@ -4998,6 +5017,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CanBeShipper: true (boolean) 
 + CanBeDerivativeClient: false (boolean) 
 + CanBeDerivativeBroker: false (boolean) 
++ CanBeForwarder: true (boolean)
++ CanBeServiceProvider: true (boolean)
 + EDICode: extABCDEF (string)
 + AcceptsNettingInstruction: true (boolean)
 
@@ -5012,7 +5033,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CanBeAgent: true (boolean) 
 + CanBeShipper: true (boolean) 
 + CanBeDerivativeClient: false (boolean) 
-+ CanBeDerivativeBroker: false (boolean) 
++ CanBeDerivativeBroker: false (boolean)
++ CanBeForwarder: true (boolean)
++ CanBeServiceProvider: true (boolean) 
 + GlobalTraderProgramMember: false (boolean)
 + GroupAccountMember: true (boolean)
 + HeadOfFamilyAccountCode: HEAD.P (string)
