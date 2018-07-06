@@ -2390,7 +2390,8 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Reference|`string`|8|||
-|PromptMonth|Transaction Prompt Month|`datetime`|20|||
+|PromptMonth|Transaction Prompt Month|`datetime`||||
+|PromptDate|Transaction Prompt Date|`string`|||`yyyy-mm` or `yyyy-mm-dd`|
 |OptionType|Transaction Option Type Code|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |TransactionIsMatched|Is Transaction Matched|`boolean`|5|||
@@ -2453,6 +2454,7 @@ None.
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Referece|`string`|8|||
 |PromptMonth|Transaction Prompt Month|`string`|8|||
+|PromptDate|Transaction Prompt Date|`string`|||`yyyy-mm` or `yyyy-mm-dd`|
 |OptionType|Transaction Option Type|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
@@ -2868,6 +2870,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Department|see <b><a href="/#reference/nominal-reference-data/department/read-department">Department</a></b> endpoint|`object`||||
 |Instrument|see <b><a href="/#reference/global-reference-data/instrument-list">Instrument List</a></b> endpoint|`object`||||
 |PromptMonth|Prompt Month|`datetime`||||
+|PromptDate|Prompt Date|`string`|||`yyyy-mm` or `yyyy-mm-dd`|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -5355,6 +5358,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Department (Department)
 + Instrument (Instrument)
 + PromptMonth: `2015-07-01T00:00:00Z` (string)
++ PromptDate: `2015-07-01` (string)
 + Instruction: true (boolean)
 + OptionType: C (string)
 + OptionSeries: 123 (number)
@@ -5701,6 +5705,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Narrative: `WEEKEND/MIDNIGHT - VESSEL, 153` (string)
 + MarketReference: abcdefg (string)
 + PromptMonth: `2015-08-01T00:00:00Z` (string)
++ PromptDate: `2015-08-05` (string)
 + OptionType: C (string)
 + CommodityReference: 1bc123 (string)
 + TransactionIsMatched: true (boolean)
@@ -6022,6 +6027,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Narrative: Reversal of SI1501924 (string)
 + MarketReference: 123abc (string)
 + PromptMonth: 20150732 (string)
++ PromptDate: `2015-08-05` (string)
 + OptionType: C (string)
 + CommodityReference: reference info (string)
 + Branch (AccountHeader)
