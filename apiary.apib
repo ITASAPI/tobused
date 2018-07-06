@@ -2752,7 +2752,8 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Trade Code|`string`|3|||
 |DepartmentCode|Department Code|`string`|4|||
 |InstrumentCode|Instrument Code|`string`|8||Required|
-|PromptMonth|Prompt Month|`datetime`|||Required|
+|PromptMonth|Prompt Month|`datetime`|||Required if PromptDate is null|
+|PromptDate|Prompt Date|`string`||`yyyy-mm` or `yyyy-mm-dd`|Required if PromptMonth is null|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -5378,6 +5379,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DepartmentCode: 5100 (string)
 + InstrumentCode: NY11 (string)
 + PromptMonth: `2015-07-01T00:00:00Z` (string)
++ PromptDate: `2015-07-01` (string)
 + Instruction: true (boolean)
 + OptionType: C (string)
 + OptionSeries: 123 (number)
