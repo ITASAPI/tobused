@@ -2390,7 +2390,7 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Reference|`string`|8|||
-|PromptMonth|Transaction Prompt Month|`datetime`||||
+|PromptMonth|Transaction Prompt Month|`datetime`||Deprecation TBC||
 |PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
 |OptionType|Transaction Option Type Code|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
@@ -2453,7 +2453,7 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Referece|`string`|8|||
-|PromptMonth|Transaction Prompt Month|`string`|8|||
+|PromptMonth|Transaction Prompt Month|`string`|8|Deprecation TBC||
 |PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
 |OptionType|Transaction Option Type|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
@@ -2756,7 +2756,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Trade Code|`string`|3|||
 |DepartmentCode|Department Code|`string`|4|||
 |InstrumentCode|Instrument Code|`string`|8||Required|
-|PromptMonth|Prompt Month|`datetime`|||Required when `PromptDate` is null|
+|PromptMonth|Prompt Month|`datetime`||Deprecation TBC|Required when `PromptDate` is null|
 |PromptDate|Prompt Date|`date`||`yyyy-mm` or `yyyy-mm-dd`|Required when `PromptMonth` is null|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
@@ -2871,7 +2871,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Code delivered as an <b><a href="/#reference/data-object-definitions/tradecode">TradeCode</a></b> object|`object`||||
 |Department|see <b><a href="/#reference/nominal-reference-data/department/read-department">Department</a></b> endpoint|`object`||||
 |Instrument|see <b><a href="/#reference/global-reference-data/instrument-list">Instrument List</a></b> endpoint|`object`||||
-|PromptMonth|Prompt Month|`datetime`||||
+|PromptMonth|Prompt Month|`datetime`||Deprecation TBC||
 |PromptDate|Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
