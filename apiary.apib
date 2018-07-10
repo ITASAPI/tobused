@@ -20,9 +20,9 @@ VERSION: 2.18
 ## Updated Endpoints
 
 <ul>
-<li>Contract-F&O <b>Create F&O Trade</b>: Additional Property PromptDate added,<a href="/#reference/contract-f&o/fo-trade-create"> Link</a></li>
+<li>Contract-F&O <b>Create F&O Trade</b>: Additional Property PromptDate has been added,<a href="/#reference/contract-f&o/fo-trade-create"> Link</a></li>
 <li>Contract-F&O <b>Read F&O Trade</b>: Additional Property PromptDate now included in the read,<a href="/#reference/contract-f&o/fo-trade/read-f&o-trade"> Link</a></li>
-<li>Accounting-Transactions <b>Read Transaction Physical Trade</b>: Additional Property PromptDate now included in the read,<a href="/#reference/accounting-transactions/transaction-physical-trade"> Link</a></li>
+<li>Accounting-Transactions <b>Read Transaction Physical Trade</b>: Additional Properties ShipmentPeriodStart and ShipmentPeriodEnd are now included in the read,<a href="/#reference/accounting-transactions/transaction-physical-trade"> Link</a></li>
 <li>Accounting-Transactions <b>Read Unposted Transaction</b>: Additional Property PromptDate now included in the read,<a href="/#reference/accounting-transactions/unposted-transaction"> Link</a></li>
 <li>Accounting-Transactions <b>Read Posted Transaction</b>: Additional Property PromptDate now included in the read,<a href="/#reference/accounting-transactions/posted-transaction"> Link</a></li>
 </ul>
@@ -2391,7 +2391,7 @@ None.
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Reference|`string`|8|||
 |PromptMonth|Transaction Prompt Month|`datetime`||||
-|PromptDate|Transaction Prompt Date|`string`|||`yyyy-mm` or `yyyy-mm-dd`|
+|PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
 |OptionType|Transaction Option Type Code|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |TransactionIsMatched|Is Transaction Matched|`boolean`|5|||
@@ -2454,7 +2454,7 @@ None.
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Referece|`string`|8|||
 |PromptMonth|Transaction Prompt Month|`string`|8|||
-|PromptDate|Transaction Prompt Date|`string`|||`yyyy-mm` or `yyyy-mm-dd`|
+|PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
 |OptionType|Transaction Option Type|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
@@ -2712,8 +2712,10 @@ None.
 |BillOfLandingDate|Bill of Landing Date|`datetime`||||
 |BillOfLandingReference|Bill of Landing Reference|`string`|255|||
 |ShipmentPeriod|Shipment Period|`string`|23|||
-|ShipmentStartDate|Shipment Start Date|`datetime`||||
-|ShipmentEndDate|Shipment End Date|`datetime`||||
+|ShipmentPeriodStart|Shipment Period Start|`date`||`yyyy-mm` or `yyyy-mm-dd`||
+|ShipmentPeriodEnd|Shipment Period End|`date`||`yyyy-mm` or `yyyy-mm-dd`||
+|ShipmentStartDate|Shipment Start Date|`datetime`||Deprecation TBC||
+|ShipmentEndDate|Shipment End Date|`datetime`||Deprecation TBC||
 |CropYear|Crop Year|`string`|11|||
 
 + Request
@@ -2754,8 +2756,8 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Trade Code|`string`|3|||
 |DepartmentCode|Department Code|`string`|4|||
 |InstrumentCode|Instrument Code|`string`|8||Required|
-|PromptMonth|Prompt Month|`datetime`|||Required if PromptDate is null|
-|PromptDate|Prompt Date|`string`||`yyyy-mm` or `yyyy-mm-dd`|Required if PromptMonth is null|
+|PromptMonth|Prompt Month|`datetime`|||Required when `PromptDate` is null|
+|PromptDate|Prompt Date|`date`||`yyyy-mm` or `yyyy-mm-dd`|Required when `PromptMonth` is null|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -2870,7 +2872,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Department|see <b><a href="/#reference/nominal-reference-data/department/read-department">Department</a></b> endpoint|`object`||||
 |Instrument|see <b><a href="/#reference/global-reference-data/instrument-list">Instrument List</a></b> endpoint|`object`||||
 |PromptMonth|Prompt Month|`datetime`||||
-|PromptDate|Prompt Date|`string`|||`yyyy-mm` or `yyyy-mm-dd`|
+|PromptDate|Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -5994,7 +5996,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + BillOfLandingDate: `2015-08-01T00:00:00Z` (string)
 + BillOfLandingReference: ABC DEF (string)
 + ShipmentPeriod: JULY15 (string)
-+ ShipmentStartDate: `2015-07-20T00:00:00Z` (string)
++ ShipmentPeriodStart: `2015-07-01` (string)
++ ShipmentPeriodEnd: `2015-08` (string)
++ ShipmentStartDate: `2015-07-01T00:00:00Z` (string)
 + ShipmentEndDate: `2015-07-28T00:00:00Z` (string)
 + CropYear: 2015 (string)
 
