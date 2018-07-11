@@ -2390,8 +2390,8 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Reference|`string`|8|||
-|PromptMonth|Transaction Prompt Month|`datetime`||Deprecation TBC||
 |PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
+|PromptMonth|Transaction Prompt Month|`datetime`||Deprecation TBC||
 |OptionType|Transaction Option Type Code|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |TransactionIsMatched|Is Transaction Matched|`boolean`|5|||
@@ -2453,8 +2453,8 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Referece|`string`|8|||
-|PromptMonth|Transaction Prompt Month|`string`|8|Deprecation TBC||
 |PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
+|PromptMonth|Transaction Prompt Month|`string`|8|Deprecation TBC||
 |OptionType|Transaction Option Type|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
@@ -2756,8 +2756,8 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Trade Code|`string`|3|||
 |DepartmentCode|Department Code|`string`|4|||
 |InstrumentCode|Instrument Code|`string`|8||Required|
-|PromptMonth|Prompt Month|`datetime`||Deprecation TBC|Required when `PromptDate` is null|
 |PromptDate|Prompt Date|`date`||`yyyy-mm` or `yyyy-mm-dd`|Required when `PromptMonth` is null|
+|PromptMonth|Prompt Month|`datetime`||Deprecation TBC|Required when `PromptDate` is null|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -2871,8 +2871,8 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Code delivered as an <b><a href="/#reference/data-object-definitions/tradecode">TradeCode</a></b> object|`object`||||
 |Department|see <b><a href="/#reference/nominal-reference-data/department/read-department">Department</a></b> endpoint|`object`||||
 |Instrument|see <b><a href="/#reference/global-reference-data/instrument-list">Instrument List</a></b> endpoint|`object`||||
-|PromptMonth|Prompt Month|`datetime`||Deprecation TBC||
 |PromptDate|Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
+|PromptMonth|Prompt Month|`datetime`||Deprecation TBC||
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -5359,8 +5359,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Code (TradeCode)
 + Department (Department)
 + Instrument (Instrument)
-+ PromptMonth: `2015-07-01T00:00:00Z` (string)
 + PromptDate: `2015-07-01` (string)
++ PromptMonth: `2015-07-01T00:00:00Z` (string)
 + Instruction: true (boolean)
 + OptionType: C (string)
 + OptionSeries: 123 (number)
@@ -5384,8 +5384,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Code: AA (string)
 + DepartmentCode: 5100 (string)
 + InstrumentCode: NY11 (string)
-+ PromptMonth: `2015-07-01T00:00:00Z` (string)
 + PromptDate: `2015-07-01` (string)
++ PromptMonth: `2015-07-01T00:00:00Z` (string)
 + Instruction: true (boolean)
 + OptionType: C (string)
 + OptionSeries: 123 (number)
@@ -5706,8 +5706,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ClientReference: fmbnj (string)
 + Narrative: `WEEKEND/MIDNIGHT - VESSEL, 153` (string)
 + MarketReference: abcdefg (string)
-+ PromptMonth: `2015-08-01T00:00:00Z` (string)
 + PromptDate: `2015-08-05` (string)
++ PromptMonth: `2015-08-01T00:00:00Z` (string)
 + OptionType: C (string)
 + CommodityReference: 1bc123 (string)
 + TransactionIsMatched: true (boolean)
@@ -6030,8 +6030,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ClientReference: abc123 (string)
 + Narrative: Reversal of SI1501924 (string)
 + MarketReference: 123abc (string)
-+ PromptMonth: 20150732 (string)
 + PromptDate: `2015-07` (string)
++ PromptMonth: 20150732 (string)
 + OptionType: C (string)
 + CommodityReference: reference info (string)
 + Branch (AccountHeader)
