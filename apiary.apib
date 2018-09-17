@@ -20,10 +20,6 @@ VERSION: 2.18
 ## Updated Endpoints
 
 <ul>
-<li>Contract-F&O <b>Create F&O Trade</b>: Additional Property PromptDate has been added,<a href="/#reference/contract-f&o/fo-trade-create"> Link</a></li>
-<li>Contract-F&O <b>Read F&O Trade</b>: Additional Property PromptDate now included in the read,<a href="/#reference/contract-f&o/fo-trade/read-f&o-trade"> Link</a></li>
-<li>Accounting-Transactions <b>Read Transaction Physical Trade</b>: Additional Properties ShipmentPeriodStart and ShipmentPeriodEnd are now included in the read,<a href="/#reference/accounting-transactions/transaction-physical-trade"> Link</a></li>
-<li>Accounting-Transactions <b>Read Unposted Transaction</b>: Additional Property PromptDate now included in the read,<a href="/#reference/accounting-transactions/unposted-transaction"> Link</a></li>
 <li>Accounting-Transactions <b>Read Posted Transaction</b>: Additional Property PromptDate now included in the read,<a href="/#reference/accounting-transactions/posted-transaction"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
@@ -2390,8 +2386,7 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Reference|`string`|8|||
-|PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
-|PromptMonth|Transaction Prompt Month|`datetime`||Deprecation TBC||
+|PromptMonth|Transaction Prompt Month|`datetime`|20|||
 |OptionType|Transaction Option Type Code|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |TransactionIsMatched|Is Transaction Matched|`boolean`|5|||
@@ -2453,8 +2448,7 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Referece|`string`|8|||
-|PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
-|PromptMonth|Transaction Prompt Month|`string`|8|Deprecation TBC||
+|PromptMonth|Transaction Prompt Month|`string`|8|||
 |OptionType|Transaction Option Type|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
@@ -2712,10 +2706,8 @@ None.
 |BillOfLandingDate|Bill of Landing Date|`datetime`||||
 |BillOfLandingReference|Bill of Landing Reference|`string`|255|||
 |ShipmentPeriod|Shipment Period|`string`|23|||
-|ShipmentPeriodStart|Shipment Period Start|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
-|ShipmentPeriodEnd|Shipment Period End|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
-|ShipmentStartDate|Shipment Start Date|`datetime`||Deprecation TBC||
-|ShipmentEndDate|Shipment End Date|`datetime`||Deprecation TBC||
+|ShipmentStartDate|Shipment Start Date|`datetime`||||
+|ShipmentEndDate|Shipment End Date|`datetime`||||
 |CropYear|Crop Year|`string`|11|||
 
 + Request
@@ -2756,8 +2748,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Trade Code|`string`|3|||
 |DepartmentCode|Department Code|`string`|4|||
 |InstrumentCode|Instrument Code|`string`|8||Required|
-|PromptDate|Prompt Date|`date`||`yyyy-mm` or `yyyy-mm-dd`|Required when `PromptMonth` is null|
-|PromptMonth|Prompt Month|`datetime`||Deprecation TBC|Required when `PromptDate` is null|
+|PromptMonth|Prompt Month|`datetime`|||Required|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -2871,8 +2862,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Code delivered as an <b><a href="/#reference/data-object-definitions/tradecode">TradeCode</a></b> object|`object`||||
 |Department|see <b><a href="/#reference/nominal-reference-data/department/read-department">Department</a></b> endpoint|`object`||||
 |Instrument|see <b><a href="/#reference/global-reference-data/instrument-list">Instrument List</a></b> endpoint|`object`||||
-|PromptDate|Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
-|PromptMonth|Prompt Month|`datetime`||Deprecation TBC||
+|PromptMonth|Prompt Month|`datetime`||||
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -4463,6 +4453,10 @@ A multipurpose object used by several endpoints
 |AmountInDocumentCurrency|Amount in Document Currency|`decimal`||Can Contain Negative Values|Required|
 |AmountInInvoiceCurrency|Amount in Invoice Currency|`decimal`||Can Contain Negative Values||
 |AmountInFunctionalCurrency|Amount in Functional Currency|`decimal`||Can Contain Negative Values||
+|AssociateClientCode|Associate Client Code|`string`|10|||
+|ContractReference|Contract Reference|`string`|10|||
+|ClientReference|Client Reference|`string`|25|||
+|Narrative|Narrative|`string`|30|||
 
 
 + Response 200 (application/json; charset=utf-8)
@@ -4800,6 +4794,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ExpenseCode: CASHOUT (required, string)
 + DepartmentCode: BRL (required, string)
 + AmountInDocumentCurrency: `-4615.68` (required, number)
++ AssociateClientCode: ASSOCCLI.P (string)
++ ContractReference: S01234.000 (string)
++ ClientReference: Client Ref ABC (string)
++ Narrative: Example Narrative (string)
 
 ## AccountPostingBankPayDetails (object)
 + AccountCode: BANK.ACNT (required, string)
@@ -4807,6 +4805,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ExpenseCode: CPD (required, string)
 + DepartmentCode: 9900 (required, string)
 + AmountInDocumentCurrency: `-4615.68` (required, number)
++ AssociateClientCode: ASSOCCLI.P (string)
++ ContractReference: S01234.000 (string)
++ ClientReference: Client Ref ABC (string)
++ Narrative: Example Narrative (string)
 
 ## AccountPostingBankRecDetails (object)
 + AccountCode: BANK.ACNT (required, string)
@@ -4814,6 +4816,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ExpenseCode: CPD (required, string)
 + DepartmentCode: 9900 (required, string)
 + AmountInDocumentCurrency: 4615.68 (required, number)
++ AssociateClientCode: ASSOCCLI.P (string)
++ ContractReference: S01234.000 (string)
++ ClientReference: Client Ref ABC (string)
++ Narrative: Example Narrative (string)
 
 ## AccountPostingPayDetails (object)
 + AccountCode: TESTCLI.P (required, string)
@@ -4821,6 +4827,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ExpenseCode: CASHOUT (required, string)
 + DepartmentCode: BRL (required, string)
 + AmountInDocumentCurrency: `-4615.68` (required, number)
++ AssociateClientCode: ASSOCCLI.P (string)
++ ContractReference: S01234.000 (string)
++ ClientReference: Client Ref ABC (string)
++ Narrative: Example Narrative (string)
 
 ## AccountPostingPayDetailsLess (object)
 + AccountCode: 1234.567 (required, string)
@@ -4828,6 +4838,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ExpenseCode: CASHOUT (required, string)
 + DepartmentCode: BRL (required, string)
 + AmountInDocumentCurrency: 100.00 (required, number)
++ AssociateClientCode: ASSOCLI2.P (string)
++ ContractReference: S05421.000 (string)
++ ClientReference: Client Ref ABC (string)
++ Narrative: Example Narrative (string)
 
 ## AccountPostingRecDetailsLess (object)
 + AccountCode: 1234.567 (required, string)
@@ -4835,6 +4849,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ExpenseCode: CASHOUT (required, string)
 + DepartmentCode: BRL (required, string)
 + AmountInDocumentCurrency: `-100.00` (required, number)
++ AssociateClientCode: ASSOCLI2.P (string)
++ ContractReference: S05421.000 (string)
++ ClientReference: Client Ref ABC (string)
++ Narrative: Example Narrative (string)
 
 ## AccountPostingRecDetails (object)
 + AccountCode: TESTCLI.P (required, string)
@@ -4842,6 +4860,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ExpenseCode: CASHOUT (required, string)
 + DepartmentCode: BRL (required, string)
 + AmountInDocumentCurrency: 4615.68 (required, number)
++ AssociateClientCode: ASSOCCLI.P (string)
++ ContractReference: S01234.000 (string)
++ ClientReference: Client Ref ABC (string)
++ Narrative: Example Narrative (string)
 
 ## AdditionalInvoiceDet (object)
 + DocumentReference: PI1500000 (required, string)
@@ -5359,7 +5381,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Code (TradeCode)
 + Department (Department)
 + Instrument (Instrument)
-+ PromptDate: `2015-07-01` (string)
 + PromptMonth: `2015-07-01T00:00:00Z` (string)
 + Instruction: true (boolean)
 + OptionType: C (string)
@@ -5384,7 +5405,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Code: AA (string)
 + DepartmentCode: 5100 (string)
 + InstrumentCode: NY11 (string)
-+ PromptDate: `2015-07-01` (string)
 + PromptMonth: `2015-07-01T00:00:00Z` (string)
 + Instruction: true (boolean)
 + OptionType: C (string)
@@ -5706,7 +5726,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ClientReference: fmbnj (string)
 + Narrative: `WEEKEND/MIDNIGHT - VESSEL, 153` (string)
 + MarketReference: abcdefg (string)
-+ PromptDate: `2015-08-05` (string)
 + PromptMonth: `2015-08-01T00:00:00Z` (string)
 + OptionType: C (string)
 + CommodityReference: 1bc123 (string)
@@ -5996,9 +6015,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + BillOfLandingDate: `2015-08-01T00:00:00Z` (string)
 + BillOfLandingReference: ABC DEF (string)
 + ShipmentPeriod: JULY15 (string)
-+ ShipmentPeriodStart: `2015-07-01` (string)
-+ ShipmentPeriodEnd: `2015-08` (string)
-+ ShipmentStartDate: `2015-07-01T00:00:00Z` (string)
++ ShipmentStartDate: `2015-07-20T00:00:00Z` (string)
 + ShipmentEndDate: `2015-07-28T00:00:00Z` (string)
 + CropYear: 2015 (string)
 
@@ -6030,7 +6047,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ClientReference: abc123 (string)
 + Narrative: Reversal of SI1501924 (string)
 + MarketReference: 123abc (string)
-+ PromptDate: `2015-07` (string)
 + PromptMonth: 20150732 (string)
 + OptionType: C (string)
 + CommodityReference: reference info (string)
