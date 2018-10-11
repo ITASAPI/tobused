@@ -1,15 +1,15 @@
 FORMAT: 1A
 HOST: http://itas.apiary.io/
-VERSION: 2.18
+VERSION: 2.19
 
-# ITAS API 2.18
+# ITAS API 2.19
 
 ## Disclaimer
 
 **** Warning: at this point, ITAS API does not support asynchronus or multithreading calls for POST, PUT, PATCH and DELETE requests. Async or multithreading requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
 <br />
 <br />
-<strong>Release notes</strong> (21<sup>st</sup> September 2018)
+<strong>Release notes</strong> (XX<sup>st</sup> September 2018)
 
 ## New Endpoints
 
@@ -20,12 +20,11 @@ VERSION: 2.18
 ## Updated Endpoints
 
 <ul>
-<li>Finance-Cash <b>Payable Manual</b>: Additional Properties AssociateClientCode, ContractReference, ClientReference and Narrative have now been added to the AccountDetails Object,<a href="/#reference/finance-cash/payablemanual"> Link</a></li>
-<li>Finance-Cash <b>Payable On Account</b>: Additional Properties AssociateClientCode, ContractReference, ClientReference and Narrative have now been added to the BankDetails and OtherCosts Objects,<a href="/#reference/finance-cash/payableonaccount"> Link</a></li>
-<li>Finance-Cash <b>Payable On PrePayment</b>: Additional Properties AssociateClientCode, ContractReference, ClientReference and Narrative have now been added to the AccountDetails Object,<a href="/#reference/finance-cash/payableonprepayment"> Link</a></li>
-<li>Finance-Cash <b>Receivable Manual</b>: Additional Properties AssociateClientCode, ContractReference, ClientReference and Narrative have now been added to the AccountDetails Object,<a href="/#reference/finance-cash/payablemanual"> Link</a></li>
-<li>Finance-Cash <b>Receivable On Account</b>: Additional Properties AssociateClientCode, ContractReference, ClientReference and Narrative have now been added to the BankDetails and OtherCosts Objects,<a href="/#reference/finance-cash/payableonaccount"> Link</a></li>
-<li>Finance-Cash <b>Receivable On PrePayment</b>: Additional Properties AssociateClientCode, ContractReference, ClientReference and Narrative have now been added to the AccountDetails Object,<a href="/#reference/finance-cash/payableonprepayment"> Link</a></li>
+<li>Contract-F&O <b>Create F&O Trade</b>: Additional Property PromptDate has been added,<a href="/#reference/contract-f&o/fo-trade-create"> Link</a></li>
+<li>Contract-F&O <b>Read F&O Trade</b>: Additional Property PromptDate now included in the read,<a href="/#reference/contract-f&o/fo-trade/read-f&o-trade"> Link</a></li>
+<li>Accounting-Transactions <b>Read Transaction Physical Trade</b>: Additional Properties ShipmentPeriodStart and ShipmentPeriodEnd are now included in the read,<a href="/#reference/accounting-transactions/transaction-physical-trade"> Link</a></li>
+<li>Accounting-Transactions <b>Read Unposted Transaction</b>: Additional Property PromptDate now included in the read,<a href="/#reference/accounting-transactions/unposted-transaction"> Link</a></li>
+<li>Accounting-Transactions <b>Read Posted Transaction</b>: Additional Property PromptDate now included in the read,<a href="/#reference/accounting-transactions/posted-transaction"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -2391,7 +2390,8 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Reference|`string`|8|||
-|PromptMonth|Transaction Prompt Month|`datetime`|20|||
+|PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
+|PromptMonth|Transaction Prompt Month|`datetime`||Deprecation TBC||
 |OptionType|Transaction Option Type Code|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |TransactionIsMatched|Is Transaction Matched|`boolean`|5|||
@@ -2453,7 +2453,8 @@ None.
 |ClientReference|Client Reference|`string`|25|||
 |Narrative|Narrative|`string`|30|||
 |MarketReference|Market Referece|`string`|8|||
-|PromptMonth|Transaction Prompt Month|`string`|8|||
+|PromptDate|Transaction Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
+|PromptMonth|Transaction Prompt Month|`string`|8|Deprecation TBC||
 |OptionType|Transaction Option Type|`string`|1||`C`, `P` or `''`|
 |CommodityReference|Transaction Commodity Reference|`string`|15|||
 |Branch|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
@@ -2711,8 +2712,10 @@ None.
 |BillOfLandingDate|Bill of Landing Date|`datetime`||||
 |BillOfLandingReference|Bill of Landing Reference|`string`|255|||
 |ShipmentPeriod|Shipment Period|`string`|23|||
-|ShipmentStartDate|Shipment Start Date|`datetime`||||
-|ShipmentEndDate|Shipment End Date|`datetime`||||
+|ShipmentPeriodStart|Shipment Period Start|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
+|ShipmentPeriodEnd|Shipment Period End|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
+|ShipmentStartDate|Shipment Start Date|`datetime`||Deprecation TBC||
+|ShipmentEndDate|Shipment End Date|`datetime`||Deprecation TBC||
 |CropYear|Crop Year|`string`|11|||
 
 + Request
@@ -2753,7 +2756,8 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Trade Code|`string`|3|||
 |DepartmentCode|Department Code|`string`|4|||
 |InstrumentCode|Instrument Code|`string`|8||Required|
-|PromptMonth|Prompt Month|`datetime`|||Required|
+|PromptDate|Prompt Date|`date`||`yyyy-mm` or `yyyy-mm-dd`|Required when `PromptMonth` is null|
+|PromptMonth|Prompt Month|`datetime`||Deprecation TBC|Required when `PromptDate` is null|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -2867,7 +2871,8 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Code delivered as an <b><a href="/#reference/data-object-definitions/tradecode">TradeCode</a></b> object|`object`||||
 |Department|see <b><a href="/#reference/nominal-reference-data/department/read-department">Department</a></b> endpoint|`object`||||
 |Instrument|see <b><a href="/#reference/global-reference-data/instrument-list">Instrument List</a></b> endpoint|`object`||||
-|PromptMonth|Prompt Month|`datetime`||||
+|PromptDate|Prompt Date|`date`|||`yyyy-mm` or `yyyy-mm-dd`|
+|PromptMonth|Prompt Month|`datetime`||Deprecation TBC||
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
@@ -5386,6 +5391,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Code (TradeCode)
 + Department (Department)
 + Instrument (Instrument)
++ PromptDate: `2015-07-01` (string)
 + PromptMonth: `2015-07-01T00:00:00Z` (string)
 + Instruction: true (boolean)
 + OptionType: C (string)
@@ -5410,6 +5416,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Code: AA (string)
 + DepartmentCode: 5100 (string)
 + InstrumentCode: NY11 (string)
++ PromptDate: `2015-07-01` (string)
 + PromptMonth: `2015-07-01T00:00:00Z` (string)
 + Instruction: true (boolean)
 + OptionType: C (string)
@@ -5731,6 +5738,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ClientReference: fmbnj (string)
 + Narrative: `WEEKEND/MIDNIGHT - VESSEL, 153` (string)
 + MarketReference: abcdefg (string)
++ PromptDate: `2015-08-05` (string)
 + PromptMonth: `2015-08-01T00:00:00Z` (string)
 + OptionType: C (string)
 + CommodityReference: 1bc123 (string)
@@ -6020,6 +6028,8 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + BillOfLandingDate: `2015-08-01T00:00:00Z` (string)
 + BillOfLandingReference: ABC DEF (string)
 + ShipmentPeriod: JULY15 (string)
++ ShipmentPeriodStart: `2015-07-01` (string)
++ ShipmentPeriodEnd: `2015-08` (string)
 + ShipmentStartDate: `2015-07-20T00:00:00Z` (string)
 + ShipmentEndDate: `2015-07-28T00:00:00Z` (string)
 + CropYear: 2015 (string)
@@ -6052,6 +6062,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ClientReference: abc123 (string)
 + Narrative: Reversal of SI1501924 (string)
 + MarketReference: 123abc (string)
++ PromptDate: `2015-07` (string)
 + PromptMonth: 20150732 (string)
 + OptionType: C (string)
 + CommodityReference: reference info (string)
