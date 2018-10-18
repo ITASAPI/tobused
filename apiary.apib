@@ -2758,8 +2758,8 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |Code|Trade Code|`string`|3|||
 |DepartmentCode|Department Code|`string`|4|||
 |InstrumentCode|Instrument Code|`string`|8||Required|
-|PromptDate|Prompt Date|`date`||`yyyy-mm` or `yyyy-mm-dd`|Required when `PromptMonth` is null|
-|PromptMonth|Prompt Month|`datetime`||Deprecation TBC|Required when `PromptDate` is null|
+|PromptDate|Prompt Date|`date`||`yyyy-mm` or `yyyy-mm-dd`|Only Required when `PromptMonth` is null|
+|PromptMonth|Prompt Month|`datetime`||Deprecation TBC|Only Required when `PromptDate` is null|
 |Instruction|Instruction|`boolean`|5|||
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
