@@ -15,14 +15,13 @@ VERSION: 2.20
 ## New Endpoints
 
 <ul>
-<li>None</li>
+<li>Accounting-Transactions <b>Create Additional Invoicing Details</b>: Create Details associated with external uses of invoices,<a href="/#reference/contract-f&o/fo-trade-create"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>Contract-F&O <b>Create F&O Trade</b>: Additional Property PromptDate has been added,<a href="/#reference/contract-f&o/fo-trade-create"> Link</a></li>
-
+<li>None</li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -2248,6 +2247,56 @@ Data Objects and endpoints providing access to accounting transactions generated
 
 + Response 400 (application/json; charset=utf-8)
     + Attributes (400 BadReadResponse)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+## Additional Invoicing Details Create [/Accounting/{TradingEntityId}/Transaction/AdditionalInvDetail]
+`POST` Create Details associated with external use of invoices. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+### Create Additional Invoicing Details [POST]
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|DocumentReference|Transaction Document Reference|`string`|9||Required|
+|Void|Void|`boolean`|5|||
+|VoidMemo|Void Memo|`string`|1000|||
+|Token|Token|`string`|255|||
+|EnvelopeId|Envelope Id|`number`||||
+|CounterpartyEnvelopeId|Counterparty Envelope Id|`number`||||
+|CounterpartyId|Counterparty Id|`number`||||
+|Acknowledged|Is Acknowldged|`boolean`|5|||
+|StatusTimeStamp|Status Time Stamp|`datetime`||||
+|Status|Status |`string`|20|||
+|TrackId|Track Id|`string`|20|||
+|OneTimePassword|One Time Password|`string`|30|||
+|ConfirmCode|Confirm Code|`string`|30|||
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|InvoiceDetailId|Invoice Detail Id|`number`||||
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (AdditionalInvDetailCreate)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (AdditionalInvDeatilResponse)
+        + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
 
 + Response 404 (application/json; charset=utf-8)
     + Attributes (404 Response)
@@ -4877,6 +4926,22 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ClientReference: Client Ref ABC (string)
 + Narrative: Example Narrative (string)
 
+## AdditionalInvDetailCreate (object)
++ DocumentReference: PI1500000 (required, string)
++ Void: true (boolean)
++ VoidMemo: MemoABC (string)
++ Token: `88868718-bd78-42e9-b78a-1f99dc9999f9` (string)
++ EnvelopeId: 50 (number)
++ CounterpartyEnvelopeId: 35 (number)
++ CounterpartyId: 2 (number)
++ Acknowledged: true (boolean)
++ StatusTimeStamp: `2015-12-01T05:35:00Z` (string)
++ Status: Complete (string)
++ TrackId: YNBCVW742 (string)
++ OneTimePassword: JohnSmith1234 (string)
++ ConfirmCode: 1234ABC (string)
+
+
 ## AdditionalInvoiceDet (object)
 + DocumentReference: PI1500000 (required, string)
 + InvoiceDetailId: 10 (number)
@@ -4895,6 +4960,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + OneTimePassword: JohnSmith1234 (string)
 + ConfirmCode: 1234ABC (string)
 + SetUpBy: PG (string)
+
+## AdditionalInvDeatilResponse (object)
++ + InvoiceDetailId: 10 (number)
 
 ## AdditionalInvDetailsUpdate (object)
 + InvoiceDetailId: 10 (number)
