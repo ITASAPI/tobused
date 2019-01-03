@@ -3610,7 +3610,7 @@ Production Order scheduling services.
 |ReleaseId|Release ID|`number`|||Required|
 |ExpedOrderDetails|see <b><a href="/#reference/inventory-physicals-order-scheduling/expedcalloff">ExpedCallOff</a></b> endpoint|`object`||||
 |PumpingMemo|Pumping Memo|`string`|250|||
-|ProcessComplete|Is Process Complete|`boolean`|5|||
+|ProcessComplete|Is Process Complete|`string`|1|||
 |TargetStockUnit|see <b><a href="/#reference/wip-reference-data/stockunit">StockUnit</a></b> endpoint|`object`||||
 
 
@@ -3644,7 +3644,7 @@ Production Order scheduling services.
 |ReleaseId|Release ID|`number`|||Required|
 |ExpedOrderDetails|see <b><a href="/#reference/inventory-physicals-order-scheduling/expedcalloff">ExpedCallOff</a></b> endpoint|`object`||||
 |PumpingMemo|Pumping Memo|`string`|250|||
-|ProcessComplete|Is Process Complete|`boolean`|5|||
+|ProcessComplete|Is Process Complete|`string`|1|||
 |SourceStockUnit|see <b><a href="/#reference/inventory-physicals-stock-processing/stockloading">StockLoading</a></b> endpoint|`[object]`||array of StockLoading objects||
 
 + Request
@@ -5336,14 +5336,14 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ReleaseId: 12345 (number)
 + ExpedOrderDetails (ExpedCallOff)
 + PumpingMemo: memp text ges here (string)
-+ ProcessComplete: true (boolean)
++ ProcessComplete: Y (string)
 + TargetStockUnit (StockUnit)
 
 ## DeliveryOutOrder (object)
 + ReleaseId: 12345 (number)
 + ExpedOrderDetails (ExpedCallOff)
 + PumpingMemo: memp text ges here (string)
-+ ProcessComplete: true (boolean)
++ ProcessComplete: Y (string)
 + SourceStockUnit (array [StockLoading])
 
 ## Department (object)
