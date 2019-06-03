@@ -1814,7 +1814,7 @@ WIP Ledger related reference data.
 |ShipmentStatusCode|Shipment Status Code|`string`|2|||
 |VesselReference|Vessel Reference|`string`|30|||
 |ShippingLineCode|Shipping Line Code|`string`|10|||
-|PrivilegeLevel|Charter Account Privilege Level|`number`|1||`0` to `9`|
+|PrivilegeLevel|Charter Account Privilege Level|`string`|1||`0` to `9`|
 |EDICode|Charter Account EDI Code|`string`|9|||
 |Status|Charter Account Status|`string`|1||`O` or `F`|
 |AreGoodsFinanced|Are Goods Financed|`boolean`|5|||
@@ -1868,7 +1868,7 @@ WIP Ledger related reference data.
 |ShipmentStatus|see <b><a href="/#reference/physicals-reference-data/shippingstatus-list">ShippingStatus</a></b> endpoint|`object`||||
 |VesselReference|Vessel Reference|`string`|30|||
 |ShippingLine|Shipping Line delivered as an <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
-|PrivilegeLevel|Charter Acccount Privilege Level|`number`|1||`0` to `9`|
+|PrivilegeLevel|Charter Acccount Privilege Level|`string`|1||`0` to `9`|
 |EDICode|Charter Account EDI Code|`string`|9|||
 |Status|Charter Account Status|`string`|1||`O` or `F`|
 |AreGoodsFinanced|Are Goods Financed|`boolean`|5|||
@@ -2035,7 +2035,7 @@ WIP Ledger related reference data.
 |WIPAccountType|WIP Account Type|`string`|1|||
 |DepartmentCode|Department Code|`string`|4|||
 |NominalAccountCode|Nominal Account Code|`string`|9|||
-|PrivilegeLevel|WIP Account Privilege Level|`number`|1||`0` to `9`|
+|PrivilegeLevel|WIP Account Privilege Level|`string`|1||`0` to `9`|
 |EDICode|WIP Account EDI Code|`string`|9|||
 |Status|WIP Account Status|`string`|1||`O` or `F`|
 
@@ -2081,7 +2081,7 @@ WIP Ledger related reference data.
 |WIPAccountType|WIP Account Type|`string`|1|||
 |Department|see <b><a href="/#reference/nominal-reference-data/department/read-department">Department</a></b> endpoint|`object`||||
 |NominalAccount|see <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
-|PrivilegeLevel|WIP Account Privilege Level|`number`|1||`0` to `9`|
+|PrivilegeLevel|WIP Account Privilege Level|`string`|1||`0` to `9`|
 |EDICode|WIP Account EDI Code|`string`|9|||
 |Status|WIP Account Status|`string`|1||`O` or `F`|
 
@@ -5002,7 +5002,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ShipmentStatus (ShippingStatus)
 + VesselReference: MSC SHANGHAI (string)
 + ShippingLine (AccountHeaderC)
-+ PrivilegeLevel: 5 (number)
++ PrivilegeLevel: 5 (string)
 + EDICode: xyz321 (string)
 + Status: F (string)
 + AreGoodsFinanced: true (boolean)
@@ -5026,7 +5026,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ShipmentStatusCode: D (string)
 + VesselReference: MSC SHANGHAI (string)
 + ShippingLineCode: abc123 (string)
-+ PrivilegeLevel: 5 (number)
++ PrivilegeLevel: 5 (string)
 + EDICode: xyz321 (string)
 + Status: F (string)
 + AreGoodsFinanced: true (boolean)
@@ -6218,7 +6218,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + WIPAccountType: M (string)
 + Department (Department)
 + NominalAccount (AccountHeaderN)
-+ PrivilegeLevel: 5 (number)
++ PrivilegeLevel: 5 (string)
 + EDICode: 123xyz (string)
 + Status: F (string)
 
@@ -6229,6 +6229,6 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + WIPAccountType: M (string)
 + DepartmentCode: 5100 (string)
 + NominalAccountCode: 5100.5100 (string)
-+ PrivilegeLevel: 5 (number)
++ PrivilegeLevel: 5 (string)
 + EDICode: 123xyz (string)
 + Status: F (string)
