@@ -15,7 +15,7 @@ VERSION: 2.21
 ## New Endpoints
 
 <ul>
-<li>Accounting-Transactions <b>Create Additional Invoicing Details</b>: Create Details associated with external uses of invoices,<a href="/#reference/accounting-transactions/additional-invoicing-details-create"> Link</a></li>
+<li>Contract-Physical <b>Create Physical Trade Split</b>: Split Physical Trade,<a href="/#reference/contract-physical/physical-trade-split"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
@@ -3079,9 +3079,9 @@ Endpoints covering reading data associated with Physical Contracts (trades)
 ### Create Physical Trade Split [POST]
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|ContractId|Contract Id|`string`|10|||
-|UnitOfMeasurementCode|Unit of Measurement Code|`string`|4|||
-|ContractQuantityToSplit|Contract Quantity to Split|`number`||||
+|ContractId|Contract Id|`string`|10||Required|
+|UnitOfMeasurementCode|Unit of Measurement Code|`string`|4||Required|
+|ContractQuantityToSplit|Contract Quantity to Split|`number`|||Required|
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
