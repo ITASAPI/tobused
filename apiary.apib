@@ -2923,7 +2923,7 @@ Data Objects and endpoints providing access to and creation of Futures and Optio
 |OptionType|Option Type|`string`|1||`C`, `P` or `blank`|
 |OptionSeries|Option Series|`decimal`||||
 |BuySell|Buy or Sell|`string`|1||`B` or `S`|
-|Lots|Lots|`number`|||Greater than `0`|
+|Lots|Lots|`decimal`|||Greater than `0`|
 |PhysRef|Physical Reference|`string`|11|||
 |Broker|Broker Account delivered as an <b><a href="/#reference/data-object-definitions/accountheader">AccountHeader</a></b> object|`object`||||
 |Price|Price|`decimal`||||
@@ -5504,7 +5504,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + OptionType: C (string)
 + OptionSeries: 123 (number)
 + BuySell: B (string)
-+ Lots: 100 (number)
++ Lots: 100.00 (number)
 + PhysRef: ABCDEF.STK (string)
 + Broker (AccountHeaderC)
 + Price: 12345 (number)
