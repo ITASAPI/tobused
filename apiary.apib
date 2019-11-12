@@ -15,13 +15,14 @@ VERSION: 2.21
 ## New Endpoints
 
 <ul>
-<li>Contract-Physical <b>Create Physical Trade Split</b>: Split Physical Trade,<a href="/#reference/contract-physical/physical-trade-split"> Link</a></li>
+<li>None</li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>None</li>
+<li>Inventory-Physicals-Stock Management <b>Read StockBatch</b>: url updated to include additional parameter for uniqueness,<a href="/#reference/inventory-physicals-stock-management/stockbatch/read-stockbatch"> Link</a></li>
+<li>Inventory-Physicals-Stock Management <b>Update StockBatch</b>: url updated to include additional parameter for uniqueness,<a href="/#reference/inventory-physicals-stock-management/stockbatch/read-stockbatch"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -3914,7 +3915,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
-## StockBatch [/Inventory/{TradingEntityId}/Physicals/StockManagement/StockBatch/{StockBatchId}]
+## StockBatch [/Inventory/{TradingEntityId}/Physicals/StockManagement/StockBatchDetail/{StockBatchId}/{StockUnitCode}]
 `GET` Batch record information by Stock Unit.
 ### Read StockBatch [GET]
 
@@ -3933,6 +3934,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
     + StockBatchId (required, string, `abc123`)
+    + StockUnitCode (required, string `1111.MEP`)
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
@@ -3953,6 +3955,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |StockBatchId|Stock Batch ID|`string`|20||Required|
+|StockUnitCode|Stock Unit Code|`string`|11||Required|
 |BatchAcknowledgedDate|Batch Acknowledged Date|`datetime`|20|||
 
 + Request (application/json)
@@ -3965,6 +3968,7 @@ Management activities of Stock Units (where represented by WIP Accounts).
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
     + StockBatchId (required, string, `abc123`) ... Code for stock batch to update. 
+    + StockUnitCode (required, string `1111.MEP`)
 
 + Response 200 (application/json; charset=utf-8)
     + Attributes 
@@ -5932,6 +5936,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## StockBatchUpdate (object)
 + StockBatchId: abc123 (string)
++ StockUnitCode: 1111.MEP (string)
 + BatchAcknowledgedDate: `2015-08-02T00:00:00Z` (string)
 
 ## StockLoading (object)
