@@ -4249,6 +4249,56 @@ None.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+
+## StockToStockTransfer [/Inventory/{TradingEntityId}/Physicals/OrderProcessing/StockToStockTransfer]
+`POST` Create Transfer between Stock Units. 
+### Create StockToStockTransfer [POST]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|SourceStockUnitCode|Source Stock Unit Code|`string`|11||Required|
+|Quantity|Quantity|`decimal`|||Required|
+|MovementDate|Movement Date|`datetime`|20||Required|
+|TargetStockUnitCode|Target Stock Unit Code|`string`|11||Required|
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|ReleaseId|Release ID|`number`||||
+
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (StockToStockTransfer)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes
+        + Data
+            + DocumentReference: JL2000001 (number)
+        + Response (201 CreateResponse)
+        + Messages (array [201 ErrorBllMessageDetail])
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
+
+
+
+
 # Group Valuation-Physical
 Data endpoints for Trade Valuation
 
@@ -4764,6 +4814,13 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## 201 ErrorMessageDetail (object)
 + Severity: Warning (string)
 + Message: `API5084 - LEG : {fieldName} has a {fieldName} of {value}.` (string)
+
+## 201 CreateBllMessages (object)
++ Messages (array [201 ErrorBllMessageDetail])
+
+## 201 ErrorBllMessageDetail (object)
++ Severity: Warning (string)
++ Message: `API5084 - API : {fieldName} has a {fieldName} of {value}.` (string)
 
 ## 400 Response (object)
 + Response
@@ -5983,6 +6040,12 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + PumpingMemo: pumpingmemo text goes here. (string)
 + ProcessComplete: true (boolean)
 + SourceStockUnitCodes (array [StockLoading])
+
+## StockToStockTransfer (object)
++ SourceStockUnitCode: SSTOCK.000 (string)
++ Quantity: 100 (number)
++ MovementDate: `2020-03-20T00:00:00Z` (string)
++ TargetStockUnitCode: TSTOCK.000 (string)
 
 ## StockUnit (object)
 + StockUnitId: 1111.MEP (string)
