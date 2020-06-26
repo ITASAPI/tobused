@@ -3600,6 +3600,144 @@ None.
 + Response 404 (application/json; charset=utf-8)
     + Attributes (404 Response)
 
+
+# Group Global Market Data
+Global (system-wide) Market Data
+
+## Intra Day Exchange Rate [/MarketData/Global/IntraDayExchangeRate/{CurrencyId}]
+`PUT` Remove currenct rate and Create Intra Day Exchange Rate. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+### Create Intra Day Exchange Rate [PUT]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CurrencyId|Currency ID|`string`|3||Required|
+|Rate|Rate|`decimal`|||Required|
+|RateType|Rate Type|`string`|1|`D` or `M`|Required|
+|OneMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwoMonthPointsMovement|Two Month Points Movement|`decimal`||||
+|ThreeMonthPointsMovement|Three Month Points Movement|`decimal`||||
+|FourMonthPointsMovement|Four Month Points Movement|`decimal`||||
+|FiveMonthPointsMovement|Five Month Points Movement|`decimal`||||
+|SixMonthPointsMovement|Six Month Points Movement|`decimal`||||
+|SevenMonthPointsMovement|Seven Month Points Movement|`decimal`||||
+|EightMonthPointsMovement|Eight Month Points Movement|`decimal`||||
+|NineMonthPointsMovement|Nine Month Points Movement|`decimal`||||
+|TenMonthPointsMovement|Ten Month Points Movement|`decimal`||||
+|ElevenMonthPointsMovement|Eleven Month Points Movement|`decimal`||||
+|OneYearPointsMovement|One Year Points Movement|`decimal`||||
+|ThirteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|FourteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|FifteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|SixteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|SeventeenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|EighteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|NineteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwentyMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwentyOneMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwentyTwoMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwentyThreeMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwoYearPointsMovement|Two Year Points Movement|`decimal`||||
+|ThreeYearPointsMovement|Three Year Points Movement|`decimal`||||
+|FourYearPointsMovement|Four Year Points Movement|`decimal`||||
+|FiveYearPointsMovement|Five Year Points Movement|`decimal`||||
+
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CurrencyId|Currency Id|`string`||||
+|Rate|Rate|`decimal`||||
+|RateType|Rate Type|`string`||||
+|PriceDate|Price Date|`DateTime`||||
+
++ Parameters
+    + CurrencyId (required, string, `GBP`)
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (IntraDayExchRate)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes
+        + Data
+            + CurrencyId: GBP (string)
+            + Rate: 15.2 (number)
+            + RateType: D (string)
+            + PriceDate: `2020-01-27T00:00:00Z` (string)
+        + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes  
+        + Data 
+            + CurrencyId: GBP (string)
+            + Rate: 15.2 (number)
+            + RateType: D (string)
+            + PriceDate: `2020-01-27T00:00:00Z` (string)
+        + Response (200 UpdateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
+## Intra Day Price [/MarketData/Global/IntraDayPrice/{InstrumentId}]
+`PUT` Create Intra Day Price. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+### Create Intra Day Price [PUT]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|InstrumentId|Instrument ID|`string`|8||Required|
+|PromptDate|Prompt Date|`date`|||Required|
+|Price|Price|`decimal`|||Required|
+
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|InstrumentId|Instrument ID|`string`||||
+|PromptDate|Prompt Date|`date`||||
+|Price|Price|`decimal`||||
+
++ Parameters
+    + InstrumentId (required, string, `NY11`)
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (IntraDayPrice)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes
+        + Data
+            + InstrumentId: NY11 (string)
+            + PromptDate: `2020-01` (number)
+            + Price: 10.1 (string)
+        + Response (201 CreateResponse)
+        + Messages (array [201 ErrorMessageDetail])
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
 # Group Inventory-Physicals-Order Scheduling
 Production Order scheduling services.
 
@@ -5578,6 +5716,17 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + FloorBrokerCode: ABCDEF.P (string)
 + TraderCode: TT (string)
 + StrategyCode: P1 (string)
+
+## IntraDayExchRate (object)
++ CurrencyId: GBP (string)
++ Rate: 15.2 (number)
++ RateType: D (string)
++ PriceDate: `2020-01-27T00:00:00Z` (string)
+
+## IntraDayPrice (object)
++ InstrumentId: NY11 (string)
++ PromptDate: `2020-01` (string)
++ Price: 10.1 (number)
 
 ## Instrument (object)
 + InstrumentId: NY11 (string)
