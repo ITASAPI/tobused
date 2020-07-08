@@ -3709,6 +3709,7 @@ Global (system-wide) Market Data
 |InstrumentId|Instrument ID|`string`||||
 |PromptDate|Prompt Date|`date`||||
 |Price|Price|`decimal`||||
+|PriceDate|Price Date|`DateTime`||||
 
 + Parameters
     + InstrumentId (required, string, `NY11`)
@@ -3726,6 +3727,7 @@ Global (system-wide) Market Data
             + InstrumentId: NY11 (string)
             + PromptDate: `2020-01` (string)
             + Price: 10.1 (string)
+            + PriceDate: `2020-01-27T00:00:00Z` (string)
         + Response (201 CreateResponse)
         + Messages (array [201 ErrorBllMessageDetail])
 
@@ -5722,7 +5724,33 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + CurrencyId: GBP (string)
 + Rate: 15.2 (number)
 + RateType: D (string)
-+ PriceDate: `2020-01-27T00:00:00Z` (string)
++ OneMonthPointsMovement: 1 (number)
++ TwoMonthPointsMovement: 2 (number)
++ ThreeMonthPointsMovement: 3 (number)
++ FourMonthPointsMovement: 4 (number)
++ FiveMonthPointsMovement: 5 (number)
++ SixMonthPointsMovement: 6 (number)
++ SevenMonthPointsMovement: 7 (number)
++ EightMonthPointsMovement: 8 (number)
++ NineMonthPointsMovement: 9 (number)
++ TenMonthPointsMovement: 10 (number)
++ ElevenMonthPointsMovement: 11 (number)
++ OneYearPointsMovement: 12 (number)
++ ThirteenMonthPointsMovement: 13 (number)
++ FourteenMonthPointsMovement: 14 (number)
++ FifteenMonthPointsMovement: 15 (number)
++ SixteenMonthPointsMovement: 16 (number)
++ SeventeenMonthPointsMovement: 17 (number)
++ EighteenMonthPointsMovement: 18 (number)
++ NineteenMonthPointsMovement: 19 (number)
++ TwentyMonthPointsMovement: 20 (number)
++ TwentyOneMonthPointsMovement: 21 (number)
++ TwentyTwoMonthPointsMovement: 22 (number)
++ TwentyThreeMonthPointsMovement: 23 (number)
++ TwoYearPointsMovement: 24 (number)
++ ThreeYearPointsMovement: 25 (number)
++ FourYearPointsMovement: 26 (number)
++ FiveYearPointsMovement: 27 (number)
 
 ## IntraDayPrice (object)
 + InstrumentId: NY11 (string)
