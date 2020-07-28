@@ -23,8 +23,8 @@ VERSION: 2.23
 
 <ul>
 <li>Accounting-Transactions <b>List Additional Invoicing Details</b>: Additional Properties CounterpartyCode, EInvoiceTypeCode, Timestamp, SobreTimestamp and EInvoiceDate ,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
-<li>Accounting-Transactions <b>Create Additional Invoicing Details</b>: Additional Properties CounterpartyCode, EInvoiceTypeCode, Timestamp, SobreTimestamp and EInvoiceDate ,<a href="/#reference/accounting-transactions/additional-invoicing-details-create"> Link</a></li>
-<li>Accounting-Transactions <b>Update Additional Invoicing Details</b>: Additional Properties CounterpartyCode, EInvoiceTypeCode, Timestamp, SobreTimestamp and EInvoiceDate ,<a href="/#reference/accounting-transactions/additional-invoicing-details"> Link</a></li>
+<li>Accounting-Transactions <b>Create Additional Invoicing Details</b>: Additional Properties, SequenceNumber, CounterpartyCode, EInvoiceTypeCode, Timestamp, SobreTimestamp and EInvoiceDate ,<a href="/#reference/accounting-transactions/additional-invoicing-details-create"> Link</a></li>
+<li>Accounting-Transactions <b>Update Additional Invoicing Details</b>: Additional Properties, SequenceNumber, CounterpartyCode, EInvoiceTypeCode, Timestamp, SobreTimestamp and EInvoiceDate ,<a href="/#reference/accounting-transactions/additional-invoicing-details"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -2269,6 +2269,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |DocumentReference|Transaction Document Reference|`string`|9||Required|
+|SequenceNumber|Sequence Number|`string`|50|||
 |Void|Void|`boolean`|5|||
 |VoidMemo|Void Memo|`string`|1000|||
 |Token|Token|`string`|255|||
@@ -2324,6 +2325,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
 |InvoiceDetailId|Invoice Detail Id|`number`|||Required|
+|SequenceNumber|Sequence Number|`string`|50|||
 |Void|Void|`boolean`|5|||
 |VoidMemo|Void Memo|`string`|1000|||
 |Token|Token|`string`|255|||
@@ -5148,6 +5150,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## AdditionalInvDetailCreate (object)
 + DocumentReference: PI1500000 (required, string)
++ SequenceNumber: A000001 (string)
 + Void: true (boolean)
 + VoidMemo: MemoABC (string)
 + Token: `88868718-bd78-42e9-b78a-1f99dc9999f9` (string)
@@ -5196,6 +5199,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## AdditionalInvDetailsUpdate (object)
 + InvoiceDetailId: 10 (number)
++ SequenceNumber: A000001 (string)
 + Void: true (boolean)
 + VoidMemo: MemoABC (string)
 + Token: `88868718-bd78-42e9-b78a-1f99dc9999f9` (string)
