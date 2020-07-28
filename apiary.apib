@@ -22,7 +22,9 @@ VERSION: 2.23
 ## Updated Endpoints
 
 <ul>
-<li>None at the moment</li>
+<liAccounting-Transactions <b>List Additional Invoicing Details</b>: Additional Properties CounterpartyCode, EInvoiceTypeCode, Timestamp, SobreTimestamp and EInvoiceDate ,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
+<liAccounting-Transactions <b>Create Additional Invoicing Details</b>: Additional Properties CounterpartyCode, EInvoiceTypeCode, Timestamp, SobreTimestamp and EInvoiceDate ,<a href="/#reference/accounting-transactions/additional-invoicing-details-create"> Link</a></li>
+<liAccounting-Transactions <b>Update Additional Invoicing Details</b>: Additional Properties CounterpartyCode, EInvoiceTypeCode, Timestamp, SobreTimestamp and EInvoiceDate ,<a href="/#reference/accounting-transactions/additional-invoicing-details"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -2215,6 +2217,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |VoidMemo|Void Memo|`string`|1000|||
 |Token|Token|`string`|255|||
 |EnvelopeId|Envelope Id|`number`||||
+|CounterpartyCode|Counterparty Code|`string`|10|||
 |CounterpartyEnvelopeId|Counterparty Envelope Id|`number`||||
 |CounterpartyId|Counterparty Id|`number`||||
 |Acknowledged|Is Acknowldged|`boolean`|5|||
@@ -2224,6 +2227,10 @@ Data Objects and endpoints providing access to accounting transactions generated
 |OneTimePassword|One Time Password|`string`|30|||
 |ConfirmCode|Confirm Code|`string`|30|||
 |SetUpBy|Set Up By|`string`|3|||
+|EInvoiceTypeCode|EInvoice Type Code|`string`|3|||
+|Timestamp|Timestamp|`datetime`||||
+|SobreTimestamp|Sombre Timestamp|`datetime`||||
+|EInvoiceDate|EInvoice Date|`datetime`||||
 
 + Request
     [AccessToken][]
@@ -2238,6 +2245,7 @@ Data Objects and endpoints providing access to accounting transactions generated
             + SerialNumber (optional, string)
             + SequenceNumber (optional, string)
             + Void (optional, string)
+            + CounterpartyCode (optional, string)
     + PropertyValue (optional, string, `PI1500000`)
 
 + Response 200 (application/json; charset=utf-8)
@@ -2266,6 +2274,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |VoidMemo|Void Memo|`string`|1000|||
 |Token|Token|`string`|255|||
 |EnvelopeId|Envelope Id|`number`||||
+|CounterpartyCode|Counterparty Code|`string`|10|||
 |CounterpartyEnvelopeId|Counterparty Envelope Id|`number`||||
 |CounterpartyId|Counterparty Id|`number`||||
 |Acknowledged|Is Acknowldged|`boolean`|5|||
@@ -2274,6 +2283,10 @@ Data Objects and endpoints providing access to accounting transactions generated
 |TrackId|Track Id|`string`|20|||
 |OneTimePassword|One Time Password|`string`|30|||
 |ConfirmCode|Confirm Code|`string`|30|||
+|EInvoiceTypeCode|EInvoice Type Code|`string`|3|||
+|Timestamp|Timestamp|`datetime`||||
+|SobreTimestamp|Sobre Timestamp|`datetime`||||
+|EInvoiceDate|EInvoice Date|`datetime`||||
 
 <b>Response Data</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
@@ -2316,6 +2329,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |VoidMemo|Void Memo|`string`|1000|||
 |Token|Token|`string`|255|||
 |EnvelopeId|Envelope Id|`number`||||
+|CounterpartyCode|Counterparty Code|`string`|10|||
 |CounterpartyEnvelopeId|Counterparty Envelope Id|`number`||||
 |CounterpartyId|Counterparty Id|`number`||||
 |Acknowledged|Is Acknowldged|`boolean`|5|||
@@ -2324,6 +2338,10 @@ Data Objects and endpoints providing access to accounting transactions generated
 |TrackId|Track Id|`string`|20|||
 |OneTimePassword|One Time Password|`string`|30|||
 |ConfirmCode|Confirm Code|`string`|30|||
+|EInvoiceTypeCode|EInvoice Type Code|`string`|3|||
+|Timestamp|Timestamp|`datetime`||||
+|SobreTimestamp|Sobre Timestamp|`datetime`||||
+|EInvoiceDate|EInvoice Date|`datetime`||||
 
 + Request (application/json)
     + Header
@@ -5135,6 +5153,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + VoidMemo: MemoABC (string)
 + Token: `88868718-bd78-42e9-b78a-1f99dc9999f9` (string)
 + EnvelopeId: 50 (number)
++ CounterpartyCode: ABCDEF.P (string)
 + CounterpartyEnvelopeId: 35 (number)
 + CounterpartyId: 2 (number)
 + Acknowledged: true (boolean)
@@ -5143,6 +5162,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + TrackId: YNBCVW742 (string)
 + OneTimePassword: JohnSmith1234 (string)
 + ConfirmCode: 1234ABC (string)
++ EInvoiceTypeCode: 33 (string)
++ Timestamp: `2015-12-01T05:35:00Z` (string)
++ SobreTimestamp: `2015-12-01T05:35:00Z` (string)
++ EInvoiceDate: `2015-12-01T05:35:00Z` (string)
 
 
 ## AdditionalInvoiceDet (object)
@@ -5154,6 +5177,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + VoidMemo: MemoABC (string)
 + Token: `88868718-bd78-42e9-b78a-1f99dc9999f9` (string)
 + EnvelopeId: 50 (number)
++ CounterpartyCode: ABCDEF.P (string)
 + CounterpartyEnvelopeId: 35 (number)
 + CounterpartyId: 2 (number)
 + Acknowledged: true (boolean)
@@ -5163,6 +5187,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + OneTimePassword: JohnSmith1234 (string)
 + ConfirmCode: 1234ABC (string)
 + SetUpBy: PG (string)
++ EInvoiceTypeCode: 33 (string)
++ Timestamp: `2015-12-01T05:35:00Z` (string)
++ SobreTimestamp: `2015-12-01T05:35:00Z` (string)
++ EInvoiceDate: `2015-12-01T05:35:00Z` (string)
 
 ## AdditionalInvDeatilResponse (object)
 + InvoiceDetailId: 10 (number)
@@ -5173,6 +5201,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + VoidMemo: MemoABC (string)
 + Token: `88868718-bd78-42e9-b78a-1f99dc9999f9` (string)
 + EnvelopeId: 50 (number)
++ CounterpartyCode: ABCDEF.P (string)
 + CounterpartyEnvelopeId: 35 (number)
 + CounterpartyId: 2 (number)
 + Acknowledged: true (boolean)
@@ -5181,6 +5210,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + TrackId: YNBCVW742 (string)
 + OneTimePassword: JohnSmith1234 (string)
 + ConfirmCode: 1234ABC (string)
++ EInvoiceTypeCode: 33 (string)
++ Timestamp: `2015-12-01T05:35:00Z` (string)
++ SobreTimestamp: `2015-12-01T05:35:00Z` (string)
++ EInvoiceDate: `2015-12-01T05:35:00Z` (string)
 
 
 ## ApplyMatching (object)
