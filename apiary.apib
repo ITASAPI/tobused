@@ -1853,6 +1853,57 @@ None.
     + Attributes (405 Response)
 
 
+## Update Next EInvoice Number [/ReferenceData/{TradingEntityId}/Sequences/NextEInvoiceNumber]
+`PUT` Update next EInvoice sequence number.
+### Update Next EInvoice Number [PUT]
+
+<strong>Request Body</strong>
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|EInvoiceTypeCode|EInvoice Type Code|`string`|20||Required|
+|Prefix|Prefix|`string`|255||Required|
+|Suffix|Suffix|`number`|||Required|
+
+<hr />
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|EInvoiceTypeCode|EInvoice Type Code|`string`|20||Required|
+|Prefix|Prefix|`string`|255||Required|
+|Suffix|Suffix|`number`|||Required|
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Body 
+    
+            {
+                none
+            }
+
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (NextEInvoiceNumberUpdate)
+        + Response (200 UpdateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
 ## Next Envio Number [/ReferenceData/{TradingEntityId}/Sequences/NextEnvioNumber/]
 `POST` Generate next Envio sequence number.
 ### Create Next Envio Number [POST]
@@ -5913,6 +5964,11 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## NextEInvoiceNumber (object)
 + NextEInvoiceNumber: 123 (number)
+
+## NextEInvoiceNumberUpdate (object)
++ EInvoiceTypeCode: EINVSI (string)
++ Prefix: AB (string)
++ Suffix: 3 (number)
 
 ## NextEnvioNumber (object)
 + NextEnvioNumber: 124 (number)
