@@ -1876,7 +1876,10 @@ None.
 <b>Response Data</b>
 |Property|Description|Type|Max Length|Notes|Constraint|
 |--------|-----------|----|----------|-----|----------|
-|NextEInvoiceNumber|Next EInvoice Number|`number`||||
+|Prefix|Prefix|`string`||||
+|Suffix|Suffix|`number`||||
+|Valid|Valid|`boolean`||||
+|DisplayValue|Display Value|`string`||||
 
 + Parameters
     + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
@@ -5969,7 +5972,10 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + TradingEntityList (array [MasterDataTradingEntityId])
 
 ## NextEInvoiceNumber (object)
-+ NextEInvoiceNumber: 123 (number)
++ Prefix: AB (string)
++ Suffix: 3 (number)
++ Valid: true (boolean)
++ DisplayValue: AB0000003 (string)
 
 ## NextEInvoiceNumberUpdate (object)
 + EInvoiceTypeCode: EINVSI (string)
