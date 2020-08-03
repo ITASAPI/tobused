@@ -1801,7 +1801,7 @@ Codes relating to Physicals Trading and related endpoints.
 ITAS Sequence related reference data.
 
 
-## EInvoice Number [/ReferenceData/{TradingEntityId}/Sequences/NextEInvoiceNumber]
+## EInvoice Number [/ReferenceData/{TradingEntityId}/Sequences/EInvoiceNumber]
 `PUT` Create or Update next EInvoice sequence number.
 ### Create Update Next EInvoice Number [PUT]
 
@@ -1911,7 +1911,57 @@ None.
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+## Envio Number [/ReferenceData/{TradingEntityId}/Sequences/EnvioNumber]
+`PUT` Create or Update next Envio sequence number.
+### Create Update Next Envio Number [PUT]
 
+<strong>Request Body</strong>
+
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|LastSequenceUsed|Last Sequence Used|`number`|||Required|
+
+
+<hr />
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|LastSequenceUsed|Last Sequence Used|`number`||||
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Body 
+    
+            {
+                none
+            }
+
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (NextEnvioNumberUpdate)
+        + Response (201 CreateResponse)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (NextEnvioNumberUpdate)
+        + Response (200 UpdateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
 
 ## Next Envio Number [/ReferenceData/{TradingEntityId}/Sequences/NextEnvioNumber/]
 `POST` Generate next Envio sequence number.
@@ -5984,6 +6034,9 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## NextEnvioNumber (object)
 + NextEnvioNumber: 124 (number)
+
+## NextEnvioNumberUpdate (object)
++ LastSequenceNumber (number)
 
 ## NominalAccount (object)
 + NominalAccountId: 1234.5678 (required, string)  
