@@ -1,8 +1,8 @@
 FORMAT: 1A
 HOST: http://itas.apiary.io/
-VERSION: 2.24
+VERSION: 2.25
 
-# ITAS API 2.24
+# ITAS API 2.25
 
 
 ## Disclaimer
@@ -15,13 +15,13 @@ VERSION: 2.24
 ## New Endpoints
 
 <ul>
-<li>None</li>
+<li>Global Market Data <b>Create Exchange Rate</b>: Create Exchange Rate,<a href="/#reference/global-market-data/intra-day-price"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>Global Market Data <b>Create Intra Day Price</b>: Additional Properties Open, Low, High and Change,<a href="/#reference/global-market-data/intra-day-price"> Link</a></li>
+<li>None</li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -3849,6 +3849,93 @@ None.
 # Group Global Market Data
 Global (system-wide) Market Data
 
+## Exchange Rate [/MarketData/Global/ExchangeRate/{CurrencyId}]
+`PUT` Create Exchange Rate.
+### Create Exchange Rate [PUT]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CurrencyId|Currency ID|`string`|3||Required|
+|Rate|Rate|`decimal`|||Required|
+|RateType|Rate Type|`string`|1|`D` or `M`|Required|
+|RateDate|Rate Date|`Date`|||Required|
+|OneMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwoMonthPointsMovement|Two Month Points Movement|`decimal`||||
+|ThreeMonthPointsMovement|Three Month Points Movement|`decimal`||||
+|FourMonthPointsMovement|Four Month Points Movement|`decimal`||||
+|FiveMonthPointsMovement|Five Month Points Movement|`decimal`||||
+|SixMonthPointsMovement|Six Month Points Movement|`decimal`||||
+|SevenMonthPointsMovement|Seven Month Points Movement|`decimal`||||
+|EightMonthPointsMovement|Eight Month Points Movement|`decimal`||||
+|NineMonthPointsMovement|Nine Month Points Movement|`decimal`||||
+|TenMonthPointsMovement|Ten Month Points Movement|`decimal`||||
+|ElevenMonthPointsMovement|Eleven Month Points Movement|`decimal`||||
+|OneYearPointsMovement|One Year Points Movement|`decimal`||||
+|ThirteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|FourteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|FifteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|SixteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|SeventeenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|EighteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|NineteenMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwentyMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwentyOneMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwentyTwoMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwentyThreeMonthPointsMovement|One Month Points Movement|`decimal`||||
+|TwoYearPointsMovement|Two Year Points Movement|`decimal`||||
+|ThreeYearPointsMovement|Three Year Points Movement|`decimal`||||
+|FourYearPointsMovement|Four Year Points Movement|`decimal`||||
+|FiveYearPointsMovement|Five Year Points Movement|`decimal`||||
+
+<hr />
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|CurrencyId|Currency Id|`string`||||
+|Rate|Rate|`decimal`||||
+|RateType|Rate Type|`string`||||
+|RateDate|Rate Date|`Date`||||
+
++ Parameters
+    + CurrencyId (required, string, `GBP`)
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (ExchangeRate)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes
+        + Data
+            + CurrencyId: GBP (string)
+            + RateType: D (string)
+            + Rate: 2.6 (number)
+            + RateDate: `2021-11` (string)
+        + Response (201 CreateResponse)
+        + Messages (array [201 ErrorBllMessageDetail])
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes  
+        + Data 
+            + CurrencyId: GBP (string)
+            + RateType: D (string)
+            + Rate: 2.6 (number)
+            + RateDate: `2021-11` (string)
+        + Response (200 UpdateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
 ## Intra Day Exchange Rate [/MarketData/Global/IntraDayExchangeRate/{CurrencyId}]
 `PUT` Remove current rate and Create Intra Day Exchange Rate.
 ### Create Intra Day Exchange Rate [PUT]
@@ -5869,6 +5956,39 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DocumentStatusId: L (string)
 + DocumentStatusDescription: Locked (string)
 + DocumentLocked: true (boolean)
+
+## ExchangeRate (object)
++ CurrencyId: GBP (string)
++ Rate: 2.6 (number)
++ RateType: D (string)
++ RateDate: `2021-11` (string)
++ OneMonthPointsMovement: 1 (number)
++ TwoMonthPointsMovement: 2 (number)
++ ThreeMonthPointsMovement: 3 (number)
++ FourMonthPointsMovement: 4 (number)
++ FiveMonthPointsMovement: 5 (number)
++ SixMonthPointsMovement: 6 (number)
++ SevenMonthPointsMovement: 7 (number)
++ EightMonthPointsMovement: 8 (number)
++ NineMonthPointsMovement: 9 (number)
++ TenMonthPointsMovement: 10 (number)
++ ElevenMonthPointsMovement: 11 (number)
++ OneYearPointsMovement: 12 (number)
++ ThirteenMonthPointsMovement: 13 (number)
++ FourteenMonthPointsMovement: 14 (number)
++ FifteenMonthPointsMovement: 15 (number)
++ SixteenMonthPointsMovement: 16 (number)
++ SeventeenMonthPointsMovement: 17 (number)
++ EighteenMonthPointsMovement: 18 (number)
++ NineteenMonthPointsMovement: 19 (number)
++ TwentyMonthPointsMovement: 20 (number)
++ TwentyOneMonthPointsMovement: 21 (number)
++ TwentyTwoMonthPointsMovement: 22 (number)
++ TwentyThreeMonthPointsMovement: 23 (number)
++ TwoYearPointsMovement: 24 (number)
++ ThreeYearPointsMovement: 25 (number)
++ FourYearPointsMovement: 26 (number)
++ FiveYearPointsMovement: 27 (number)
 
 ## Expense List (object)
 + ExpenseId: 1COES (string)
