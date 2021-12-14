@@ -5956,6 +5956,14 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DocumentDate: `2015-07-01T00:00:00Z` (required, string)
 + ValueDate: `2015-08-01T00:00:00Z` (required, string)
 + DocumentCurrencyCode: GBP (required, string)
++ PayeeName: Test Client Ltd (string)
++ Narrative: Bacs 28/07/15 (string)
++ EDICode: abc123 (string)
+
+## DocumentDetailsOnAccount (object)
++ DocumentDate: `2015-07-01T00:00:00Z` (required, string)
++ ValueDate: `2015-08-01T00:00:00Z` (required, string)
++ DocumentCurrencyCode: GBP (required, string)
 + InvoiceCurrencyCode: EUR (string)
 + FunctionalCurrencyCode: USD (string)
 + PayeeName: Test Client Ltd (string)
@@ -6294,7 +6302,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + AccountDetails (required, array [AccountPostingBankPayDetails, AccountPostingRecDetails])
 
 ## PayableOnAccount (object)
-+ DocumentBody (required, DocumentDetails)
++ DocumentBody (required, DocumentDetailsOnAccount)
 + BankDetails (required, AccountPostingBankPayDetails)
 + TransactionsToMatch (required, array [OnAccountPayDetailsLess])
 + OtherCosts (array [AccountPostingPayDetailsLess])
@@ -6510,7 +6518,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + AccountDetails (required, array [AccountPostingBankRecDetails, AccountPostingPayDetails])
 
 ## ReceivableOnAccount (object)
-+ DocumentBody (required, DocumentDetails)
++ DocumentBody (required, DocumentDetailsOnAccount)
 + BankDetails (required, AccountPostingBankRecDetails)
 + TransactionsToMatch (required, array [OnAccountRecDetailsLess])
 + OtherCosts (array [AccountPostingRecDetailsLess])
