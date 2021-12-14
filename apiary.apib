@@ -5424,6 +5424,17 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + ExpenseCode: CPD (required, string)
 + DepartmentCode: 9900 (required, string)
 + AmountInDocumentCurrency: `-4615.68` (required, number)
++ AssociateClientCode: ASSOCCLI.P (string)
++ ContractReference: S01234.000 (string)
++ ClientReference: Client Ref ABC (string)
++ Narrative: Example Narrative (string)
+
+## AccountPostingBankPayOnAccountDetails (object)
++ AccountCode: BANK.ACNT (required, string)
++ AccountLedgerType: N (required, string)
++ ExpenseCode: CPD (required, string)
++ DepartmentCode: 9900 (required, string)
++ AmountInDocumentCurrency: `-4615.68` (required, number)
 + AmountInInvoiceCurrency: `-5000.00` (number)
 + AmountInFunctionalCurrency: `-5100.00` (number)
 + AssociateClientCode: ASSOCCLI.P (string)
@@ -5432,6 +5443,17 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Narrative: Example Narrative (string)
 
 ## AccountPostingBankRecDetails (object)
++ AccountCode: BANK.ACNT (required, string)
++ AccountLedgerType: N (required, string)
++ ExpenseCode: CPD (required, string)
++ DepartmentCode: 9900 (required, string)
++ AmountInDocumentCurrency: 4615.68 (required, number)
++ AssociateClientCode: ASSOCCLI.P (string)
++ ContractReference: S01234.000 (string)
++ ClientReference: Client Ref ABC (string)
++ Narrative: Example Narrative (string)
+
+## AccountPostingBankRecOnAccountDetails (object)
 + AccountCode: BANK.ACNT (required, string)
 + AccountLedgerType: N (required, string)
 + ExpenseCode: CPD (required, string)
@@ -6303,7 +6325,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## PayableOnAccount (object)
 + DocumentBody (required, DocumentDetailsOnAccount)
-+ BankDetails (required, AccountPostingBankPayDetails)
++ BankDetails (required, AccountPostingBankPayOnAccountDetails)
 + TransactionsToMatch (required, array [OnAccountPayDetailsLess])
 + OtherCosts (array [AccountPostingPayDetailsLess])
 
@@ -6519,7 +6541,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 
 ## ReceivableOnAccount (object)
 + DocumentBody (required, DocumentDetailsOnAccount)
-+ BankDetails (required, AccountPostingBankRecDetails)
++ BankDetails (required, AccountPostingBankRecOnAccountDetails)
 + TransactionsToMatch (required, array [OnAccountRecDetailsLess])
 + OtherCosts (array [AccountPostingRecDetailsLess])
 
