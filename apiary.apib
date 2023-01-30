@@ -15,13 +15,13 @@ VERSION: 2.26
 ## New Endpoints
 
 <ul>
-<li>Global Market Data <b>Create Exchange Rate</b>: Create Exchange Rate,<a href="/#reference/global-market-data/exchange-rate"> Link</a></li>
+<li>None</li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>None</li>
+<li>Accounting-Transactions <b>Read Posted Transaction</b>: Additioanl Property Memo,<a href="/#reference/accounting-transactions/posted-transaction"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -2674,6 +2674,7 @@ None.
 |Creator|see <b><a href="/#reference/global-reference-data/useraccount-list">UserAccount List</a></b> endpoint|`object`||||
 |AssociateClientCode|Associate Client Code|`string`|10|||
 |PLVatCode|PL Vat Code|`string`|2|||
+|Memo|Memo|`string`|100|||
 
 + Request
     [AccessToken][]
@@ -6350,6 +6351,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Creator (UserAccount)
 + AssociateClientCode: 00040444.P (string)
 + PLVatCode: GS (string)
++ Memo: MemoABC (string)
 
 ## PrePaymentDetails (object)
 + InstructionReference: XX123456 (string)
